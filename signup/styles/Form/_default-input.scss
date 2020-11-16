@@ -1,14 +1,10 @@
 .input__field {
   width: 100%;
-
-  label {
-    font-size: 1.6rem;
-    color: var(--color-light-secondary);
-  }
+  margin-top: 1rem;
 
   input:not([type="checkbox"]) {
     width: inherit;
-    height: 5rem;
+    height: 5.4rem;
     font-size: 2rem;
 
     padding: 0.6rem 1rem;
@@ -24,8 +20,53 @@
   }
 }
 
-.check__field {
+.photo__field {
+  width: 100%;
+  margin-top: 1rem;
 
+  label {
+    cursor: pointer;
+  }
+
+  figure {
+    display: flex;
+    align-items: center;
+  }
+
+  figcaption {
+    font-size: 1.4rem;
+  }
+
+  .upload__button {
+    height: 5.4rem;
+    width: 5.4rem;
+
+    padding: 1.6rem;
+    margin-right: 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50%;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-dark-primary);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  input {
+    position: absolute;
+    display: none;
+    opacity: 0;
+  }
+}
+
+.check__field {
   label {
     display: flex;
     align-items: center;
@@ -69,14 +110,13 @@
 
 @media (min-width: 600px) {
   .field__block {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    .input__field {
-      width: 95%;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.4rem;
   }
-
-  .check__field {}
+  
+  .photo__field {
+    align-self: flex-end;
+    margin-top: 0;
+  }
 }

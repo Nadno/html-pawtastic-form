@@ -1,4 +1,8 @@
-.select__pet {
+.select__container .select__block {
+  margin-bottom: 1rem;
+}
+
+.select__block {
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -9,9 +13,9 @@
     width: 100%;
     padding: 1rem;
     border-radius: 0.5rem;
-    cursor: pointer;
-
+    text-align: center;
     transition: background-color 0.4s linear;
+    cursor: pointer;
 
     .pet__option {
       height: 100%;
@@ -52,8 +56,20 @@
 }
 
 @media (min-width: 820px) {
-  .select__pet {
+  .select__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.4rem;
+  }
+
+  .fourth .select__block {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .fifth .select__block {
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-column-gap: inherit;
   }
 }

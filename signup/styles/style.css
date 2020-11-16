@@ -121,10 +121,10 @@ label {
   margin-bottom: 2rem;
 }
 
-.steps .block__tittle {
-  font-size: 1.6rem;
-  font-weight: bold;
+.steps .input__tittle {
   margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: var(--color-light-secondary);
 }
 
 .steps .step__info {
@@ -216,16 +216,12 @@ label {
 
 .input__field {
   width: 100%;
-}
-
-.input__field label {
-  font-size: 1.6rem;
-  color: var(--color-light-secondary);
+  margin-top: 1rem;
 }
 
 .input__field input:not([type="checkbox"]) {
   width: inherit;
-  height: 5rem;
+  height: 5.4rem;
   font-size: 2rem;
   padding: 0.6rem 1rem;
   border-radius: 0.6rem;
@@ -251,6 +247,58 @@ label {
 .input__field input:not([type="checkbox"])::placeholder {
   opacity: 0.6;
   color: var(--color-tertiary);
+}
+
+.photo__field {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.photo__field label {
+  cursor: pointer;
+}
+
+.photo__field figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photo__field figcaption {
+  font-size: 1.4rem;
+}
+
+.photo__field .upload__button {
+  height: 5.4rem;
+  width: 5.4rem;
+  padding: 1.6rem;
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-dark-primary);
+}
+
+.photo__field .upload__button img {
+  width: 100%;
+  height: 100%;
+}
+
+.photo__field input {
+  position: absolute;
+  display: none;
+  opacity: 0;
 }
 
 .check__field label {
@@ -297,22 +345,24 @@ label {
 
 @media (min-width: 600px) {
   .field__block {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.4rem;
   }
-  .field__block .input__field {
-    width: 95%;
+  .photo__field {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-top: 0;
   }
 }
 
-.select__pet {
+.select__container .select__block {
+  margin-bottom: 1rem;
+}
+
+.select__block {
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -320,16 +370,17 @@ label {
   border-color: var(--color-dark-primary);
 }
 
-.select__pet label {
+.select__block label {
   width: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
-  cursor: pointer;
+  text-align: center;
   -webkit-transition: background-color 0.4s linear;
   transition: background-color 0.4s linear;
+  cursor: pointer;
 }
 
-.select__pet label .pet__option {
+.select__block label .pet__option {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -347,39 +398,52 @@ label {
           flex-direction: column;
 }
 
-.select__pet label .option__image {
+.select__block label .option__image {
   min-height: 4rem;
   max-height: 8rem;
 }
 
-.select__pet label .option__legend {
+.select__block label .option__legend {
   display: block;
   font-size: 1.8rem;
   font-weight: bold;
   margin-top: 0.8rem;
 }
 
-.select__pet label:hover {
+.select__block label:hover {
   background-color: var(--color-primary);
 }
 
-.select__pet input:checked ~ label,
-.select__pet input:focus ~ label {
+.select__block input:checked ~ label,
+.select__block input:focus ~ label {
   background-color: var(--color-primary);
 }
 
-.select__pet input {
+.select__block input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 @media (min-width: 820px) {
-  .select__pet {
+  .select__container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.4rem;
+  }
+  .fourth .select__block {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
+  }
+  .fifth .select__block {
+    display: inherit;
+    -ms-grid-columns: inherit;
+        grid-template-columns: inherit;
+    grid-column-gap: inherit;
   }
 }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/global.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="shortcut icon" href="../images/Symbol.png" type="image/x-icon" />
 
@@ -97,7 +97,7 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code first hidden">
+      <section class="confirm__zip-code first">
         <form class="zip-code">
           <fieldset>
             <h3 class="step__tittle">
@@ -105,7 +105,12 @@
             </h3>
 
             <div class="input__field">
-              <input type="text" id="zip-code" name="zip-code" placeholder="Zip-code." />
+              <input
+                type="text"
+                id="zip-code"
+                name="zip-code"
+                placeholder="Zip-code."
+              />
               <span class="error"></span>
             </div>
           </fieldset>
@@ -114,14 +119,14 @@
         </form>
       </section>
 
-      <form class="sign-up">
-        <fieldset class="second ">
+      <form class="sign-up hidden">
+        <fieldset class="second hidden">
           <h3 class="step__tittle">
             Good news! We care for pets in your area. Let's
           </h3>
 
           <div class="input__field">
-            <label for="email">E-mail</label>
+            <label for="email" class="input__tittle">E-mail</label>
             <input
               type="text"
               id="email"
@@ -133,7 +138,7 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="password">Password</label>
+              <label for="password" class="input__tittle">Password</label>
               <input
                 type="password"
                 id="password"
@@ -144,7 +149,7 @@
             </div>
 
             <div class="input__field">
-              <label for="confirm">Confirm password</label>
+              <label for="confirm" class="input__tittle">Confirm password</label>
               <input
                 type="password"
                 id="confirm"
@@ -157,9 +162,12 @@
 
           <div class="check__field">
             <input type="checkbox" id="policy" name="policy" />
-            <label for="policy">
+            <label for="policy" class="input__tittle">
               <span class="check"></span>
-              <span class="check__content">I have read the Privacy and agree to the Terms of Service.</span>
+              <span class="check__content"
+                >I have read the Privacy and agree to the Terms of
+                Service.</span
+              >
             </label>
           </div>
         </fieldset>
@@ -171,7 +179,7 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="name">First name</label>
+              <label for="name" class="input__tittle">First name</label>
               <input
                 type="text"
                 id="name"
@@ -182,7 +190,7 @@
             </div>
 
             <div class="input__field">
-              <label for="last-name">Last name</label>
+              <label for="last-name" class="input__tittle">Last name</label>
               <input
                 type="text"
                 id="last-name"
@@ -195,7 +203,7 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="phone">Phone</label>
+              <label for="phone" class="input__tittle">Phone</label>
               <input
                 type="text"
                 id="phone"
@@ -206,7 +214,7 @@
             </div>
 
             <div class="input__field">
-              <label for="phone-alt">Phone alt</label>
+              <label for="phone-alt" class="input__tittle">Phone alt</label>
               <input
                 type="text"
                 id="phone-alt"
@@ -218,7 +226,7 @@
           </div>
 
           <div class="input__field">
-            <label for="cpf">CPF</label>
+            <label for="cpf" class="input__tittle">CPF</label>
             <input
               type="text"
               id="cpf"
@@ -234,10 +242,10 @@
             Nice to meet you, Name. <br />
             Tell us all about your furry, feathery, or scaley friend.
           </h3>
-    
-          <span class="block__tittle">Kind of your pet</span>
-          <div class="select__pet">
-            <div class="pet__field">
+
+          <span class="input__tittle">Kind of your pet</span>
+          <div class="select__block">
+            <div class="option__field">
               <input type="radio" name="pet-type" id="dog" />
               <label for="dog">
                 <figure class="pet__option">
@@ -258,7 +266,7 @@
               </label>
             </div>
 
-            <div class="pet__field">
+            <div class="option__field">
               <input type="radio" name="pet-type" id="cat" />
               <label for="cat">
                 <figure class="pet__option">
@@ -279,7 +287,7 @@
               </label>
             </div>
 
-            <div class="pet__field">
+            <div class="option__field">
               <input type="radio" name="pet-type" id="birdy" />
               <label for="birdy">
                 <figure class="pet__option">
@@ -300,7 +308,7 @@
               </label>
             </div>
 
-            <div class="pet__field">
+            <div class="option__field">
               <input type="radio" name="pet-type" id="hamster" />
               <label for="hamster">
                 <figure class="pet__option">
@@ -323,7 +331,7 @@
           </div>
 
           <span class="step__info">
-            Have multiple pets? That’s awesome. You can create<br/>
+            Have multiple pets? That’s awesome. You can create<br />
             additional pet profiles for the whole family later.
           </span>
         </fieldset>
@@ -333,7 +341,107 @@
             Yay, we love dogs! Give us the basics about your pup.
           </h3>
 
-          <input type="text" />
+          <div class="field__block">
+            <div class="input__field">
+              <label for="pet-name" class="input__tittle">Name</label>
+              <input type="text" name="pet-name" id="pet-name" />
+            </div>
+
+            <div class="photo__field">
+              <input
+                type="file"
+                name="pet-photo"
+                id="pet-photo"
+                accept="image/png, image/jpeg"
+              />
+
+              <label for="pet-photo">
+                <figure>
+                  <div class="upload__button">
+                    <picture>
+                      <source
+                        srcset="../images/path@2x.png"
+                        media="(min-width: 750px)"
+                      />
+                      <img src="../images/path.png" alt="Select a image" />
+                    </picture>
+                  </div>
+
+                  <figcaption>
+                    <span class="input__tittle"> Upload a photo </span>
+                  </figcaption>
+                </figure>
+              </label>
+            </div>
+          </div>
+
+          <div class="field__block">
+            <div class="input__field">
+              <label for="breed" class="input__tittle">Breed</label>
+              <input type="text" name="breed" id="breed" />
+            </div>
+            <div class="input__field">
+              <label for="birth" class="input__tittle">Birth day</label>
+              <input type="text" name="birth" id="birth" />
+            </div>
+          </div>
+
+          <section class="select__container">
+            <div class="select">
+              <span class="input__tittle">Gender</span>
+
+              <div class="select__block">
+                <div class="select__option">
+                  <div class="option__field">
+                    <input type="radio" name="pet-sex" id="pet-male" />
+                    <label for="pet-male" class="option__legend"> Male </label>
+                  </div>
+                </div>
+
+                <div class="select__option">
+                  <div class="option__field">
+                    <input type="radio" name="pet-sex" id="pet-female" />
+                    <label for="pet-female" class="option__legend">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="select">
+              <span class="input__tittle">Spayed Neutered</span>
+
+              <div class="select__block">
+                <div class="select__option">
+                  <div class="option__field">
+                    <input
+                      type="radio"
+                      name="pet-spayed__neutered"
+                      id="spayed__neutered-yes"
+                    />
+                    <label for="spayed__neutered-yes" class="option__legend">
+                      Yes
+                    </label>
+                  </div>
+                </div>
+
+                <div class="select__option">
+                  <div class="option__field">
+                    <input
+                      type="radio"
+                      name="pet-spayed__neutered"
+                      id="spayed__neutered-no"
+                    />
+                    <label for="spayed__neutered-no" class="option__legend">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
         </fieldset>
 
         <fieldset class="sixth hidden">
