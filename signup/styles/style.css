@@ -253,6 +253,48 @@ label {
   color: var(--color-tertiary);
 }
 
+.check__field label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.check__field .check__content {
+  width: 90%;
+  font-size: 1.4rem;
+}
+
+.check__field .check {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--color-dark-primary);
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+.check__field input:checked ~ label .check:before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+  right: 50%;
+  content: "✓";
+}
+
+.check__field input {
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+
 @media (min-width: 600px) {
   .field__block {
     display: -webkit-box;
