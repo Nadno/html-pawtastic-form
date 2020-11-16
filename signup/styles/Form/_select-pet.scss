@@ -1,0 +1,59 @@
+.select__pet {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  border-color: var(--color-dark-primary);
+
+  label {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    transition: background-color 0.4s linear;
+
+    .pet__option {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .option__image {
+      min-height: 4rem;
+      max-height: 8rem;
+    }
+
+    .option__legend {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+
+  input:checked ~ label,
+  input:focus ~ label {
+    background-color: var(--color-primary);
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 820px) {
+  .select__pet {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

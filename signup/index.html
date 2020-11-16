@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="shortcut icon" href="./images/Symbol.png" type="image/x-icon" />
+
+    <title>Pawtastic | Sign-up</title>
+  </head>
+  <body>
+    <section class="side">
+      <img
+        class="side__image"
+        id="pet-slide"
+        src="./images/sign-up__0.jpg"
+        alt="Pet image"
+      />
+
+      <div class="side__content">
+        <article class="logo">
+          <h1 hidden>Pawtastic</h1>
+          <a href="#">
+            <img src="./images/Logo.png" alt="Logo image" />
+          </a>
+        </article>
+
+        <div class="why__us">
+          <h2 class="why__tittle">Why our service?</h2>
+          <ul class="why__answer">
+            <li>We're animal lovers backed by</li>
+            <li>Powered by tech, so you can</li>
+            <li>Updates and pics for every</li>
+          </ul>
+        </div>
+
+        <section class="show__steps hidden">
+          <div class="radio__field">
+            <input
+              type="radio"
+              class="radio__to"
+              id="to-2"
+              name="step"
+              value="2"
+              checked
+            />
+            <label>
+              <span class="check"></span>
+              Human profile
+            </label>
+          </div>
+
+          <div class="radio__field">
+            <input
+              type="radio"
+              class="radio__to"
+              id="to-3"
+              name="step"
+              value="3"
+            />
+            <label>
+              <span class="check"></span>
+              Pet basics
+            </label>
+          </div>
+
+          <div class="radio__field">
+            <input
+              type="radio"
+              class="radio__to"
+              id="to-4"
+              name="step"
+              value="4"
+            />
+            <label>
+              <span class="check"></span>
+              Pet details
+            </label>
+          </div>
+          <div class="radio__field">
+            <input
+              type="radio"
+              class="radio__to"
+              id="to-5"
+              name="step"
+              value="5"
+            />
+            <label>
+              <span class="check"></span>
+              Confirm
+            </label>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <main class="steps">
+      <section class="confirm__zip-code first">
+        <form class="zip-code">
+          <fieldset>
+            <h3 class="step__tittle">
+              First, let's make sure we serve your area.
+            </h3>
+
+            <div class="input__field">
+              <input type="text" id="zip-code" name="zip-code" placeholder="Zip-code." />
+              <span class="error"></span>
+            </div>
+          </fieldset>
+
+          <button type="submit" hidden>Submit</button>
+        </form>
+      </section>
+
+      <form class="sign-up hidden">
+        <fieldset class="second hidden">
+          <h3 class="step__tittle">
+            Good news! We care for pets in your area. Let's
+          </h3>
+
+          <div class="input__field">
+            <label for="email">E-mail</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter your e-mail"
+            />
+            <span class="error"></span>
+          </div>
+
+          <div class="field__block">
+            <div class="input__field">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="input__field">
+              <label for="confirm">Confirm password</label>
+              <input
+                type="password"
+                id="confirm"
+                name="confirm"
+                placeholder="••••••••"
+              />
+              <span class="error"></span>
+            </div>
+          </div>
+
+          <div class="input__field">
+            <input type="checkbox" id="policy" name="policy" />
+            <label for="policy">
+              I have read the Privacy and agree to the Terms of Service.
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="third hidden">
+          <h3 class="step__tittle">
+            Hello! Please tell us a little bit about yourself.
+          </h3>
+
+          <div class="field__block">
+            <div class="input__field">
+              <label for="name">First name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your first name"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="input__field">
+              <label for="last-name">Last name</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Your last name"
+              />
+              <span class="error"></span>
+            </div>
+          </div>
+
+          <div class="field__block">
+            <div class="input__field">
+              <label for="phone">Phone</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="000-000-000"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="input__field">
+              <label for="phone-alt">Phone alt</label>
+              <input
+                type="text"
+                id="phone-alt"
+                name="phone-alt"
+                placeholder="000-000-000"
+              />
+              <span class="error"></span>
+            </div>
+          </div>
+
+          <div class="input__field">
+            <label for="cpf">CPF</label>
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="000.000.000-00"
+            />
+            <span class="error"></span>
+          </div>
+        </fieldset>
+
+        <fieldset class="fourth hidden">
+          <h3 class="step__tittle">
+            Nice to meet you, Name. <br />
+            Tell us all about your furry, feathery, or scaley friend.
+          </h3>
+    
+          <span class="block__tittle">Kind of your pet</span>
+          <div class="select__pet">
+            <div class="pet__field">
+              <input type="radio" name="pet-type" id="dog" />
+              <label for="dog">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="./images/dog-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="./images/dog-option.png"
+                      alt="Dog"
+                    />
+                  </picture>
+
+                  <figcaption class="option__legend">Dog</figcaption>
+                </figure>
+              </label>
+            </div>
+
+            <div class="pet__field">
+              <input type="radio" name="pet-type" id="cat" />
+              <label for="cat">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="./images/cat-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="./images/cat-option.png"
+                      alt="Cat"
+                    />
+                  </picture>
+
+                  <figcaption class="option__legend">Cat</figcaption>
+                </figure>
+              </label>
+            </div>
+
+            <div class="pet__field">
+              <input type="radio" name="pet-type" id="birdy" />
+              <label for="birdy">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="./images/birdy-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="./images/birdy-option.png"
+                      alt="Birdy"
+                    />
+                  </picture>
+
+                  <figcaption class="option__legend">Birdy</figcaption>
+                </figure>
+              </label>
+            </div>
+
+            <div class="pet__field">
+              <input type="radio" name="pet-type" id="hamster" />
+              <label for="hamster">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="./images/hamster-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="./images/hamster-option.png"
+                      alt="Hamster"
+                    />
+                  </picture>
+
+                  <figcaption class="option__legend">Hamster</figcaption>
+                </figure>
+              </label>
+            </div>
+          </div>
+
+          <span class="step__info">
+            Have multiple pets? That’s awesome. You can create<br/>
+            additional pet profiles for the whole family later.
+          </span>
+        </fieldset>
+
+        <fieldset class="fifth hidden">
+          <h3 class="step__tittle">
+            Yay, we love dogs! Give us the basics about your pup.
+          </h3>
+
+          <input type="text" />
+        </fieldset>
+
+        <fieldset class="sixth hidden">
+          <h3 class="step__tittle">
+            Thanks! Now giv us all the details about Ginger.
+          </h3>
+
+          <input type="text" />
+        </fieldset>
+
+        <fieldset class="seventh hidden">
+          <h3 class="step__tittle">
+            Got a preferred vet? <br />
+            Let us know.
+          </h3>
+
+          <input type="text" />
+        </fieldset>
+
+        <fieldset class="eighth hidden">
+          <h3 class="step__tittle">
+            Okay, Ginger's all set! <br />
+            We can't wait to meet het.
+          </h3>
+
+          <input type="text" />
+        </fieldset>
+
+        <button type="submit" hidden>Submit</button>
+      </form>
+
+      <footer>
+        <button class="button" id="back-btn">Back</button>
+        <span class="member">Already a member? <a href="#">Log in</a></span>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

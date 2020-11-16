@@ -1,0 +1,47 @@
+.side {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  color: var(--color-white);
+  margin-bottom: 4rem;
+
+  .logo {
+    margin-bottom: 6rem;
+  }
+
+  .side__image {
+    width: 100%;
+    height: 100%;
+  
+  }
+
+  .side__content {
+    position: absolute;
+    width: 80%;
+    top: 10%;
+    left: 55%;
+    transform: translateX(-50%);
+
+    .select__step {
+      display: none;
+    }
+  }
+
+  .change__point {
+    .why__us {
+      display: none;
+    }
+
+    .show__steps {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .side {
+    width: 45vw;
+    height: 100vh;
+    margin: 0;
+  }
+}

@@ -1,0 +1,57 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+
+  --color-white: #fff;
+  --color-primary: #ebd0ce;
+  --color-dark-primary: #e6dbda;
+  --color-light-primary: #f7eceb;
+  --color-secondary: #545871;
+  --color-light-secondary: #9597a6;
+  --color-tertiary: #b8817d;
+  --color-blue: #dadbe6;
+  --color-pale-blue: #f0f1f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-light-primary);
+}
+
+span,
+label {
+  display: block;
+}
+
+@media (min-width: 700px) {
+  body {
+    display: flex;
+  }
+}
+
+.button {
+  height: 5.6rem;
+  width: 16rem;
+  font-size: 2.4rem;
+  color: var(--color-secondary);
+  border: 0.1rem solid var(--color-secondary);
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@import "side";
+@import "steps";
+@import "Form/default-input";
+@import "Form/select-pet";
+@import "Form/show-steps";
+@import "first-step";

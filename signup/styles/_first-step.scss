@@ -1,0 +1,38 @@
+.side {
+  .why__tittle {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .why__answer {
+    font-size: 2.4rem;
+    padding: 0 2rem;
+
+    li {
+      position: relative;
+      display: block;
+      height: 8rem;
+      padding-top: 1rem;
+    }
+
+    li:before {
+      position: absolute;
+      font-size: 2.8rem;
+      top: 0;
+      left: -2rem;
+      content: "•";
+    }
+  }
+}
+
+.confirm__zip-code {
+  width: 100%;
+  max-width: 384px;
+  padding: 0 4rem;
+
+  margin: 25% auto;
+
+  .input__field input {
+    width: 60%;
+  }
+}
