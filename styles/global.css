@@ -1,0 +1,26 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+  --color-white: #fff;
+  --color-primary: #ebd0ce;
+  --color-dark-primary: #e6dbda;
+  --color-light-primary: #f7eceb;
+  --color-secondary: #545871;
+  --color-light-secondary: #9597a6;
+  --color-tertiary: #b8817d;
+  --color-blue: #dadbe6;
+  --color-pale-blue: #f0f1f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-light-primary);
+}
+/*# sourceMappingURL=global.css.map */

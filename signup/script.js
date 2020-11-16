@@ -17,7 +17,7 @@ const element = (name) => document.querySelector(name);
 const addAndRemoveHidden = (lastStep, nextStep) => {
   element(lastStep).classList.add("hidden");
   element(nextStep).classList.remove("hidden");
-  element("#pet-slide").src = `./images/sign-up__${step}.jpg`;
+  element("#pet-slide").src = `../images/sign-up__${step}.jpg`;
 };
 const setRadioStep = () => {
   const FIRST_RADIO = step === 2;

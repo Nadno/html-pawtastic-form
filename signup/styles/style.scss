@@ -1,37 +1,17 @@
-:root {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 62.5%;
-
-  --color-white: #fff;
-  --color-primary: #ebd0ce;
-  --color-dark-primary: #e6dbda;
-  --color-light-primary: #f7eceb;
-  --color-secondary: #545871;
-  --color-light-secondary: #9597a6;
-  --color-tertiary: #b8817d;
-  --color-blue: #dadbe6;
-  --color-pale-blue: #f0f1f7;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--color-light-primary);
-}
-
 span,
 label {
   display: block;
 }
 
-@media (min-width: 700px) {
-  body {
-    display: flex;
+.confirm__zip-code {
+  width: 100%;
+  max-width: 384px;
+  padding: 0 4rem;
+
+  margin: 25% auto;
+
+  .input__field input {
+    width: 60%;
   }
 }
 
@@ -49,9 +29,14 @@ label {
   display: none;
 }
 
+@media (min-width: 700px) {
+  body {
+    display: flex;
+  }
+}
+
 @import "side";
 @import "steps";
 @import "Form/default-input";
 @import "Form/select-pet";
 @import "Form/show-steps";
-@import "first-step";

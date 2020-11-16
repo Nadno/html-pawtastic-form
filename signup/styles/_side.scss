@@ -5,6 +5,31 @@
   color: var(--color-white);
   margin-bottom: 4rem;
 
+  .why__tittle {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .why__answer {
+    font-size: 2.4rem;
+    padding: 0 2rem;
+
+    li {
+      position: relative;
+      display: block;
+      height: 8rem;
+      padding-top: 1rem;
+    }
+
+    li:before {
+      position: absolute;
+      font-size: 2.8rem;
+      top: 0;
+      left: -2rem;
+      content: "•";
+    }
+  }
+
   .logo {
     margin-bottom: 6rem;
   }

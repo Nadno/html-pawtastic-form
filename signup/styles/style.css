@@ -1,41 +1,18 @@
 @charset "UTF-8";
-:root {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 62.5%;
-  --color-white: #fff;
-  --color-primary: #ebd0ce;
-  --color-dark-primary: #e6dbda;
-  --color-light-primary: #f7eceb;
-  --color-secondary: #545871;
-  --color-light-secondary: #9597a6;
-  --color-tertiary: #b8817d;
-  --color-blue: #dadbe6;
-  --color-pale-blue: #f0f1f7;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  background-color: var(--color-light-primary);
-}
-
 span,
 label {
   display: block;
 }
 
-@media (min-width: 700px) {
-  body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
+.confirm__zip-code {
+  width: 100%;
+  max-width: 384px;
+  padding: 0 4rem;
+  margin: 25% auto;
+}
+
+.confirm__zip-code .input__field input {
+  width: 60%;
 }
 
 .button {
@@ -52,12 +29,45 @@ label {
   display: none;
 }
 
+@media (min-width: 700px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .side {
   position: relative;
   width: 100vw;
   height: 100%;
   color: var(--color-white);
   margin-bottom: 4rem;
+}
+
+.side .why__tittle {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+}
+
+.side .why__answer {
+  font-size: 2.4rem;
+  padding: 0 2rem;
+}
+
+.side .why__answer li {
+  position: relative;
+  display: block;
+  height: 8rem;
+  padding-top: 1rem;
+}
+
+.side .why__answer li:before {
+  position: absolute;
+  font-size: 2.8rem;
+  top: 0;
+  left: -2rem;
+  content: "•";
 }
 
 .side .logo {
@@ -381,41 +391,5 @@ label {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-}
-
-.side .why__tittle {
-  font-size: 3.6rem;
-  margin-bottom: 2rem;
-}
-
-.side .why__answer {
-  font-size: 2.4rem;
-  padding: 0 2rem;
-}
-
-.side .why__answer li {
-  position: relative;
-  display: block;
-  height: 8rem;
-  padding-top: 1rem;
-}
-
-.side .why__answer li:before {
-  position: absolute;
-  font-size: 2.8rem;
-  top: 0;
-  left: -2rem;
-  content: "•";
-}
-
-.confirm__zip-code {
-  width: 100%;
-  max-width: 384px;
-  padding: 0 4rem;
-  margin: 25% auto;
-}
-
-.confirm__zip-code .input__field input {
-  width: 60%;
 }
 /*# sourceMappingURL=style.css.map */
