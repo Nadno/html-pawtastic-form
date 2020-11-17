@@ -338,7 +338,7 @@
           </span>
         </fieldset>
 
-        <fieldset class="fifth">
+        <fieldset class="fifth hidden">
           <h3 class="step__tittle">
             Yay, we love dogs! Give us the basics about your pup.
           </h3>
@@ -459,41 +459,136 @@
             <div class="select__block four-columns">
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="first-weight"/>
+                  <input type="radio" name="pet-weight" id="first-weight" />
                   <label for="first-weight" class="option__legend">5/10</label>
                 </div>
               </div>
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="second-weight"/>
-                  <label for="second-weight" class="option__legend">10/15</label>
+                  <input type="radio" name="pet-weight" id="second-weight" />
+                  <label for="second-weight" class="option__legend"
+                    >10/15</label
+                  >
                 </div>
               </div>
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="third-weight"/>
+                  <input type="radio" name="pet-weight" id="third-weight" />
                   <label for="third-weight" class="option__legend">15/20</label>
                 </div>
               </div>
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="fourth-weight"/>
-                  <label for="fourth-weight" class="option__legend">20/25</label>
+                  <input type="radio" name="pet-weight" id="fourth-weight" />
+                  <label for="fourth-weight" class="option__legend"
+                    >20/25</label
+                  >
                 </div>
               </div>
             </div>
           </div>
         </fieldset>
 
-        <fieldset class="sixth hidden">
+        <fieldset class="sixth">
           <h3 class="step__tittle">
-            Thanks! Now giv us all the details about Ginger.
+            Thanks! Now give us all the details about Ginger.
           </h3>
 
-          <input type="text" />
+          <div>
+            <span class="input__tittle">Favorite things</span>
+            <div class="check__block">
+              <div class="check__field">
+                <input type="checkbox" id="select-all" name="all" />
+                <label for="select-all" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Select all</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="kisses" name="kisses" />
+                <label for="kisses" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Giving kisses</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="walk" name="walk" />
+                <label for="walk" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Walks</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="barking" name="barking" />
+                <label for="barking" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Barking</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="snuggling" name="snuggling" />
+                <label for="snuggling" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Snuggling</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="treats" name="treats" />
+                <label for="treats" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Treats</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input
+                  type="checkbox"
+                  id="playing-fetch"
+                  name="playing-fetch"
+                />
+                <label for="playing-fetch" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Playing fetch</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="naps" name="naps" />
+                <label for="naps" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Naps</span>
+                </label>
+              </div>
+
+              <div class="check__field">
+                <input type="checkbox" id="toys" name="toys" />
+                <label for="toys" class="input__tittle">
+                  <span class="check"></span>
+                  <span class="check__content">Toys</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="text__field">
+            <label for="pet-detail" class="input__tittle"
+              >Something that we must know?</label
+            >
+            <textarea
+              name="detail"
+              id="pet-detail"
+              maxlength="200"
+              placeholder="Type here"
+            ></textarea>
+          </div>
         </fieldset>
 
         <fieldset class="seventh hidden">

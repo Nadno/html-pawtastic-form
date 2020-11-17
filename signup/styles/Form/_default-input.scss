@@ -104,25 +104,46 @@
     cursor: pointer;
   }
 
-  input:checked ~ label .check {
-    background-color: var(--color-secondary);
-  }
-
-  input:checked ~ label .check:before {
-    position: absolute;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-white);
-
-    transform: translate(50%);
-    right: 50%;
-    content: "✓";
-  }
-
   input {
     position: absolute;
-    display: none;
     opacity: 0;
+
+    &:checked ~ label .check {
+      background-color: var(--color-secondary);
+    }
+  
+    &:checked ~ label .check:before {
+      position: absolute;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--color-white);
+  
+      transform: translate(50%);
+      right: 50%;
+      content: "✓";
+    }
+
+    &:focus ~ label .check {
+      border-color: var(--color-secondary);
+    }
+  }
+
+}
+
+.text__field {
+  width: 100%;
+  
+  textarea {
+    width: 100%;
+    height: 8rem;
+    padding: 1rem;
+    resize: none;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-dark-primary);
+
+    &:focus {
+      border-color: var(--color-secondary);
+    }
   }
 }
 
@@ -136,5 +157,10 @@
   .photo__field {
     align-self: flex-end;
     margin-top: 0;
+  }
+
+  .sixth .check__block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
