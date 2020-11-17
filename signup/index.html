@@ -97,7 +97,7 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code first hidden">
+      <section class="confirm__zip-code first">
         <form class="zip-code">
           <fieldset>
             <h3 class="step__tittle">
@@ -119,7 +119,7 @@
         </form>
       </section>
 
-      <form class="sign-up">
+      <form class="sign-up hidden">
         <fieldset class="second hidden">
           <h3 class="step__tittle">
             Good news! We care for pets in your area. Let's
@@ -181,11 +181,11 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="name" class="input__tittle">First name</label>
+              <label for="first-name" class="input__tittle">First name</label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="first-name"
+                name="first-name"
                 placeholder="Your first name"
               />
               <span class="error"></span>
@@ -216,11 +216,11 @@
             </div>
 
             <div class="input__field">
-              <label for="phone-alt" class="input__tittle">Phone alt</label>
+              <label for="alt-phone" class="input__tittle">Phone alt</label>
               <input
                 type="text"
-                id="phone-alt"
-                name="phone-alt"
+                id="alt-phone"
+                name="alt-phone"
                 placeholder="000-000-000"
               />
               <span class="error"></span>
@@ -245,90 +245,97 @@
             Tell us all about your furry, feathery, or scaley friend.
           </h3>
 
-          <span class="input__tittle">Kind of your pet</span>
-          <div class="select__block">
-            <div class="option__field">
-              <input type="radio" name="pet-type" id="dog" />
-              <label for="dog">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/dog-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/dog-option.png"
-                      alt="Dog"
-                    />
-                  </picture>
+          <div class="select">
+            <span class="input__tittle">Kind of your pet</span>
+            <div class="select__block four-columns">
+              <div class="option__field">
+                <input type="radio" name="pet-type" id="dog" value="dog" />
+                <label for="dog">
+                  <figure class="pet__option">
+                    <picture>
+                      <source
+                        srcset="../images/dog-option@2x.png"
+                        media="(min-width: 750px)"
+                      />
+                      <img
+                        class="option__image"
+                        src="../images/dog-option.png"
+                        alt="Dog"
+                      />
+                    </picture>
 
-                  <figcaption class="option__legend">Dog</figcaption>
-                </figure>
-              </label>
-            </div>
+                    <figcaption class="option__legend">Dog</figcaption>
+                  </figure>
+                </label>
+              </div>
 
-            <div class="option__field">
-              <input type="radio" name="pet-type" id="cat" />
-              <label for="cat">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/cat-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/cat-option.png"
-                      alt="Cat"
-                    />
-                  </picture>
+              <div class="option__field">
+                <input type="radio" name="pet-type" id="cat" value="cat" />
+                <label for="cat">
+                  <figure class="pet__option">
+                    <picture>
+                      <source
+                        srcset="../images/cat-option@2x.png"
+                        media="(min-width: 750px)"
+                      />
+                      <img
+                        class="option__image"
+                        src="../images/cat-option.png"
+                        alt="Cat"
+                      />
+                    </picture>
 
-                  <figcaption class="option__legend">Cat</figcaption>
-                </figure>
-              </label>
-            </div>
+                    <figcaption class="option__legend">Cat</figcaption>
+                  </figure>
+                </label>
+              </div>
 
-            <div class="option__field">
-              <input type="radio" name="pet-type" id="birdy" />
-              <label for="birdy">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/birdy-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/birdy-option.png"
-                      alt="Birdy"
-                    />
-                  </picture>
+              <div class="option__field">
+                <input type="radio" name="pet-type" id="birdy" value="birdy" />
+                <label for="birdy">
+                  <figure class="pet__option">
+                    <picture>
+                      <source
+                        srcset="../images/birdy-option@2x.png"
+                        media="(min-width: 750px)"
+                      />
+                      <img
+                        class="option__image"
+                        src="../images/birdy-option.png"
+                        alt="Birdy"
+                      />
+                    </picture>
 
-                  <figcaption class="option__legend">Birdy</figcaption>
-                </figure>
-              </label>
-            </div>
+                    <figcaption class="option__legend">Birdy</figcaption>
+                  </figure>
+                </label>
+              </div>
 
-            <div class="option__field">
-              <input type="radio" name="pet-type" id="hamster" />
-              <label for="hamster">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/hamster-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/hamster-option.png"
-                      alt="Hamster"
-                    />
-                  </picture>
+              <div class="option__field">
+                <input
+                  type="radio"
+                  name="pet-type"
+                  id="hamster"
+                  value="hamster"
+                />
+                <label for="hamster">
+                  <figure class="pet__option">
+                    <picture>
+                      <source
+                        srcset="../images/hamster-option@2x.png"
+                        media="(min-width: 750px)"
+                      />
+                      <img
+                        class="option__image"
+                        src="../images/hamster-option.png"
+                        alt="Hamster"
+                      />
+                    </picture>
 
-                  <figcaption class="option__legend">Hamster</figcaption>
-                </figure>
-              </label>
+                    <figcaption class="option__legend">Hamster</figcaption>
+                  </figure>
+                </label>
+              </div>
             </div>
           </div>
 
@@ -384,17 +391,17 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="breed" class="input__tittle">Breed</label>
+              <label for="pet-breed" class="input__tittle">Breed</label>
               <input
                 type="text"
-                name="breed"
-                id="breed"
+                name="pet-breed"
+                id="pet-breed"
                 placeholder="Pet's breed"
               />
             </div>
             <div class="input__field">
-              <label for="birth" class="input__tittle">Birthday</label>
-              <input type="date" name="birth" id="birth" />
+              <label for="pet-birth-day" class="input__tittle">Birthday</label>
+              <input type="date" name="pet-birth-day" id="pet-birth-day" />
             </div>
           </div>
 
@@ -405,14 +412,24 @@
               <div class="select__block two-columns">
                 <div class="select__option">
                   <div class="option__field">
-                    <input type="radio" name="pet-sex" id="pet-male" />
+                    <input
+                      type="radio"
+                      name="pet-sex"
+                      id="pet-male"
+                      value="male"
+                    />
                     <label for="pet-male" class="option__legend"> Male </label>
                   </div>
                 </div>
 
                 <div class="select__option">
                   <div class="option__field">
-                    <input type="radio" name="pet-sex" id="pet-female" />
+                    <input
+                      type="radio"
+                      name="pet-sex"
+                      id="pet-female"
+                      value="female"
+                    />
                     <label for="pet-female" class="option__legend">
                       Female
                     </label>
@@ -429,10 +446,11 @@
                   <div class="option__field">
                     <input
                       type="radio"
-                      name="pet-spayed__neutered"
-                      id="spayed__neutered-yes"
+                      name="pet-spayed-or-neutered"
+                      id="spayed-or-neutered-yes"
+                      value="true"
                     />
-                    <label for="spayed__neutered-yes" class="option__legend">
+                    <label for="spayed-or-neutered-yes" class="option__legend">
                       Yes
                     </label>
                   </div>
@@ -442,10 +460,11 @@
                   <div class="option__field">
                     <input
                       type="radio"
-                      name="pet-spayed__neutered"
-                      id="spayed__neutered-no"
+                      name="pet-spayed-or-neutered"
+                      id="spayed-or-neutered-no"
+                      value="false"
                     />
-                    <label for="spayed__neutered-no" class="option__legend">
+                    <label for="spayed-or-neutered-no" class="option__legend">
                       No
                     </label>
                   </div>
@@ -459,14 +478,24 @@
             <div class="select__block four-columns">
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="first-weight" />
+                  <input
+                    type="radio"
+                    name="pet-weight"
+                    id="first-weight"
+                    value="5/10"
+                  />
                   <label for="first-weight" class="option__legend">5/10</label>
                 </div>
               </div>
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="second-weight" />
+                  <input
+                    type="radio"
+                    name="pet-weight"
+                    id="second-weight"
+                    value="10/15"
+                  />
                   <label for="second-weight" class="option__legend"
                     >10/15</label
                   >
@@ -475,14 +504,24 @@
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="third-weight" />
+                  <input
+                    type="radio"
+                    name="pet-weight"
+                    id="third-weight"
+                    value="15/20"
+                  />
                   <label for="third-weight" class="option__legend">15/20</label>
                 </div>
               </div>
 
               <div class="select__option">
                 <div class="option__field">
-                  <input type="radio" name="pet-weight" id="fourth-weight" />
+                  <input
+                    type="radio"
+                    name="pet-weight"
+                    id="fourth-weight"
+                    value="20/25"
+                  />
                   <label for="fourth-weight" class="option__legend"
                     >20/25</label
                   >
@@ -492,7 +531,7 @@
           </div>
         </fieldset>
 
-        <fieldset class="sixth">
+        <fieldset class="sixth hidden">
           <h3 class="step__tittle">
             Thanks! Now give us all the details about Ginger.
           </h3>
@@ -583,7 +622,7 @@
               >Something that we must know?</label
             >
             <textarea
-              name="detail"
+              name="pet-detail"
               id="pet-detail"
               maxlength="200"
               placeholder="Type here"
@@ -592,15 +631,6 @@
         </fieldset>
 
         <fieldset class="seventh hidden">
-          <h3 class="step__tittle">
-            Got a preferred vet? <br />
-            Let us know.
-          </h3>
-
-          <input type="text" />
-        </fieldset>
-
-        <fieldset class="eighth hidden">
           <h3 class="step__tittle">
             Okay, Ginger's all set! <br />
             We can't wait to meet het.
@@ -618,6 +648,6 @@
       </footer>
     </main>
 
-    <script src="./script.js"></script>
+    <script src="./src/script.js" type="module"></script>
   </body>
 </html>
