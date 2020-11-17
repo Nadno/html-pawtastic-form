@@ -13,10 +13,22 @@
 
     margin-top: 0.6rem;
 
+    &:focus  {
+      border-color: var(--color-secondary);
+    }
+
     &::placeholder {
       opacity: 0.6;
       color: var(--color-tertiary);
     }
+  }
+
+  input::-webkit-datetime-edit-text,
+  input::-webkit-datetime-edit-month-field,
+  input::-webkit-datetime-edit-day-field,
+  input::-webkit-datetime-edit-year-field  {
+    font-style: to-upper-case($string: "");
+    color: var(--color-primary);
   }
 }
 
@@ -58,10 +70,12 @@
     }
   }
 
+  input:focus ~ label .upload__button  {
+    border-color: var(--color-secondary);
+  }
 
   input {
     position: absolute;
-    display: none;
     opacity: 0;
   }
 }
@@ -90,11 +104,15 @@
     cursor: pointer;
   }
 
+  input:checked ~ label .check {
+    background-color: var(--color-secondary);
+  }
+
   input:checked ~ label .check:before {
     position: absolute;
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--color-secondary);
+    color: var(--color-white);
 
     transform: translate(50%);
     right: 50%;
@@ -108,7 +126,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .field__block {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

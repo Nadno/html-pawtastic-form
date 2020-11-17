@@ -97,7 +97,7 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code first">
+      <section class="confirm__zip-code first hidden">
         <form class="zip-code">
           <fieldset>
             <h3 class="step__tittle">
@@ -119,7 +119,7 @@
         </form>
       </section>
 
-      <form class="sign-up hidden">
+      <form class="sign-up">
         <fieldset class="second hidden">
           <h3 class="step__tittle">
             Good news! We care for pets in your area. Let's
@@ -149,7 +149,9 @@
             </div>
 
             <div class="input__field">
-              <label for="confirm" class="input__tittle">Confirm password</label>
+              <label for="confirm" class="input__tittle"
+                >Confirm password</label
+              >
               <input
                 type="password"
                 id="confirm"
@@ -336,7 +338,7 @@
           </span>
         </fieldset>
 
-        <fieldset class="fifth hidden">
+        <fieldset class="fifth">
           <h3 class="step__tittle">
             Yay, we love dogs! Give us the basics about your pup.
           </h3>
@@ -344,7 +346,12 @@
           <div class="field__block">
             <div class="input__field">
               <label for="pet-name" class="input__tittle">Name</label>
-              <input type="text" name="pet-name" id="pet-name" />
+              <input
+                type="text"
+                name="pet-name"
+                id="pet-name"
+                placeholder="Pet's name"
+              />
             </div>
 
             <div class="photo__field">
@@ -378,11 +385,16 @@
           <div class="field__block">
             <div class="input__field">
               <label for="breed" class="input__tittle">Breed</label>
-              <input type="text" name="breed" id="breed" />
+              <input
+                type="text"
+                name="breed"
+                id="breed"
+                placeholder="Pet's breed"
+              />
             </div>
             <div class="input__field">
-              <label for="birth" class="input__tittle">Birth day</label>
-              <input type="text" name="birth" id="birth" />
+              <label for="birth" class="input__tittle">Birthday</label>
+              <input type="date" name="birth" id="birth" />
             </div>
           </div>
 
@@ -390,7 +402,7 @@
             <div class="select">
               <span class="input__tittle">Gender</span>
 
-              <div class="select__block">
+              <div class="select__block two-columns">
                 <div class="select__option">
                   <div class="option__field">
                     <input type="radio" name="pet-sex" id="pet-male" />
@@ -410,9 +422,9 @@
             </div>
 
             <div class="select">
-              <span class="input__tittle">Spayed Neutered</span>
+              <span class="input__tittle">Spayed or Neutered</span>
 
-              <div class="select__block">
+              <div class="select__block two-columns">
                 <div class="select__option">
                   <div class="option__field">
                     <input
@@ -439,9 +451,41 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </section>
+
+          <div class="select">
+            <span class="input__tittle">Weight | Kg</span>
+            <div class="select__block four-columns">
+              <div class="select__option">
+                <div class="option__field">
+                  <input type="radio" name="pet-weight" id="first-weight"/>
+                  <label for="first-weight" class="option__legend">5/10</label>
+                </div>
+              </div>
+
+              <div class="select__option">
+                <div class="option__field">
+                  <input type="radio" name="pet-weight" id="second-weight"/>
+                  <label for="second-weight" class="option__legend">10/15</label>
+                </div>
+              </div>
+
+              <div class="select__option">
+                <div class="option__field">
+                  <input type="radio" name="pet-weight" id="third-weight"/>
+                  <label for="third-weight" class="option__legend">15/20</label>
+                </div>
+              </div>
+
+              <div class="select__option">
+                <div class="option__field">
+                  <input type="radio" name="pet-weight" id="fourth-weight"/>
+                  <label for="fourth-weight" class="option__legend">20/25</label>
+                </div>
+              </div>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset class="sixth hidden">
