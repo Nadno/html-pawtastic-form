@@ -122,7 +122,7 @@
       </section>
 
       <form class="sign-up">
-        <fieldset class="second">
+        <fieldset class="second hidden">
           <h3 class="step__tittle">
             Good news! We care for pets in your area. Let's
           </h3>
@@ -265,8 +265,11 @@
             Tell us all about your furry, feathery, or scaley friend.
           </h3>
 
-          <div class="select">
-            <span class="input__tittle">Kind of your pet</span>
+          <div class="select" id="pet-type">
+            <div class="label__field">
+              <span class="input__tittle">Kind of your pet</span>
+              <span class="input__error"></span>
+            </div>
             <div class="select__block four-columns">
               <div class="option__field">
                 <input type="radio" name="pet-type" id="dog" value="dog" />
@@ -365,14 +368,17 @@
           </span>
         </fieldset>
 
-        <fieldset class="fifth hidden">
+        <fieldset class="fifth">
           <h3 class="step__tittle">
             Yay, we love dogs! Give us the basics about your pup.
           </h3>
 
           <div class="field__block">
             <div class="input__field">
-              <label for="pet-name" class="input__tittle">Name</label>
+              <div class="label__field">
+                <label for="pet-name" class="input__tittle">Name</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 name="pet-name"
@@ -402,7 +408,10 @@
                   </div>
 
                   <figcaption>
-                    <span class="input__tittle"> Upload a photo </span>
+                    <div class="label__field">
+                      <span class="input__error"></span>
+                      <span class="input__tittle"> Upload a photo </span>
+                    </div>
                   </figcaption>
                 </figure>
               </label>
@@ -411,7 +420,10 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="pet-breed" class="input__tittle">Breed</label>
+              <div class="label__field">
+                <label for="pet-breed" class="input__tittle">Breed</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 name="pet-breed"
@@ -420,14 +432,20 @@
               />
             </div>
             <div class="input__field">
-              <label for="pet-birth-day" class="input__tittle">Birthday</label>
+              <div class="label__field">
+                <label for="pet-birth-day" class="input__tittle">Birthday</label>
+                <span class="input__error"></span>
+              </div>
               <input type="date" name="pet-birth-day" id="pet-birth-day" />
             </div>
           </div>
 
           <section class="select__container">
-            <div class="select">
-              <span class="input__tittle">Gender</span>
+            <div class="select" id="pet-sex">
+              <div class="label__field">
+                <span class="input__tittle">Gender</span>
+                <span class="input__error"></span>
+              </div>
 
               <div class="select__block two-columns">
                 <div class="select__option">
@@ -458,8 +476,11 @@
               </div>
             </div>
 
-            <div class="select">
-              <span class="input__tittle">Spayed or Neutered</span>
+            <div class="select" id="pet-spayed-or-neutered">
+              <div class="label__field">
+                <span class="input__tittle">Spayed or Neutered</span>
+                <span class="input__error"></span>
+              </div>
 
               <div class="select__block two-columns">
                 <div class="select__option">
@@ -493,8 +514,11 @@
             </div>
           </section>
 
-          <div class="select">
-            <span class="input__tittle">Weight | Kg</span>
+          <div class="select" id="pet-weight">
+            <div class="label__field">
+              <span class="input__tittle">Weight | Kg</span>
+              <span class="input__error"></span>
+            </div>
             <div class="select__block four-columns">
               <div class="select__option">
                 <div class="option__field">

@@ -1,4 +1,4 @@
-import { setErrorFor, unsetErrorFor } from "./setError.js";
+import { setErrorFor, setErrorForCustomSelect, unsetErrorFor, unsetErrorForCustomSelect } from "./setError.js";
 
 const formData = {
   email: "",
@@ -83,11 +83,40 @@ const Validation = {
     setErrorFor(input.id, "off");
   },
 
-  petType: function (input, field) {
+  petType: function (input, name) {
     const TYPES = ["dog", "cat", "birdy", "hamster"];
     if (TYPES.includes(input.value)) {
-      console.log("ok");
+      unsetErrorForCustomSelect(input.name);
+      return true;
     }
+    setErrorForCustomSelect(input.name, "invalid");
+  },
+
+  petSex: function (input, name) {
+    const TYPES = ["male", "female"];
+    if (TYPES.includes(input.value)) {
+      unsetErrorForCustomSelect(input.name);
+      return true;
+    }
+    setErrorForCustomSelect(input.name, "invalid");
+  },
+
+  petSpayedOrNeutered: function (input, name) {
+    const TYPES = ["true", "false"];
+    if (TYPES.includes(input.value)) {
+      unsetErrorForCustomSelect(input.name);
+      return true;
+    }
+    setErrorForCustomSelect(input.name, "invalid");
+  },
+
+  petWeight: function (input, name) {
+    const TYPES = ["5/10", "10/15", "15/20", "20/25"];
+    if (TYPES.includes(input.value)) {
+      unsetErrorForCustomSelect(input.name);
+      return true;
+    }
+    setErrorForCustomSelect(input.name, "invalid");
   },
 
   petPhoto: function (input, name) {},

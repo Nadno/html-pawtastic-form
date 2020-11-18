@@ -13,6 +13,18 @@ export const unsetErrorFor = (field) => {
   getParent(field).classList.remove("error");
 };
 
+export const setErrorForCustomSelect = (name, error) => {
+  const element = document.querySelector(`#${name}`);
+  element.querySelector(".input__error").innerHTML = "*" + customMessage(name, error);
+  element.classList.add("error");
+};
+
+export const unsetErrorForCustomSelect = (name) => {
+  const element = document.querySelector(`#${name}`);
+  element.querySelector(".input__error").innerHTML = "";
+  element.classList.remove("error");
+}
+
 function customMessage(field, error) {
   const messages = {
     default: {
