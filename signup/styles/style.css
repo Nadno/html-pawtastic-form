@@ -121,8 +121,11 @@ label {
   margin-bottom: 2rem;
 }
 
-.steps .input__tittle {
+.steps .label__field {
   margin-bottom: 1rem;
+}
+
+.steps .input__tittle {
   font-size: 1.6rem;
   color: var(--color-light-secondary);
 }
@@ -346,11 +349,11 @@ label {
   opacity: 0;
 }
 
-.check__field input:checked ~ label .check {
+.check__field input:checked ~ .label__field .check {
   background-color: var(--color-secondary);
 }
 
-.check__field input:checked ~ label .check:before {
+.check__field input:checked ~ .label__field .check:before {
   position: absolute;
   font-size: 1.2rem;
   font-weight: bold;
@@ -361,7 +364,7 @@ label {
   content: "✓";
 }
 
-.check__field input:focus ~ label .check {
+.check__field input:focus ~ .label__field .check {
   border-color: var(--color-secondary);
 }
 
@@ -495,6 +498,33 @@ label {
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.input__field.error .label__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input__field.error input {
+  border-color: var(--color-tertiary);
+}
+
+.input__error {
+  font-size: 1.6rem;
+  margin-left: 0.5rem;
+  color: var(--color-tertiary);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.check__field .input__error {
+  margin-top: 0.5rem;
+  margin-left: 2.8rem;
 }
 
 .show__steps {

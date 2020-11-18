@@ -1,3 +1,6 @@
+"use strict";
+import Validation from "./form.js";
+
 const STEPS = [
   "first",
   "second",
@@ -80,12 +83,19 @@ const inputNameToVarName = (namePart, index) => {
   return namePart;
 };
 
-const getVarName = (input) => {
-  return input.split("-").map(inputNameToVarName).join("");
+const getVarName = (field) => {
+  return field.split("-").map(inputNameToVarName).join("");
 };
+const isString = (value) => () => typeof value === "string";
 
 for (let input of inputs) {
-  console.log(getVarName(input.name))
-  // input.onchange = ({ target }) => {
-  // };
+  const name = getVarName(input.name);
+  //console.log(name);
+  input.addEventListener("blur", ({ target }) => {
+    if (Validation[name]) {
+      return Validation[name](target, name);
+    } else if (isString(input.value)) {
+      return Validation.default(target, name);
+    }
+  });
 }

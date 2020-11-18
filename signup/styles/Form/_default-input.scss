@@ -108,11 +108,11 @@
     position: absolute;
     opacity: 0;
 
-    &:checked ~ label .check {
+    &:checked ~ .label__field .check {
       background-color: var(--color-secondary);
     }
   
-    &:checked ~ label .check:before {
+    &:checked ~ .label__field .check:before {
       position: absolute;
       font-size: 1.2rem;
       font-weight: bold;
@@ -123,7 +123,7 @@
       content: "✓";
     }
 
-    &:focus ~ label .check {
+    &:focus ~ .label__field .check {
       border-color: var(--color-secondary);
     }
   }

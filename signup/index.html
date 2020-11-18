@@ -97,21 +97,23 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code first">
+      <section class="confirm__zip-code first hidden">
         <form class="zip-code">
           <fieldset>
             <h3 class="step__tittle">
               First, let's make sure we serve your area.
             </h3>
 
-            <div class="input__field">
+            <div class="label__field">
+              <div class="input__field">
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 id="zip-code"
                 name="zip-code"
                 placeholder="Zip-code."
               />
-              <span class="error"></span>
             </div>
           </fieldset>
 
@@ -119,58 +121,66 @@
         </form>
       </section>
 
-      <form class="sign-up hidden">
-        <fieldset class="second hidden">
+      <form class="sign-up">
+        <fieldset class="second">
           <h3 class="step__tittle">
             Good news! We care for pets in your area. Let's
           </h3>
 
           <div class="input__field">
-            <label for="email" class="input__tittle">E-mail</label>
+            <div class="label__field">
+              <label for="email" class="input__tittle">E-mail</label>
+              <span class="input__error"></span>
+            </div>
             <input
               type="text"
               id="email"
               name="email"
               placeholder="Enter your e-mail"
             />
-            <span class="error"></span>
           </div>
 
           <div class="field__block">
             <div class="input__field">
-              <label for="password" class="input__tittle">Password</label>
+              <div class="label__field">
+                <label for="password" class="input__tittle">Password</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="password"
                 id="password"
                 name="password"
                 placeholder="••••••••"
               />
-              <span class="error"></span>
             </div>
 
             <div class="input__field">
               <label for="confirm" class="input__tittle"
                 >Confirm password</label
               >
+              <div class="label__field">
+                <span class="input__error"></span>
+              </div>
               <input
                 type="password"
                 id="confirm"
                 name="confirm"
                 placeholder="••••••••"
               />
-              <span class="error"></span>
             </div>
           </div>
 
           <div class="check__field">
             <input type="checkbox" id="policy" name="policy" />
-            <label for="policy" class="input__tittle">
-              <span class="check"></span>
-              <span class="check__content"
-                >I have read the Privacy and agree to the Terms of
-                Service.</span
-              >
-            </label>
+            <div class="label__field">
+              <label for="policy" class="input__tittle">
+                <span class="check"></span>
+                <span class="check__content"
+                  >I have read the Privacy and agree to the Terms of
+                  Service.</span>
+              </label>
+              <span class="input__error"></span>
+            </div>
           </div>
         </fieldset>
 
@@ -181,61 +191,71 @@
 
           <div class="field__block">
             <div class="input__field">
-              <label for="first-name" class="input__tittle">First name</label>
+              <div class="label__field">
+                <label for="first-name" class="input__tittle">First name</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 id="first-name"
                 name="first-name"
                 placeholder="Your first name"
               />
-              <span class="error"></span>
             </div>
 
             <div class="input__field">
-              <label for="last-name" class="input__tittle">Last name</label>
+              <div class="label__field">
+                <label for="last-name" class="input__tittle">Last name</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 id="last-name"
                 name="last-name"
                 placeholder="Your last name"
               />
-              <span class="error"></span>
             </div>
           </div>
 
           <div class="field__block">
             <div class="input__field">
-              <label for="phone" class="input__tittle">Phone</label>
+              <div class="label__field">
+                <label for="phone" class="input__tittle">Phone</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 id="phone"
                 name="phone"
                 placeholder="000-000-000"
               />
-              <span class="error"></span>
             </div>
 
             <div class="input__field">
-              <label for="alt-phone" class="input__tittle">Phone alt</label>
+              <div class="label__field">
+                <label for="alt-phone" class="input__tittle">Phone alt</label>
+                <span class="input__error"></span>
+              </div>
               <input
                 type="text"
                 id="alt-phone"
                 name="alt-phone"
                 placeholder="000-000-000"
               />
-              <span class="error"></span>
             </div>
           </div>
 
           <div class="input__field">
-            <label for="cpf" class="input__tittle">CPF</label>
+            <div class="label__field">
+              <label for="cpf" class="input__tittle">CPF</label>
+              <span class="input__error"></span>
+            </div>
             <input
               type="text"
               id="cpf"
               name="cpf"
               placeholder="000.000.000-00"
             />
-            <span class="error"></span>
           </div>
         </fieldset>
 
