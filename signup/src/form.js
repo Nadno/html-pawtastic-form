@@ -1,10 +1,3 @@
-import {
-  setErrorFor,
-  setErrorForCustomSelect,
-  unsetErrorFor,
-  unsetErrorForCustomSelect,
-} from "./setError.js";
-
 const data = {
   email: "",
   password: "",
@@ -73,6 +66,14 @@ const NOT_NULLS = [
   "petName",
   "excluir-gender",
 ];
+
+const createError = (field) => ({
+  inputType: "select",
+  error: "invalid",
+  field,
+  ok: false,
+});
+
 const notNull = (value) => () => value.trim() !== "";
 const validPattern = (pattern, value) => () => new RegExp(pattern).test(value);
 
@@ -83,45 +84,38 @@ const inputNameToVarName = (namePart, index) => {
 export const getVarName = (field) =>
   field.split("-").map(inputNameToVarName).join("");
 
-const removeDuplicates = (list) => Array.from(new Set(list));
-const getInputNames = (fields) =>
-  removeDuplicates(fields.map(({ name, id }) => ({ name, id })));
 
-export function checkStepValues(step) {
-  const fields = Array.from(
-    document.querySelector(step).querySelectorAll("input")
-  );
-  const names = getInputNames(fields);
+function validTests(tests, field) {
+  let result = {
+    inputType: "text",
+    field,
+    ok: true,
+  };
 
-  console.log(names);
-  // names.forEach((name) => {
-  //   console.log(`***${name}: `, data[getVarName(name)]);
-  //   if (Validation[name]) {
-  //     console.log(`***${getVarName(name)}: `, Validation[name](name));
-  //   } else {
-  //     console.log("***default: ", Validation.default(name));
-  //   }
-  // });
-}
-
-function validTests(tests) {
-  for (let [valid, error, field] of tests) {
+  for (let [valid, error] of tests) {
     if (!valid()) {
-      return {
+      Object.assign(result, {
         error,
-        field,
-      };
+        ok: false,
+      });
+      return result;
     }
   }
-  return true;
+
+  return result;
 }
 
 const Validation = {
   policy: function (input, name) {
     if (input.checked) {
-      return true;
+      return {
+        inputType: "check",
+        field: input.id,
+        ok: true,
+      };
     }
     return {
+      inputType: "check",
       field: input.id,
       error: "off",
     };
@@ -130,77 +124,85 @@ const Validation = {
   petType: function (input, name) {
     const TYPES = ["dog", "cat", "birdy", "hamster"];
     if (TYPES.includes(input.value)) {
-      return true;
+      return {
+        inputType: "select",
+        field: input.name,
+        ok: true,
+      };
     }
-    return {
-      inputType: "customSelect",
-      field: input.name,
-      error: "invalid",
-    };
+    return createError(input.name);
   },
 
   petSex: function (input, name) {
     const TYPES = ["male", "female"];
     if (TYPES.includes(input.value)) {
-      return true;
+      return {
+        inputType: "select",
+        field: input.name,
+        ok: true,
+      };
     }
-    return {
-      inputType: "customSelect",
-      field: input.name,
-      error: "invalid",
-    };
+    return createError(input.name);
   },
 
   petSpayedOrNeutered: function (input, name) {
     const TYPES = ["true", "false"];
     if (TYPES.includes(input.value)) {
-      return true;
+      return {
+        inputType: "select",
+        field: input.name,
+        ok: true,
+      };
     }
-    return {
-      inputType: "customSelect",
-      field: input.name,
-      error: "invalid",
-    };
+    return createError(input.name);
   },
 
   petWeight: function (input, name) {
     const TYPES = ["5/10", "10/15", "15/20", "20/25"];
     if (TYPES.includes(input.value)) {
-      return true;
+      return {
+        inputType: "select",
+        field: input.name,
+        ok: true,
+      };
     }
-    return {
-      inputType: "customSelect",
-      field: input.name,
-      error: "invalid",
-    };
+    return createError(input.name);
   },
 
   petPhoto: function (input, name) {},
 
   altPhone: function (input, name) {
     const HAS_VALUE = input.value.length > 0;
-    if (HAS_VALUE && validPattern(patternFor["phone"], input.value)()) {
-      return true;
-    } else {
-      return {
-        field: input.id,
-        error: "invalid",
-      };
+    const result = {
+      inputType: "text",
+      field: input.name,
+      ok: true,
+    };
+
+    if (HAS_VALUE) {
+      if (validPattern(patternFor["phone"], input.value)()) {
+        return result;
+      } else {
+        result.error = "invalid";
+        result.ok = false;
+        return result;
+      }
     }
+    return result;
   },
 
   default: function (input, name) {
     if (NOT_NULLS.includes(name)) {
-      const tests = [[notNull(input.value), "empty", input.id]];
+      const tests = [[notNull(input.value), "empty"]];
       if (patternFor[name])
-        tests.push([
-          validPattern(patternFor[name], input.value),
-          "invalid",
-          input.id,
-        ]);
-      return validTests(tests);
+        tests.push([validPattern(patternFor[name], input.value), "invalid"]);
+      return validTests(tests, input.id);
     }
-    return true;
+
+    return {
+      inputType: "text",
+      ok: true,
+    };
   },
 };
 

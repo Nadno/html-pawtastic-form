@@ -1,6 +1,6 @@
 "use strict";
 import Validation, { setForm, getVarName } from "./form.js";
-import { setErrorFor } from "./setError.js";
+import { toggleSpanError } from "./setError.js";
 
 const STEPS_ID = [
   "#first",
@@ -45,7 +45,6 @@ const change = {
   },
 };
 
-
 function nextStep(e) {
   e.preventDefault();
   if (step === MAX_STEPS) {
@@ -85,16 +84,18 @@ const isString = (value) => () => typeof value === "string";
 
 for (let input of inputs) {
   const name = getVarName(input.name);
+  let validate;
+
+  if (Validation[name]) {
+    validate = Validation[name];
+  } else {
+    validate = Validation.default;
+  }
 
   input.addEventListener("blur", ({ target }) => {
-    // setForm({field: target.name, value: target.value})
-    if (Validation[name]) {
-      const result = Validation[name](target, name);
-      
-      if (result !== true) setErrorFor(result);
-    } else if (isString(input.value)) {
-      const result = Validation.default(target, name);
-      if (result !== true) setErrorFor(result);
-    }
+    const result = validate(target, name);
+    console.log("***result: ", result);
+    if (result.ok) return toggleSpanError(result);
+    toggleSpanError(result);
   });
 }

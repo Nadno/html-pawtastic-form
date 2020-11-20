@@ -1,29 +1,25 @@
-const getParent = (field) =>
-  document.querySelector(`#${field}`).parentNode;
-const getSpanError = (field) =>
-  getParent(field).querySelector(".input__error");
+const getParent = (field) => document.querySelector(`#${field}`).parentNode;
+const getSpanError = (field) => getParent(field).querySelector(".input__error");
 
-export const setErrorFor = ({ field, error }) => {
-  getSpanError(field).innerHTML = "*" + customMessage(field, error);
-  getParent(field).classList.add("error");
+export const toggleSpanError = ({ field, error, inputType }) => {
+  const errorTo = {
+    text: (action, text) => {
+      getSpanError(field).innerHTML = text;
+      getParent(field).classList[action]("error");
+    },
+    select: (action, text) => {
+      const element = document.querySelector(`#${field}`);
+      element.querySelector(".input__error").innerHTML = text;
+      element.classList[action]("error");
+    },
+  };
+
+  if (error) {
+    errorTo[inputType]("add", `* ${customMessage(field, error)}`);
+  } else {
+    errorTo[inputType]("remove", "");
+  }
 };
-
-export const unsetErrorFor = (field) => {
-  getSpanError(field).innerHTML = "";
-  getParent(field).classList.remove("error");
-};
-
-export const setErrorForCustomSelect = (name, error) => {
-  const element = document.querySelector(`#${name}`);
-  element.querySelector(".input__error").innerHTML = "*" + customMessage(name, error);
-  element.classList.add("error");
-};
-
-export const unsetErrorForCustomSelect = (name) => {
-  const element = document.querySelector(`#${name}`);
-  element.querySelector(".input__error").innerHTML = "";
-  element.classList.remove("error");
-}
 
 function customMessage(field, error) {
   const messages = {
