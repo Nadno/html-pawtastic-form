@@ -1,8 +1,29 @@
 .steps {
-  position: relative;
-  min-height: 80vh;
-  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   color: var(--color-secondary);
+
+  .confirm__zip-code {
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    padding: 10% 6rem;
+
+    .zip-code {
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .input__field input {
+      width: 60%;
+    }
+  }
 
   .step__tittle {
     font-size: 2.4rem;
@@ -26,11 +47,8 @@
 
   .sign-up {
     width: 100%;
-    height: 100%;
-
-    fieldset {
-      padding-bottom: 16rem;
-    }
+    padding: 0 6rem;
+    margin: 10% 0;
 
     fieldset > :nth-child(1n):not(.step__tittle) {
       margin-bottom: 2rem;
@@ -50,16 +68,13 @@
   }
 
   footer {
-    position: fixed;
-    height: 10rem;
-    width: 100vw;
-    bottom: 0;
-    right: 0;
+    height: 10rem; 
+    width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 4rem;
+    
 
     background-color: var(--color-white);
     border-top-color: var(--color-dark-primary);
@@ -81,6 +96,8 @@
   }
 
   footer.change__point {
+    justify-content: start;
+    padding: 0 4rem;
     .member {
       display: none;
     }
@@ -91,10 +108,11 @@
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 750px) {
   .steps {
-    width: 55vw;
+    width: 60vw;
     height: 100vh;
+    padding-bottom: 12rem;
     overflow-y: scroll;
 
     .step__tittle {
@@ -102,7 +120,10 @@
     }
 
     footer {
+      position: fixed;
       width: inherit;
+      bottom: 0;
+      right: 0;
     }
   }
 }

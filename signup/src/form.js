@@ -1,16 +1,23 @@
-import { setErrorFor, setErrorForCustomSelect, unsetErrorFor, unsetErrorForCustomSelect } from "./setError.js";
+import {
+  setErrorFor,
+  setErrorForCustomSelect,
+  unsetErrorFor,
+  unsetErrorForCustomSelect,
+} from "./setError.js";
 
-const formData = {
+const data = {
   email: "",
   password: "",
   confirm: "",
   policy: false,
 
-  firstName: "",
-  lastName: "",
-  phone: "",
-  altPhone: "",
-  cpf: "",
+  third: {
+    firstName: "",
+    lastName: "",
+    phone: "",
+    altPhone: "",
+    cpf: "",
+  },
 
   fourth: {
     petType: "",
@@ -41,6 +48,11 @@ const formData = {
   },
 };
 
+export const setForm = ({ field, value }) => {
+  data[field] = value;
+  console.log(`***${field}: `, data[field]);
+};
+
 const patternFor = {
   email: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/,
   confirm: /^[a-zA-Z-0-9]{6,30}$/,
@@ -64,73 +76,116 @@ const NOT_NULLS = [
 const notNull = (value) => () => value.trim() !== "";
 const validPattern = (pattern, value) => () => new RegExp(pattern).test(value);
 
-function validTests([valid, error, field]) {
-  if (!valid()) {
-    setErrorFor(field, error);
-    return false;
+const inputNameToVarName = (namePart, index) => {
+  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
+  return namePart;
+};
+export const getVarName = (field) =>
+  field.split("-").map(inputNameToVarName).join("");
+
+const removeDuplicates = (list) => Array.from(new Set(list));
+const getInputNames = (fields) =>
+  removeDuplicates(fields.map(({ name, id }) => ({ name, id })));
+
+export function checkStepValues(step) {
+  const fields = Array.from(
+    document.querySelector(step).querySelectorAll("input")
+  );
+  const names = getInputNames(fields);
+
+  console.log(names);
+  // names.forEach((name) => {
+  //   console.log(`***${name}: `, data[getVarName(name)]);
+  //   if (Validation[name]) {
+  //     console.log(`***${getVarName(name)}: `, Validation[name](name));
+  //   } else {
+  //     console.log("***default: ", Validation.default(name));
+  //   }
+  // });
+}
+
+function validTests(tests) {
+  for (let [valid, error, field] of tests) {
+    if (!valid()) {
+      return {
+        error,
+        field,
+      };
+    }
   }
-  unsetErrorFor(field);
   return true;
 }
 
 const Validation = {
   policy: function (input, name) {
-    formData[name] = input.checked;
     if (input.checked) {
-      unsetErrorFor(input.id);
       return true;
+    }
+    return {
+      field: input.id,
+      error: "off",
     };
-    setErrorFor(input.id, "off");
   },
 
   petType: function (input, name) {
     const TYPES = ["dog", "cat", "birdy", "hamster"];
     if (TYPES.includes(input.value)) {
-      unsetErrorForCustomSelect(input.name);
       return true;
     }
-    setErrorForCustomSelect(input.name, "invalid");
+    return {
+      inputType: "customSelect",
+      field: input.name,
+      error: "invalid",
+    };
   },
 
   petSex: function (input, name) {
     const TYPES = ["male", "female"];
     if (TYPES.includes(input.value)) {
-      unsetErrorForCustomSelect(input.name);
       return true;
     }
-    setErrorForCustomSelect(input.name, "invalid");
+    return {
+      inputType: "customSelect",
+      field: input.name,
+      error: "invalid",
+    };
   },
 
   petSpayedOrNeutered: function (input, name) {
     const TYPES = ["true", "false"];
     if (TYPES.includes(input.value)) {
-      unsetErrorForCustomSelect(input.name);
       return true;
     }
-    setErrorForCustomSelect(input.name, "invalid");
+    return {
+      inputType: "customSelect",
+      field: input.name,
+      error: "invalid",
+    };
   },
 
   petWeight: function (input, name) {
     const TYPES = ["5/10", "10/15", "15/20", "20/25"];
     if (TYPES.includes(input.value)) {
-      unsetErrorForCustomSelect(input.name);
       return true;
     }
-    setErrorForCustomSelect(input.name, "invalid");
+    return {
+      inputType: "customSelect",
+      field: input.name,
+      error: "invalid",
+    };
   },
 
   petPhoto: function (input, name) {},
 
   altPhone: function (input, name) {
     const HAS_VALUE = input.value.length > 0;
-    if (HAS_VALUE) {
-      if (validPattern(patternFor["phone"], input.value)()) {
-        unsetErrorFor(input.id);
-        return true;
-      }
-      setErrorFor(input.id, "invalid");
+    if (HAS_VALUE && validPattern(patternFor["phone"], input.value)()) {
+      return true;
     } else {
-      unsetErrorFor(input.id);
+      return {
+        field: input.id,
+        error: "invalid",
+      };
     }
   },
 
@@ -143,8 +198,9 @@ const Validation = {
           "invalid",
           input.id,
         ]);
-      return tests.every(validTests);
+      return validTests(tests);
     }
+    return true;
   },
 };
 

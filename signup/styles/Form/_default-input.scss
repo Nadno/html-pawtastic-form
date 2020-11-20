@@ -18,7 +18,7 @@
     }
 
     &::placeholder {
-      opacity: 0.6;
+      opacity: 0.5;
       color: var(--color-tertiary);
     }
   }
@@ -27,7 +27,6 @@
   input::-webkit-datetime-edit-month-field,
   input::-webkit-datetime-edit-day-field,
   input::-webkit-datetime-edit-year-field  {
-    font-style: to-upper-case($string: "");
     color: var(--color-primary);
   }
 }

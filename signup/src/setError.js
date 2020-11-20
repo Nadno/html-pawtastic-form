@@ -3,7 +3,7 @@ const getParent = (field) =>
 const getSpanError = (field) =>
   getParent(field).querySelector(".input__error");
 
-export const setErrorFor = (field, error) => {
+export const setErrorFor = ({ field, error }) => {
   getSpanError(field).innerHTML = "*" + customMessage(field, error);
   getParent(field).classList.add("error");
 };
@@ -42,7 +42,7 @@ function customMessage(field, error) {
       notEqual: "The passwords is not equal",
     },
     policy: {
-      off: "This options is required",
+      off: "This option is required",
     },
   };
 

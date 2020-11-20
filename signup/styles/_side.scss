@@ -63,9 +63,10 @@
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 750px) {
   .side {
-    width: 45vw;
+    width: 40vw;
+    min-width: 350px;
     height: 100vh;
     margin: 0;
   }

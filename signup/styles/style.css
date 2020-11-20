@@ -4,20 +4,9 @@ label {
   display: block;
 }
 
-.confirm__zip-code {
-  width: 100%;
-  max-width: 384px;
-  padding: 0 4rem;
-  margin: 25% auto;
-}
-
-.confirm__zip-code .input__field input {
-  width: 60%;
-}
-
 .button {
-  height: 5.6rem;
-  width: 16rem;
+  height: 4rem;
+  width: 12rem;
   font-size: 2.4rem;
   color: var(--color-secondary);
   border: 0.1rem solid var(--color-secondary);
@@ -29,7 +18,7 @@ label {
   display: none;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 750px) {
   body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -100,19 +89,55 @@ label {
   display: block;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 750px) {
   .side {
-    width: 45vw;
+    width: 40vw;
+    min-width: 350px;
     height: 100vh;
     margin: 0;
   }
 }
 
 .steps {
-  position: relative;
-  min-height: 80vh;
-  padding: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--color-secondary);
+}
+
+.steps .confirm__zip-code {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  padding: 10% 6rem;
+}
+
+.steps .confirm__zip-code .zip-code {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.steps .confirm__zip-code .input__field input {
+  width: 60%;
 }
 
 .steps .step__tittle {
@@ -137,11 +162,8 @@ label {
 
 .steps .sign-up {
   width: 100%;
-  height: 100%;
-}
-
-.steps .sign-up fieldset {
-  padding-bottom: 16rem;
+  padding: 0 6rem;
+  margin: 10% 0;
 }
 
 .steps .sign-up fieldset > :nth-child(1n):not(.step__tittle) {
@@ -161,11 +183,8 @@ label {
 }
 
 .steps footer {
-  position: fixed;
   height: 10rem;
-  width: 100vw;
-  bottom: 0;
-  right: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,7 +194,6 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0 4rem;
   background-color: var(--color-white);
   border-top-color: var(--color-dark-primary);
 }
@@ -195,6 +213,13 @@ label {
   color: var(--color-secondary);
 }
 
+.steps footer.change__point {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 0 4rem;
+}
+
 .steps footer.change__point .member {
   display: none;
 }
@@ -203,17 +228,21 @@ label {
   display: initial;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 750px) {
   .steps {
-    width: 55vw;
+    width: 60vw;
     height: 100vh;
+    padding-bottom: 12rem;
     overflow-y: scroll;
   }
   .steps .step__tittle {
     font-size: 3.4rem;
   }
   .steps footer {
+    position: fixed;
     width: inherit;
+    bottom: 0;
+    right: 0;
   }
 }
 
@@ -237,22 +266,22 @@ label {
 }
 
 .input__field input:not([type="checkbox"])::-webkit-input-placeholder {
-  opacity: 0.6;
+  opacity: 0.5;
   color: var(--color-tertiary);
 }
 
 .input__field input:not([type="checkbox"]):-ms-input-placeholder {
-  opacity: 0.6;
+  opacity: 0.5;
   color: var(--color-tertiary);
 }
 
 .input__field input:not([type="checkbox"])::-ms-input-placeholder {
-  opacity: 0.6;
+  opacity: 0.5;
   color: var(--color-tertiary);
 }
 
 .input__field input:not([type="checkbox"])::placeholder {
-  opacity: 0.6;
+  opacity: 0.5;
   color: var(--color-tertiary);
 }
 
@@ -260,7 +289,6 @@ label {
 .input__field input::-webkit-datetime-edit-month-field,
 .input__field input::-webkit-datetime-edit-day-field,
 .input__field input::-webkit-datetime-edit-year-field {
-  font-style: "";
   color: var(--color-primary);
 }
 

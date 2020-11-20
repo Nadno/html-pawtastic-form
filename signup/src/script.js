@@ -1,14 +1,15 @@
 "use strict";
-import Validation from "./form.js";
+import Validation, { setForm, getVarName } from "./form.js";
+import { setErrorFor } from "./setError.js";
 
-const STEPS = [
-  "first",
-  "second",
-  "third",
-  "fourth",
-  "fifth",
-  "sixth",
-  "seventh",
+const STEPS_ID = [
+  "#first",
+  "#second",
+  "#third",
+  "#fourth",
+  "#fifth",
+  "#sixth",
+  "#seventh",
 ];
 const MAX_STEPS = 7;
 let step = 0;
@@ -17,8 +18,8 @@ const radiosTo = document.querySelectorAll(".radio__to");
 
 const element = (name) => document.querySelector(name);
 const addAndRemoveHidden = (lastStep, nextStep) => {
-  element(lastStep).classList.add("hidden");
-  element(nextStep).classList.remove("hidden");
+  element(lastStep).setAttribute("hidden", "");
+  element(nextStep).removeAttribute("hidden");
   element("#pet-slide").src = `../images/sign-up__${step}.jpg`;
 };
 
@@ -37,12 +38,13 @@ const setRadioStep = () => {
 };
 
 const change = {
-  1: () => element(`.${STEPS[step]}`).parentNode.classList.remove("hidden"),
+  1: () => element(STEPS_ID[step]).parentNode.removeAttribute("hidden"),
   2: (toggle = "add") => {
     element("footer").classList[toggle]("change__point");
     element(".side__content").classList[toggle]("change__point");
   },
 };
+
 
 function nextStep(e) {
   e.preventDefault();
@@ -51,8 +53,8 @@ function nextStep(e) {
   }
 
   step++;
-  const lastStep = `.${STEPS[step - 1]}`;
-  const nextStep = `.${STEPS[step]}`;
+  const lastStep = STEPS_ID[step - 1];
+  const nextStep = STEPS_ID[step];
   addAndRemoveHidden(lastStep, nextStep);
 
   if (change[step]) change[step]();
@@ -63,8 +65,8 @@ function backStep(e) {
   e.preventDefault();
 
   step--;
-  const lastStep = `.${STEPS[step + 1]}`;
-  const nextStep = `.${STEPS[step]}`;
+  const lastStep = STEPS_ID[step + 1];
+  const nextStep = STEPS_ID[step];
   addAndRemoveHidden(lastStep, nextStep);
 
   if (step === 1) change["2"]("remove");
@@ -78,24 +80,21 @@ element(".sign-up").addEventListener("submit", (e) => {
 element("#back-btn").addEventListener("click", backStep);
 
 const inputs = element(".sign-up").querySelectorAll("input");
-const inputNameToVarName = (namePart, index) => {
-  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
-  return namePart;
-};
 
-const getVarName = (field) => {
-  return field.split("-").map(inputNameToVarName).join("");
-};
 const isString = (value) => () => typeof value === "string";
 
 for (let input of inputs) {
   const name = getVarName(input.name);
-  //console.log(name);
+
   input.addEventListener("blur", ({ target }) => {
+    // setForm({field: target.name, value: target.value})
     if (Validation[name]) {
-      return Validation[name](target, name);
+      const result = Validation[name](target, name);
+      
+      if (result !== true) setErrorFor(result);
     } else if (isString(input.value)) {
-      return Validation.default(target, name);
+      const result = Validation.default(target, name);
+      if (result !== true) setErrorFor(result);
     }
   });
 }
