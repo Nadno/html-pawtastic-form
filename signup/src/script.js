@@ -1,5 +1,5 @@
 "use strict";
-import Validation, { setForm, getVarName } from "./form.js";
+import Validation, { setForm } from "./form.js";
 import { toggleSpanError } from "./setError.js";
 
 const STEPS_ID = [
@@ -15,6 +15,14 @@ const MAX_STEPS = 7;
 let step = 0;
 
 const radiosTo = document.querySelectorAll(".radio__to");
+
+const inputNameToVarName = (namePart, index) => {
+  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
+  return namePart;
+};
+
+export const getVarName = (field) =>
+  field.split("-").map(inputNameToVarName).join("");
 
 const element = (name) => document.querySelector(name);
 const addAndRemoveHidden = (lastStep, nextStep) => {
@@ -92,10 +100,15 @@ for (let input of inputs) {
     validate = Validation.default;
   }
 
-  input.addEventListener("blur", ({ target }) => {
-    const result = validate(target, name);
-    console.log("***result: ", result);
+  input.addEventListener("blur", () => {
+    setForm({ field: name, value: input.value, });
+    
+    const result = validate(name);
+    result.inputType = input.type;
+    console.log(result)
     if (result.ok) return toggleSpanError(result);
+    
+    result.field = { id: input.id, name: input.name, varName: name };
     toggleSpanError(result);
   });
 }

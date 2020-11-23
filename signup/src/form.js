@@ -1,49 +1,17 @@
-const data = {
-  email: "",
-  password: "",
-  confirm: "",
-  policy: false,
+import {
+  biggerOrEqualThan,
+  lessOrEqualThan,
+  notNull,
+  isEqual,
+  validPattern,
+} from "./validData.js";
 
-  third: {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    altPhone: "",
-    cpf: "",
-  },
-
-  fourth: {
-    petType: "",
-  },
-
-  fifth: {
-    petName: "",
-    petPhoto: "",
-    petBreed: "",
-    petBirthDay: "",
-    petGender: "",
-    petSpayedOrNeutered: false,
-    petWeight: "",
-  },
-
-  sixth: {
-    favoriteThings: {
-      givingKisses: false,
-      walks: false,
-      barking: false,
-      snuggling: false,
-      treats: false,
-      playingFetch: false,
-      naps: false,
-      toys: false,
-    },
-    additionalInformation: "",
-  },
+const signUpData = {
 };
 
 export const setForm = ({ field, value }) => {
-  data[field] = value;
-  console.log(`***${field}: `, data[field]);
+  signUpData[field] = value;
+  console.log(signUpData);
 };
 
 const patternFor = {
@@ -55,154 +23,124 @@ const patternFor = {
 
 const NOT_NULLS = [
   "email",
-  "excluir-password",
-  "excluir-confirm",
   "policy",
   "firstName",
   "lastName",
   "phone",
   "cpf",
-  "excluir-petType",
   "petName",
-  "excluir-gender",
 ];
 
-const createError = (field) => ({
-  inputType: "select",
-  error: "invalid",
-  field,
-  ok: false,
-});
-
-const notNull = (value) => () => value.trim() !== "";
-const validPattern = (pattern, value) => () => new RegExp(pattern).test(value);
-
-const inputNameToVarName = (namePart, index) => {
-  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
-  return namePart;
+const ERROR = {
+  INVALID: "invalid",
+  OFF: "off",
+  EMPTY: "empty",
 };
-export const getVarName = (field) =>
-  field.split("-").map(inputNameToVarName).join("");
 
-
-function validTests(tests, field) {
-  let result = {
-    inputType: "text",
-    field,
-    ok: true,
+const createResult = (error, ok) => {
+  const result = {
+    ok: false,
   };
 
-  for (let [valid, error] of tests) {
-    if (!valid()) {
-      Object.assign(result, {
-        error,
-        ok: false,
-      });
-      return result;
-    }
+  if (error) {
+    result.error = error;
+  } else {
+    result.ok = true;
   }
 
   return result;
+};
+
+function validTests(tests) {
+  for (let [valid, error] of tests) {
+    if (!valid()) {
+      return createResult(error);
+    }
+  };
+  return createResult();
 }
 
 const Validation = {
-  policy: function (input, name) {
-    if (input.checked) {
-      return {
-        inputType: "check",
-        field: input.id,
-        ok: true,
-      };
+  policy: function (name) {
+    if (signUpData[name]) {
+      return createResult();
     }
-    return {
-      inputType: "check",
-      field: input.id,
-      error: "off",
-    };
+    return createResult(ERROR.OFF);
   },
 
-  petType: function (input, name) {
+  petBirthDay: function (name) {
+    const [year] = signUpData[name].split("-");
+    const MIN_YEAR = biggerOrEqualThan(year, 1950);
+    const MAX_YEAR = lessOrEqualThan(year, 2020);
+
+    if (!MIN_YEAR())
+      return createResult(ERROR.INVALID);
+    if (!MAX_YEAR())
+      return createResult(ERROR.INVALID);
+
+    return createResult();;
+  },
+
+  petType: function (name) {
     const TYPES = ["dog", "cat", "birdy", "hamster"];
-    if (TYPES.includes(input.value)) {
-      return {
-        inputType: "select",
-        field: input.name,
-        ok: true,
-      };
+    if (TYPES.includes(signUpData[name])) {
+      return createResult();
     }
-    return createError(input.name);
+    return createResult(ERROR.INVALID);
   },
 
-  petSex: function (input, name) {
+  petSex: function (name) {
     const TYPES = ["male", "female"];
-    if (TYPES.includes(input.value)) {
-      return {
-        inputType: "select",
-        field: input.name,
-        ok: true,
-      };
+    if (TYPES.includes(signUpData[name])) {
+      return createResult();
     }
-    return createError(input.name);
+    return createResult(ERROR.INVALID);
   },
 
-  petSpayedOrNeutered: function (input, name) {
+  petSpayedOrNeutered: function (name) {
     const TYPES = ["true", "false"];
-    if (TYPES.includes(input.value)) {
-      return {
-        inputType: "select",
-        field: input.name,
-        ok: true,
-      };
+    if (TYPES.includes(signUpData[name])) {
+      return createResult();
     }
-    return createError(input.name);
+    return createResult(ERROR.INVALID);
   },
 
-  petWeight: function (input, name) {
+  petWeight: function (name) {
     const TYPES = ["5/10", "10/15", "15/20", "20/25"];
-    if (TYPES.includes(input.value)) {
-      return {
-        inputType: "select",
-        field: input.name,
-        ok: true,
-      };
+    if (TYPES.includes(signUpData[name])) {
+      return createResult();
     }
-    return createError(input.name);
+    return createResult(ERROR.INVALID);
   },
 
-  petPhoto: function (input, name) {},
+  petPhoto: function (name) {},
 
-  altPhone: function (input, name) {
-    const HAS_VALUE = input.value.length > 0;
-    const result = {
-      inputType: "text",
-      field: input.name,
-      ok: true,
-    };
-
+  altPhone: function (name) {
+    const HAS_VALUE = signUpData[name].length > 0;
     if (HAS_VALUE) {
-      if (validPattern(patternFor["phone"], input.value)()) {
-        return result;
+      if (validPattern(patternFor["phone"], signUpData[name])()) {
+        return createResult();
       } else {
-        result.error = "invalid";
-        result.ok = false;
-        return result;
+        return createResult(ERROR.INVALID);
       }
-    }
-    return result;
+    };
+
+    return createResult();
   },
 
-  default: function (input, name) {
+  default: function (name) {
     if (NOT_NULLS.includes(name)) {
-      const tests = [[notNull(input.value), "empty"]];
+      const tests = [[notNull(signUpData[name]), ERROR.EMPTY]];
+
       if (patternFor[name])
-        tests.push([validPattern(patternFor[name], input.value), "invalid"]);
-      return validTests(tests, input.id);
+        tests.push([
+          validPattern(patternFor[name], signUpData[name]),
+          ERROR.INVALID,
+        ]);
+      return validTests(tests);
     }
 
-    return {
-      inputType: "text",
-      ok: true,
-    };
+    return createResult();
   },
 };
 

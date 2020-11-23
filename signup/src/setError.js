@@ -1,23 +1,38 @@
+import { getVarName } from "./script.js";
+
 const getParent = (field) => document.querySelector(`#${field}`).parentNode;
 const getSpanError = (field) => getParent(field).querySelector(".input__error");
 
 export const toggleSpanError = ({ field, error, inputType }) => {
-  const errorTo = {
-    text: (action, text) => {
-      getSpanError(field).innerHTML = text;
-      getParent(field).classList[action]("error");
-    },
-    select: (action, text) => {
-      const element = document.querySelector(`#${field}`);
-      element.querySelector(".input__error").innerHTML = text;
-      element.classList[action]("error");
-    },
+  const defaultToggleError = (action, text) => {
+    getSpanError(field.id).innerHTML = text;
+    getParent(field.id).classList[action]("error");
+  };
+
+  const errorTo = (to, { action, text }) => {
+    const CUSTOM_SELECT = "radio";
+
+    switch (to) {
+      case CUSTOM_SELECT: {
+        const element = document.querySelector(`#${field.name}`);
+        element.querySelector(".input__error").innerHTML = text;
+        element.classList[action]("error");
+        break;
+      }
+      default: {
+        defaultToggleError(action, text);
+        break;
+      }
+    }
   };
 
   if (error) {
-    errorTo[inputType]("add", `* ${customMessage(field, error)}`);
-  } else {
-    errorTo[inputType]("remove", "");
+    errorTo(inputType, {
+      action: "add",
+      text: `*${customMessage(field.varName, error)}`,
+    });
+  } else if (field) {
+    errorTo(inputType, { action: "remove", text: "" });
   }
 };
 
@@ -26,11 +41,6 @@ function customMessage(field, error) {
     default: {
       empty: "Required",
       invalid: "Invalid",
-    },
-    birth: {
-      min: "O ano mínimo permitido é 1950",
-      max: "Não pode escolher um ano a frente do atual",
-      minYearsOld: "Você deve ter no mínimo 13 anos",
     },
     confirm: {
       empty: "Confirm your password",
