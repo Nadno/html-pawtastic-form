@@ -9,8 +9,12 @@ import {
 const signUpData = {
 };
 
-export const setForm = ({ field, value }) => {
-  signUpData[field] = value;
+export const setForm = ({ field, input }) => {
+  if (input.type === "checkbox") {
+    signUpData[field] = input.checked;
+  } else {
+    signUpData[field] = input.value;
+  }
   console.log(signUpData);
 };
 

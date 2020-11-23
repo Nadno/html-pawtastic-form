@@ -3,12 +3,7 @@ import { getVarName } from "./script.js";
 const getParent = (field) => document.querySelector(`#${field}`).parentNode;
 const getSpanError = (field) => getParent(field).querySelector(".input__error");
 
-export const toggleSpanError = ({ field, error, inputType }) => {
-  const defaultToggleError = (action, text) => {
-    getSpanError(field.id).innerHTML = text;
-    getParent(field.id).classList[action]("error");
-  };
-
+export const toggleSpanError = ({ error, inputType }, field) => {
   const errorTo = (to, { action, text }) => {
     const CUSTOM_SELECT = "radio";
 
@@ -20,7 +15,8 @@ export const toggleSpanError = ({ field, error, inputType }) => {
         break;
       }
       default: {
-        defaultToggleError(action, text);
+        getSpanError(field.id).innerHTML = text;
+        getParent(field.id).classList[action]("error");
         break;
       }
     }

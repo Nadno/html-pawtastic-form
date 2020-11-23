@@ -92,6 +92,7 @@ const isString = (value) => () => typeof value === "string";
 
 for (let input of inputs) {
   const name = getVarName(input.name);
+  const field = { id: input.id, name: input.name, varName: name };
   let validate;
 
   if (Validation[name]) {
@@ -100,15 +101,14 @@ for (let input of inputs) {
     validate = Validation.default;
   }
 
-  input.addEventListener("blur", () => {
-    setForm({ field: name, value: input.value, });
+  input.addEventListener("blur", ({target}) => {
+    setForm({ field: name, input: target, });
     
     const result = validate(name);
     result.inputType = input.type;
-    console.log(result)
-    if (result.ok) return toggleSpanError(result);
+ 
+    if (result.ok) return toggleSpanError(result, field);
     
-    result.field = { id: input.id, name: input.name, varName: name };
-    toggleSpanError(result);
+    toggleSpanError(result, field);
   });
 }
