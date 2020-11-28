@@ -49,18 +49,19 @@ const change = {
 
 function nextStep(e) {
   e.preventDefault();
-  checkFormStep(STEPS[step]);
-  if (step === MAX_STEPS) {
-    return;
+  if (checkFormStep(STEPS[step])) {
+    if (step === MAX_STEPS) {
+      return;
+    }
+
+    step++;
+    const lastStep = getIdForStep(step - 1);
+    const nextStep = getIdForStep(step);
+    addAndRemoveHidden(lastStep, nextStep);
+
+    if (change[step]) change[step]();
+    setRadioStep();
   }
-
-  step++;
-  const lastStep = getIdForStep(step - 1);
-  const nextStep = getIdForStep(step);
-  addAndRemoveHidden(lastStep, nextStep);
-
-  if (change[step]) change[step]();
-  setRadioStep();
 }
 
 function backStep(e) {

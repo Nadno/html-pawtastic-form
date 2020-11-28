@@ -201,14 +201,15 @@ export const checkFormStep = (step) => {
       result = Validation.default(name);
     };
 
-    result.field = name;
-    console.log("***result: ", result);
+    result.field = inputName;
     if (result.ok) {
       unsetInputError(inputName);
     } else {
       setInputError(result);
-    }
+    };
   });
+
+  return result.ok;
 };
 
 export default Validation;
