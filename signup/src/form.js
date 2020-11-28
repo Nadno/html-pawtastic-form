@@ -182,26 +182,33 @@ const getStepInputs = (step) => {
   return inputFor[step];
 };
 
-export const checkFormStep = (step) => {
-  let result;
-  getStepInputs(step).forEach((inputName) => {
+const validInputs = (inputs) => {
+  let ok = [];
+  
+  for (let inputName of inputs) {
     const name = getVarName(inputName);
+    let result;  
 
     if (Validation[name]) {
       result = Validation[name](name);
     } else {
       result = Validation.default(name);
     }
-
-    result.field = inputName;
+    
     if (result.ok) {
       unsetInputError(inputName);
     } else {
+      result.field = inputName;
       setInputError(result);
     }
-  });
 
-  return result.ok;
+    ok.push(result.ok);
+  }
+  
+  return ok.every(valid => valid);
 };
+
+export const checkFormStep = (step) => validInputs(getStepInputs(step));
+
 
 export default signUpData;
