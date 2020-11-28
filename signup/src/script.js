@@ -1,5 +1,7 @@
 "use strict";
-import Validation, { checkFormStep, setForm } from "./form.js";
+import element from "./getElements.js";
+import { checkFormStep } from "./form.js";
+import "./setForm.js";
 
 const STEPS = [
   "first",
@@ -18,7 +20,7 @@ const radiosTo = document.querySelectorAll(".radio__to");
 const getIdForStep = (step) => `#${STEPS[step]}`;
 export const getStepName = () => STEPS[step];
 
-const element = (name) => document.querySelector(name);
+
 const addAndRemoveHidden = (lastStep, nextStep) => {
   element(lastStep).setAttribute("hidden", "");
   element(nextStep).removeAttribute("hidden");
@@ -84,7 +86,4 @@ element("#back-btn").addEventListener("click", backStep);
 
 const isString = (value) => () => typeof value === "string";
 
-const inputs = element(".sign-up").querySelectorAll("input");
-for (let input of inputs) {
-  input.addEventListener("change", setForm);
-}
+

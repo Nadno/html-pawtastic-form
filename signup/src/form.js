@@ -22,7 +22,17 @@ const signUpData = {
   petGender: "",
   petSpayedOrNeutered: "",
   petWeight: "",
-  favoriteThings
+  favoriteThings: {
+    kisses: false,
+    walk: false,
+    barking: false,
+    snuggling: false,
+    treats: false,
+    playingFetch: false,
+    naps: false,
+    toys: false,
+  },
+  petDetail: "",
 };
 
 const inputNameToVarName = (namePart, index) => {
@@ -32,22 +42,6 @@ const inputNameToVarName = (namePart, index) => {
 
 export const getVarName = (field) =>
   field.split("-").map(inputNameToVarName).join("");
-
-const invalidField = (field) => (
-  signUpData?.[field] === undefined ||
-  signUpData?.[field] === null
-);
-
-export const setForm = ({ target }) => {
-  const name = getVarName(target.name);
-  if (invalidField(name)) return;
-  if (target.type === "checkbox") {
-     signUpData[name] = target.checked;
-  } else {
-    signUpData[name] = target.value;
-  }
-};
-
 
 const patternFor = {
   email: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/,
@@ -72,7 +66,7 @@ const ERROR = {
   EMPTY: "empty",
 };
 
-const createResult = (error, ok) => {
+const createResult = (error) => {
   const result = {
     ok: false,
   };
@@ -91,7 +85,7 @@ function validTests(tests) {
     if (!valid()) {
       return createResult(error);
     }
-  };
+  }
   return createResult();
 }
 
@@ -108,12 +102,10 @@ const Validation = {
     const MIN_YEAR = biggerOrEqualThan(year, 1950);
     const MAX_YEAR = lessOrEqualThan(year, 2020);
 
-    if (!MIN_YEAR())
-      return createResult(ERROR.INVALID);
-    if (!MAX_YEAR())
-      return createResult(ERROR.INVALID);
+    if (!MIN_YEAR()) return createResult(ERROR.INVALID);
+    if (!MAX_YEAR()) return createResult(ERROR.INVALID);
 
-    return createResult();;
+    return createResult();
   },
 
   petType: function (name) {
@@ -158,7 +150,7 @@ const Validation = {
       } else {
         return createResult(ERROR.INVALID);
       }
-    };
+    }
 
     return createResult();
   },
@@ -192,24 +184,24 @@ const getStepInputs = (step) => {
 
 export const checkFormStep = (step) => {
   let result;
-  getStepInputs(step).forEach(inputName => {
+  getStepInputs(step).forEach((inputName) => {
     const name = getVarName(inputName);
-    
+
     if (Validation[name]) {
       result = Validation[name](name);
     } else {
       result = Validation.default(name);
-    };
+    }
 
     result.field = inputName;
     if (result.ok) {
       unsetInputError(inputName);
     } else {
       setInputError(result);
-    };
+    }
   });
 
   return result.ok;
 };
 
-export default Validation;
+export default signUpData;
