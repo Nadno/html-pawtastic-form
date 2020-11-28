@@ -99,6 +99,7 @@ label {
 }
 
 .steps {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,8 +163,7 @@ label {
 
 .steps .sign-up {
   width: 100%;
-  padding: 0 6rem;
-  margin: 10% 0;
+  padding: 10% 6rem;
 }
 
 .steps .sign-up fieldset > :nth-child(1n):not(.step__tittle) {
@@ -232,17 +232,15 @@ label {
   .steps {
     width: 60vw;
     height: 100vh;
-    padding-bottom: 12rem;
+    overflow-y: hidden;
+  }
+  .steps .sign-up {
+    position: relative;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
   .steps .step__tittle {
     font-size: 3.4rem;
-  }
-  .steps footer {
-    position: fixed;
-    width: inherit;
-    bottom: 0;
-    right: 0;
   }
 }
 
@@ -377,11 +375,13 @@ label {
   opacity: 0;
 }
 
-.check__field input:checked ~ .label__field .check {
+.check__field input:checked ~ .label__field .check,
+.check__field input:checked ~ label .check {
   background-color: var(--color-secondary);
 }
 
-.check__field input:checked ~ .label__field .check:before {
+.check__field input:checked ~ .label__field .check:before,
+.check__field input:checked ~ label .check:before {
   position: absolute;
   font-size: 1.2rem;
   font-weight: bold;

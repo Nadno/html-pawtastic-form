@@ -22,6 +22,7 @@ const signUpData = {
   petGender: "",
   petSpayedOrNeutered: "",
   petWeight: "",
+  favoriteThings
 };
 
 const inputNameToVarName = (namePart, index) => {
@@ -45,7 +46,6 @@ export const setForm = ({ target }) => {
   } else {
     signUpData[name] = target.value;
   }
-  console.log(signUpData);
 };
 
 
