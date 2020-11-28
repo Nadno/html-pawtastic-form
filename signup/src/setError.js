@@ -1,35 +1,15 @@
-import { getVarName } from "./script.js";
-
 const getParent = (field) => document.querySelector(`#${field}`).parentNode;
 const getSpanError = (field) => getParent(field).querySelector(".input__error");
 
-export const toggleSpanError = ({ error, inputType }, field) => {
-  const errorTo = (to, { action, text }) => {
-    const CUSTOM_SELECT = "radio";
+export const setInputError = ({ error, field }) => {
+  getSpanError(field).innerHTML = 
+    `*${customMessage(field, error)}`;
+  getParent(field).classList.add("error");
+};
 
-    switch (to) {
-      case CUSTOM_SELECT: {
-        const element = document.querySelector(`#${field.name}`);
-        element.querySelector(".input__error").innerHTML = text;
-        element.classList[action]("error");
-        break;
-      }
-      default: {
-        getSpanError(field.id).innerHTML = text;
-        getParent(field.id).classList[action]("error");
-        break;
-      }
-    }
-  };
-
-  if (error) {
-    errorTo(inputType, {
-      action: "add",
-      text: `*${customMessage(field.varName, error)}`,
-    });
-  } else if (field) {
-    errorTo(inputType, { action: "remove", text: "" });
-  }
+export const unsetInputError = (field) => {
+  getSpanError(field).innerHTML = "";
+  getParent(field).classList.remove("error");
 };
 
 function customMessage(field, error) {
@@ -49,5 +29,5 @@ function customMessage(field, error) {
   };
 
   if (messages[field]) return messages[field][error];
-  return messages["default"][error];
+  return messages.default[error];
 }

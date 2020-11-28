@@ -1,3 +1,5 @@
+import { getStepName } from "./script.js";
+import { setInputError, unsetInputError } from "./setError.js";
 import {
   biggerOrEqualThan,
   lessOrEqualThan,
@@ -7,16 +9,45 @@ import {
 } from "./validData.js";
 
 const signUpData = {
+  email: "",
+  policy: "",
+  firstName: "",
+  lastName: "",
+  phone: "",
+  altPhone: "",
+  cpf: "",
+  petType: "",
+  petName: "",
+  petBreed: "",
+  petGender: "",
+  petSpayedOrNeutered: "",
+  petWeight: "",
 };
 
-export const setForm = ({ field, input }) => {
-  if (input.type === "checkbox") {
-    signUpData[field] = input.checked;
+const inputNameToVarName = (namePart, index) => {
+  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
+  return namePart;
+};
+
+export const getVarName = (field) =>
+  field.split("-").map(inputNameToVarName).join("");
+
+const invalidField = (field) => (
+  signUpData?.[field] === undefined ||
+  signUpData?.[field] === null
+);
+
+export const setForm = ({ target }) => {
+  const name = getVarName(target.name);
+  if (invalidField(name)) return;
+  if (target.type === "checkbox") {
+     signUpData[name] = target.checked;
   } else {
-    signUpData[field] = input.value;
+    signUpData[name] = target.value;
   }
   console.log(signUpData);
 };
+
 
 const patternFor = {
   email: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/,
@@ -93,7 +124,7 @@ const Validation = {
     return createResult(ERROR.INVALID);
   },
 
-  petSex: function (name) {
+  petGender: function (name) {
     const TYPES = ["male", "female"];
     if (TYPES.includes(signUpData[name])) {
       return createResult();
@@ -146,6 +177,38 @@ const Validation = {
 
     return createResult();
   },
+};
+
+const getStepInputs = (step) => {
+  const inputFor = {
+    first: ["zip-code"],
+    second: ["email", "policy"],
+    third: ["first-name", "last-name", "phone", "alt-phone", "cpf"],
+    fourth: ["pet-type"],
+    fifth: ["pet-name", "pet-gender", "pet-spayed-or-neutered", "pet-weight"],
+  };
+  return inputFor[step];
+};
+
+export const checkFormStep = (step) => {
+  let result;
+  getStepInputs(step).forEach(inputName => {
+    const name = getVarName(inputName);
+    
+    if (Validation[name]) {
+      result = Validation[name](name);
+    } else {
+      result = Validation.default(name);
+    };
+
+    result.field = name;
+    console.log("***result: ", result);
+    if (result.ok) {
+      unsetInputError(inputName);
+    } else {
+      setInputError(result);
+    }
+  });
 };
 
 export default Validation;

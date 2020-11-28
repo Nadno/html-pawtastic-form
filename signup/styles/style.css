@@ -434,11 +434,11 @@ label {
   }
 }
 
-.select__container .select__block {
+.select__container .select {
   margin-bottom: 1rem;
 }
 
-.select__block {
+.select {
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -446,7 +446,7 @@ label {
   border: 1px solid var(--color-dark-primary);
 }
 
-.select__block label {
+.select label {
   width: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -457,7 +457,7 @@ label {
   transition: background-color 0.4s linear;
 }
 
-.select__block label .pet__option {
+.select label .pet__option {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -475,32 +475,34 @@ label {
           flex-direction: column;
 }
 
-.select__block label .option__image {
+.select label .option__image {
   min-height: 4rem;
   max-height: 8rem;
 }
 
-.select__block label .option__legend {
+.select label .option__legend {
   display: block;
   font-size: 1.8rem;
   font-weight: bold;
   margin-top: 0.8rem;
 }
 
-.select__block label:hover {
+.select label:hover {
   background-color: var(--color-primary);
 }
 
-.select__block:focus-within {
+.select:focus-within {
   border-color: var(--color-secondary);
 }
 
-.select__block input:checked ~ label,
-.select__block input:focus ~ label {
+.select input:checked + label,
+.select input:focus + label {
+  width: 100%;
+  height: 100%;
   background-color: var(--color-primary);
 }
 
-.select__block input {
+.select input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -514,13 +516,13 @@ label {
         grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1.4rem;
   }
-  .select__block.two-columns {
+  .select.two-columns {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
-  .select__block.four-columns {
+  .select.four-columns {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[4];
@@ -555,7 +557,7 @@ label {
   margin-left: 2.8rem;
 }
 
-.select.error .label__field {
+.select__field.error .label__field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -564,7 +566,7 @@ label {
           align-items: center;
 }
 
-.select.error .select__block {
+.select__field.error .select {
   border: 1px solid var(--color-tertiary);
 }
 

@@ -267,100 +267,92 @@
             Tell us all about your furry, feathery, or scaley friend.
           </legend>
 
-          <div class="select" id="pet-type">
+          <div class="select__field">
             <div class="label__field">
               <span class="input__tittle">Kind of your pet</span>
               <span class="input__error"></span>
             </div>
-            <div class="select__block four-columns">
-              <div class="option__field">
-                <input type="radio" name="pet-type" id="dog" value="dog" />
-                <label for="dog">
-                  <figure class="pet__option">
-                    <picture>
-                      <source
-                        srcset="../images/dog-option@2x.png"
-                        media="(min-width: 750px)"
-                      />
-                      <img
-                        class="option__image"
-                        src="../images/dog-option.png"
-                        alt="Dog"
-                      />
-                    </picture>
+            <div class="select four-columns" id="pet-type">
+              <input type="radio" name="pet-type" id="dog" value="dog" />
+              <label for="dog">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="../images/dog-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="../images/dog-option.png"
+                      alt="Dog"
+                    />
+                  </picture>
 
-                    <figcaption class="option__legend">Dog</figcaption>
-                  </figure>
-                </label>
-              </div>
+                  <figcaption class="option__legend">Dog</figcaption>
+                </figure>
+              </label>
 
-              <div class="option__field">
-                <input type="radio" name="pet-type" id="cat" value="cat" />
-                <label for="cat">
-                  <figure class="pet__option">
-                    <picture>
-                      <source
-                        srcset="../images/cat-option@2x.png"
-                        media="(min-width: 750px)"
-                      />
-                      <img
-                        class="option__image"
-                        src="../images/cat-option.png"
-                        alt="Cat"
-                      />
-                    </picture>
+              <input type="radio" name="pet-type" id="cat" value="cat" />
+              <label for="cat">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="../images/cat-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="../images/cat-option.png"
+                      alt="Cat"
+                    />
+                  </picture>
 
-                    <figcaption class="option__legend">Cat</figcaption>
-                  </figure>
-                </label>
-              </div>
+                  <figcaption class="option__legend">Cat</figcaption>
+                </figure>
+              </label>
 
-              <div class="option__field">
-                <input type="radio" name="pet-type" id="birdy" value="birdy" />
-                <label for="birdy">
-                  <figure class="pet__option">
-                    <picture>
-                      <source
-                        srcset="../images/birdy-option@2x.png"
-                        media="(min-width: 750px)"
-                      />
-                      <img
-                        class="option__image"
-                        src="../images/birdy-option.png"
-                        alt="Birdy"
-                      />
-                    </picture>
+              <input type="radio" name="pet-type" id="birdy" value="birdy" />
+              <label for="birdy">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="../images/birdy-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="../images/birdy-option.png"
+                      alt="Birdy"
+                    />
+                  </picture>
 
-                    <figcaption class="option__legend">Birdy</figcaption>
-                  </figure>
-                </label>
-              </div>
+                  <figcaption class="option__legend">Birdy</figcaption>
+                </figure>
+              </label>
 
-              <div class="option__field">
-                <input
-                  type="radio"
-                  name="pet-type"
-                  id="hamster"
-                  value="hamster"
-                />
-                <label for="hamster">
-                  <figure class="pet__option">
-                    <picture>
-                      <source
-                        srcset="../images/hamster-option@2x.png"
-                        media="(min-width: 750px)"
-                      />
-                      <img
-                        class="option__image"
-                        src="../images/hamster-option.png"
-                        alt="Hamster"
-                      />
-                    </picture>
+              <input
+                type="radio"
+                name="pet-type"
+                id="hamster"
+                value="hamster"
+              />
+              <label for="hamster">
+                <figure class="pet__option">
+                  <picture>
+                    <source
+                      srcset="../images/hamster-option@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      class="option__image"
+                      src="../images/hamster-option.png"
+                      alt="Hamster"
+                    />
+                  </picture>
 
-                    <figcaption class="option__legend">Hamster</figcaption>
-                  </figure>
-                </label>
-              </div>
+                  <figcaption class="option__legend">Hamster</figcaption>
+                </figure>
+              </label>
             </div>
           </div>
 
@@ -445,136 +437,98 @@
           </div>
 
           <section class="select__container">
-            <div class="select" id="pet-sex">
+            <div class="select__field">
               <div class="label__field">
                 <span class="input__tittle">Gender</span>
                 <span class="input__error"></span>
               </div>
 
-              <div class="select__block two-columns">
-                <div class="select__option">
-                  <div class="option__field">
-                    <input
-                      type="radio"
-                      name="pet-sex"
-                      id="pet-male"
-                      value="male"
-                    />
-                    <label for="pet-male" class="option__legend"> Male </label>
-                  </div>
-                </div>
+              <div class="select two-columns" id="pet-gender">
+                <input
+                  type="radio"
+                  name="pet-gender"
+                  id="pet-male"
+                  value="male"
+                />
+                <label for="pet-male" class="option__legend"> Male </label>
 
-                <div class="select__option">
-                  <div class="option__field">
-                    <input
-                      type="radio"
-                      name="pet-sex"
-                      id="pet-female"
-                      value="female"
-                    />
-                    <label for="pet-female" class="option__legend">
-                      Female
-                    </label>
-                  </div>
-                </div>
+                <input
+                  type="radio"
+                  name="pet-gender"
+                  id="pet-female"
+                  value="female"
+                />
+                <label for="pet-female" class="option__legend"> Female </label>
               </div>
             </div>
 
-            <div class="select" id="pet-spayed-or-neutered">
+            <div class="select__field">
               <div class="label__field">
                 <span class="input__tittle">Spayed or Neutered</span>
                 <span class="input__error"></span>
               </div>
 
-              <div class="select__block two-columns">
-                <div class="select__option">
-                  <div class="option__field">
-                    <input
-                      type="radio"
-                      name="pet-spayed-or-neutered"
-                      id="spayed-or-neutered-yes"
-                      value="true"
-                    />
-                    <label for="spayed-or-neutered-yes" class="option__legend">
-                      Yes
-                    </label>
-                  </div>
-                </div>
+              <div class="select two-columns" id="pet-spayed-or-neutered">
+                <input
+                  type="radio"
+                  name="pet-spayed-or-neutered"
+                  id="spayed-or-neutered-yes"
+                  value="true"
+                />
+                <label for="spayed-or-neutered-yes" class="option__legend">
+                  Yes
+                </label>
 
-                <div class="select__option">
-                  <div class="option__field">
-                    <input
-                      type="radio"
-                      name="pet-spayed-or-neutered"
-                      id="spayed-or-neutered-no"
-                      value="false"
-                    />
-                    <label for="spayed-or-neutered-no" class="option__legend">
-                      No
-                    </label>
-                  </div>
-                </div>
+                <input
+                  type="radio"
+                  name="pet-spayed-or-neutered"
+                  id="spayed-or-neutered-no"
+                  value="false"
+                />
+                <label for="spayed-or-neutered-no" class="option__legend">
+                  No
+                </label>
               </div>
             </div>
           </section>
 
-          <div class="select" id="pet-weight">
+          <div class="select__field">
             <div class="label__field">
               <span class="input__tittle">Weight</span>
               <span class="input__error"></span>
             </div>
-            <div class="select__block four-columns">
-              <div class="select__option">
-                <div class="option__field">
-                  <input
-                    type="radio"
-                    name="pet-weight"
-                    id="first-weight"
-                    value="5/10"
-                  />
-                  <label for="first-weight" class="option__legend">5/10 Kg</label>
-                </div>
-              </div>
+            <div class="select four-columns" id="pet-weight">
+              <input
+                type="radio"
+                name="pet-weight"
+                id="first-weight"
+                value="5/10"
+              />
+              <label for="first-weight" class="option__legend">5/10 Kg</label>
 
-              <div class="select__option">
-                <div class="option__field">
-                  <input
-                    type="radio"
-                    name="pet-weight"
-                    id="second-weight"
-                    value="10/15"
-                  />
-                  <label for="second-weight" class="option__legend"
-                    >10/15 Kg</label
-                  >
-                </div>
-              </div>
+              <input
+                type="radio"
+                name="pet-weight"
+                id="second-weight"
+                value="10/15"
+              />
+              <label for="second-weight" class="option__legend">10/15 Kg</label>
 
-              <div class="select__option">
-                <div class="option__field">
-                  <input
-                    type="radio"
-                    name="pet-weight"
-                    id="third-weight"
-                    value="15/20"
-                  />
-                  <label for="third-weight" class="option__legend">15/20 Kg</label>
-                </div>
-              </div>
+              <input
+                type="radio"
+                name="pet-weight"
+                id="third-weight"
+                value="15/20"
+              />
+              <label for="third-weight" class="option__legend">15/20 Kg</label>
 
-              <div class="select__option">
-                <div class="option__field">
-                  <input
-                    type="radio"
-                    name="pet-weight"
-                    id="fourth-weight"
-                    value="20/25"
-                  />
-                  <label for="fourth-weight" class="option__legend"
-                    >20/25 Kg</label
-                  >
-                </div>
-              </div>
+              <input
+                type="radio"
+                name="pet-weight"
+                id="fourth-weight"
+                value="20/25"
+              />
+              <label for="fourth-weight" class="option__legend">20/25 Kg</label>
             </div>
           </div>
         </fieldset>

@@ -1,28 +1,22 @@
 "use strict";
-import Validation, { setForm } from "./form.js";
-import { toggleSpanError } from "./setError.js";
+import Validation, { checkFormStep, setForm } from "./form.js";
 
-const STEPS_ID = [
-  "#first",
-  "#second",
-  "#third",
-  "#fourth",
-  "#fifth",
-  "#sixth",
-  "#seventh",
+const STEPS = [
+  "first",
+  "second",
+  "third",
+  "fourth",
+  "fifth",
+  "sixth",
+  "seventh",
 ];
 const MAX_STEPS = 7;
 let step = 0;
 
 const radiosTo = document.querySelectorAll(".radio__to");
 
-const inputNameToVarName = (namePart, index) => {
-  if (index > 0) return namePart[0].toUpperCase() + namePart.slice(1);
-  return namePart;
-};
-
-export const getVarName = (field) =>
-  field.split("-").map(inputNameToVarName).join("");
+const getIdForStep = (step) => `#${STEPS[step]}`;
+export const getStepName = () => STEPS[step];
 
 const element = (name) => document.querySelector(name);
 const addAndRemoveHidden = (lastStep, nextStep) => {
@@ -46,7 +40,7 @@ const setRadioStep = () => {
 };
 
 const change = {
-  1: () => element(STEPS_ID[step]).parentNode.removeAttribute("hidden"),
+  1: () => element(getIdForStep(step)).parentNode.removeAttribute("hidden"),
   2: (toggle = "add") => {
     element("footer").classList[toggle]("change__point");
     element(".side__content").classList[toggle]("change__point");
@@ -55,13 +49,14 @@ const change = {
 
 function nextStep(e) {
   e.preventDefault();
+  checkFormStep(STEPS[step]);
   if (step === MAX_STEPS) {
     return;
   }
 
   step++;
-  const lastStep = STEPS_ID[step - 1];
-  const nextStep = STEPS_ID[step];
+  const lastStep = getIdForStep(step - 1);
+  const nextStep = getIdForStep(step);
   addAndRemoveHidden(lastStep, nextStep);
 
   if (change[step]) change[step]();
@@ -72,8 +67,8 @@ function backStep(e) {
   e.preventDefault();
 
   step--;
-  const lastStep = STEPS_ID[step + 1];
-  const nextStep = STEPS_ID[step];
+  const lastStep = getIdForStep(step + 1);
+  const nextStep = getIdForStep(step);
   addAndRemoveHidden(lastStep, nextStep);
 
   if (step === 1) change["2"]("remove");
@@ -86,29 +81,9 @@ element(".sign-up").addEventListener("submit", (e) => {
 });
 element("#back-btn").addEventListener("click", backStep);
 
-const inputs = element(".sign-up").querySelectorAll("input");
-
 const isString = (value) => () => typeof value === "string";
 
+const inputs = element(".sign-up").querySelectorAll("input");
 for (let input of inputs) {
-  const name = getVarName(input.name);
-  const field = { id: input.id, name: input.name, varName: name };
-  let validate;
-
-  if (Validation[name]) {
-    validate = Validation[name];
-  } else {
-    validate = Validation.default;
-  }
-
-  input.addEventListener("blur", ({target}) => {
-    setForm({ field: name, input: target, });
-    
-    const result = validate(name);
-    result.inputType = input.type;
- 
-    if (result.ok) return toggleSpanError(result, field);
-    
-    toggleSpanError(result, field);
-  });
+  input.addEventListener("change", setForm);
 }
