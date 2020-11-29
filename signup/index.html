@@ -97,7 +97,7 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code" id="first">
+      <section class="confirm__zip-code" id="first" hidden>
         <form class="zip-code">
           <fieldset>
             <legend class="step__tittle">
@@ -105,16 +105,14 @@
             </legend>
 
             <div class="input__field">
-              <div class="label__field">
-                <label for="zip-code" class="input__tittle">Zip code</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="zip-code" class="input__tittle">Zip code</label>
               <input
                 type="text"
                 id="zip-code"
                 name="zip-code"
                 placeholder="Enter your answer"
               />
+              <span class="input__error"></span>
             </div>
           </fieldset>
 
@@ -122,52 +120,47 @@
         </form>
       </section>
 
-      <form class="sign-up" hidden>
+      <form class="sign-up">
         <fieldset id="second" hidden>
           <legend class="step__tittle">
             Good news! We care for pets in your area. Let's
           </legend>
 
           <div class="input__field">
-            <div class="label__field">
-              <label for="email" class="input__tittle">E-mail</label>
-              <span class="input__error"></span>
-            </div>
+            <label for="email" class="input__tittle">E-mail</label>
             <input
               type="email"
               id="email"
               name="email"
               placeholder="Enter your e-mail"
             />
+            <span class="input__error"></span>
           </div>
 
           <div class="field__block">
             <div class="input__field">
-              <div class="label__field">
-                <label for="password" class="input__tittle">Password</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="password" class="input__tittle">Password</label>
+
               <input
                 type="password"
                 id="password"
                 name="password"
                 placeholder="••••••••"
               />
+              <span class="input__error"></span>
             </div>
 
             <div class="input__field">
               <label for="confirm" class="input__tittle"
                 >Confirm password</label
               >
-              <div class="label__field">
-                <span class="input__error"></span>
-              </div>
               <input
                 type="password"
                 id="confirm"
                 name="confirm"
-                placeholder="••••••••"
+                placeholder="Min eight figures"
               />
+              <span class="input__error"></span>
             </div>
           </div>
 
@@ -193,85 +186,76 @@
 
           <div class="field__block">
             <div class="input__field">
-              <div class="label__field">
-                <label for="first-name" class="input__tittle">First name</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="first-name" class="input__tittle">First name</label>
+
               <input
                 type="text"
                 id="first-name"
                 name="first-name"
                 placeholder="Your first name"
               />
+              <span class="input__error"></span>
             </div>
 
             <div class="input__field">
-              <div class="label__field">
-                <label for="last-name" class="input__tittle">Last name</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="last-name" class="input__tittle">Last name</label>
+
               <input
                 type="text"
                 id="last-name"
                 name="last-name"
                 placeholder="Your last name"
               />
+              <span class="input__error"></span>
             </div>
           </div>
 
           <div class="field__block">
             <div class="input__field">
-              <div class="label__field">
-                <label for="phone" class="input__tittle">Phone</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="phone" class="input__tittle">Phone</label>
               <input
                 type="text"
                 id="phone"
                 name="phone"
                 placeholder="000-000-000"
               />
+              <span class="input__error"></span>
             </div>
 
             <div class="input__field">
-              <div class="label__field">
-                <label for="alt-phone" class="input__tittle">Phone alt</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="alt-phone" class="input__tittle">Phone alt</label>
               <input
                 type="text"
                 id="alt-phone"
                 name="alt-phone"
                 placeholder="000-000-000"
               />
+              <span class="input__error"></span>
             </div>
           </div>
 
           <div class="input__field">
-            <div class="label__field">
-              <label for="cpf" class="input__tittle">CPF</label>
-              <span class="input__error"></span>
-            </div>
+            <label for="cpf" class="input__tittle">CPF</label>
+
             <input
               type="text"
               id="cpf"
               name="cpf"
               placeholder="000.000.000-00"
             />
+            <span class="input__error"></span>
           </div>
         </fieldset>
 
-        <fieldset id="fourth" hidden>
+        <fieldset id="fourth">
           <legend class="step__tittle">
             Nice to meet you, Name. <br />
             Tell us all about your furry, feathery, or scaley friend.
           </legend>
 
           <div class="select__field">
-            <div class="label__field">
-              <span class="input__tittle">Kind of your pet</span>
-              <span class="input__error"></span>
-            </div>
+            <span class="input__tittle">Kind of your pet</span>
+
             <div class="select four-columns" id="pet-type">
               <input type="radio" name="pet-type" id="dog" value="dog" />
               <label for="dog">
@@ -354,6 +338,7 @@
                 </figure>
               </label>
             </div>
+            <span class="input__error"></span>
           </div>
 
           <span class="step__info">
@@ -369,16 +354,15 @@
 
           <div class="field__block">
             <div class="input__field">
-              <div class="label__field">
-                <label for="pet-name" class="input__tittle">Name</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="pet-name" class="input__tittle">Name</label>
+
               <input
                 type="text"
                 name="pet-name"
                 id="pet-name"
                 placeholder="Pet's name"
               />
+              <span class="input__error"></span>
             </div>
 
             <div class="photo__field">
@@ -414,34 +398,27 @@
 
           <div class="field__block">
             <div class="input__field">
-              <div class="label__field">
-                <label for="pet-breed" class="input__tittle">Breed</label>
-                <span class="input__error"></span>
-              </div>
+              <label for="pet-breed" class="input__tittle">Breed</label>
+
               <input
                 type="text"
                 name="pet-breed"
                 id="pet-breed"
                 placeholder="Pet's breed"
               />
+              <span class="input__error"></span>
             </div>
             <div class="input__field">
-              <div class="label__field">
-                <label for="pet-birth-day" class="input__tittle"
-                  >Birthday</label
-                >
-                <span class="input__error"></span>
-              </div>
+              <label for="pet-birth-day" class="input__tittle">Birthday</label>
+
               <input type="date" name="pet-birth-day" id="pet-birth-day" />
+              <span class="input__error"></span>
             </div>
           </div>
 
           <section class="select__container">
             <div class="select__field">
-              <div class="label__field">
-                <span class="input__tittle">Gender</span>
-                <span class="input__error"></span>
-              </div>
+              <span class="input__tittle">Gender</span>
 
               <div class="select two-columns" id="pet-gender">
                 <input
@@ -460,13 +437,11 @@
                 />
                 <label for="pet-female" class="option__legend"> Female </label>
               </div>
+              <span class="input__error"></span>
             </div>
 
             <div class="select__field">
-              <div class="label__field">
-                <span class="input__tittle">Spayed or Neutered</span>
-                <span class="input__error"></span>
-              </div>
+              <span class="input__tittle">Spayed or Neutered</span>
 
               <div class="select two-columns" id="pet-spayed-or-neutered">
                 <input
@@ -489,14 +464,13 @@
                   No
                 </label>
               </div>
+              <span class="input__error"></span>
             </div>
           </section>
 
           <div class="select__field">
-            <div class="label__field">
-              <span class="input__tittle">Weight</span>
-              <span class="input__error"></span>
-            </div>
+            <span class="input__tittle">Weight</span>
+
             <div class="select four-columns" id="pet-weight">
               <input
                 type="radio"
@@ -530,6 +504,7 @@
               />
               <label for="fourth-weight" class="option__legend">20/25 Kg</label>
             </div>
+            <span class="input__error"></span>
           </div>
         </fieldset>
 

@@ -7,7 +7,7 @@ export const setInputError = ({ error, field }) => {
   getParent(field).classList.add("error");
 };
 
-export const unsetInputError = (field) => {
+export const unsetInputError = ({ field }) => {
   getSpanError(field).innerHTML = "";
   getParent(field).classList.remove("error");
 };
@@ -19,15 +19,16 @@ function customMessage(field, error) {
       invalid: "Invalid",
     },
     confirm: {
-      empty: "Confirm your password",
-      invalid: "min eight figures, without special characters",
       notEqual: "The passwords is not equal",
+    },
+    password: {
+      invalid: "Minimum 3 figures, only with letters and numbers"
     },
     policy: {
       off: "This option is required",
     },
   };
 
-  if (messages[field]) return messages[field][error];
+  if (messages[field]?.[error]) return messages[field][error];
   return messages.default[error];
 }

@@ -13,7 +13,7 @@ const STEPS = [
   "seventh",
 ];
 const MAX_STEPS = 7;
-let step = 0;
+let step = 3;
 
 const radiosTo = document.querySelectorAll(".radio__to");
 

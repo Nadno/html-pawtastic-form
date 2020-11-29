@@ -10,6 +10,8 @@ import {
 
 const signUpData = {
   email: "",
+  password: "",
+  confirm: "",
   policy: "",
   firstName: "",
   lastName: "",
@@ -20,6 +22,7 @@ const signUpData = {
   petName: "",
   petBreed: "",
   petGender: "",
+  petBirthDay: "",
   petSpayedOrNeutered: "",
   petWeight: "",
   favoriteThings: {
@@ -45,7 +48,7 @@ export const getVarName = (field) =>
 
 const patternFor = {
   email: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/,
-  confirm: /^[a-zA-Z-0-9]{6,30}$/,
+  password: /^[a-zA-Z-0-9]{6,30}$/,
   cpf: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/,
   phone: /\d{2}\s\9\d{4}\-\d{4}/,
 };
@@ -59,26 +62,31 @@ const NOT_NULLS = [
   "cpf",
   "petName",
 ];
+const CUSTOM_SELECTS = [
+  "petType",
+  "petSpayedOrNeutered",
+  "petWeight",
+  "petGender",
+];
 
 const ERROR = {
   INVALID: "invalid",
   OFF: "off",
   EMPTY: "empty",
+  NOT_EQUAL: "notEqual",
 };
 
-const createResult = (error) => {
-  const result = {
-    ok: false,
-  };
-
-  if (error) {
-    result.error = error;
-  } else {
-    result.ok = true;
-  }
-
-  return result;
-};
+const createResult = (error) =>
+  error
+    ? {
+        ok: false,
+        action: setInputError,
+        error,
+      }
+    : {
+        ok: true,
+        action: unsetInputError,
+      };
 
 function validTests(tests) {
   for (let [valid, error] of tests) {
@@ -89,16 +97,57 @@ function validTests(tests) {
   return createResult();
 }
 
+function validTextInput(name) {
+  const tests = [[notNull(signUpData[name]), ERROR.EMPTY]];
+
+  if (patternFor[name])
+    tests.push([
+      validPattern(patternFor[name], signUpData[name]),
+      ERROR.INVALID,
+    ]);
+  return validTests(tests);
+}
+
+function validCustomSelect(name) {
+  const TYPES = {
+    petType: ["dog", "cat", "birdy", "hamster"],
+    petGender: ["male", "female"],
+    petSpayedOrNeutered: ["true", "false"],
+    petWeight: ["5/10", "10/15", "15/20", "20/25"],
+  };
+
+  if (TYPES[name].includes(signUpData[name])) return createResult();
+  return createResult(ERROR.INVALID);
+}
+
 const Validation = {
-  policy: function (name) {
-    if (signUpData[name]) {
+  policy: function () {
+    if (signUpData.policy) {
       return createResult();
     }
     return createResult(ERROR.OFF);
   },
 
-  petBirthDay: function (name) {
-    const [year] = signUpData[name].split("-");
+  password: function () {
+    const tests = [
+      [notNull(signUpData.password), ERROR.EMPTY],
+      [validPattern(patternFor.password, signUpData.password), ERROR.INVALID],
+    ];
+
+    return validTests(tests);
+  },
+
+  confirm: function () {
+    const tests = [
+      [notNull(signUpData.password), ERROR.EMPTY],
+      [isEqual(signUpData.password, signUpData.confirm), ERROR.NOT_EQUAL],
+    ];
+
+    return validTests(tests);
+  },
+
+  petBirthDay: function () {
+    const [year] = signUpData.petBirthDay.split("-");
     const MIN_YEAR = biggerOrEqualThan(year, 1950);
     const MAX_YEAR = lessOrEqualThan(year, 2020);
 
@@ -108,44 +157,12 @@ const Validation = {
     return createResult();
   },
 
-  petType: function (name) {
-    const TYPES = ["dog", "cat", "birdy", "hamster"];
-    if (TYPES.includes(signUpData[name])) {
-      return createResult();
-    }
-    return createResult(ERROR.INVALID);
-  },
+  petPhoto: function () {},
 
-  petGender: function (name) {
-    const TYPES = ["male", "female"];
-    if (TYPES.includes(signUpData[name])) {
-      return createResult();
-    }
-    return createResult(ERROR.INVALID);
-  },
-
-  petSpayedOrNeutered: function (name) {
-    const TYPES = ["true", "false"];
-    if (TYPES.includes(signUpData[name])) {
-      return createResult();
-    }
-    return createResult(ERROR.INVALID);
-  },
-
-  petWeight: function (name) {
-    const TYPES = ["5/10", "10/15", "15/20", "20/25"];
-    if (TYPES.includes(signUpData[name])) {
-      return createResult();
-    }
-    return createResult(ERROR.INVALID);
-  },
-
-  petPhoto: function (name) {},
-
-  altPhone: function (name) {
-    const HAS_VALUE = signUpData[name].length > 0;
+  altPhone: function () {
+    const HAS_VALUE = signUpData.altPhone.length > 0;
     if (HAS_VALUE) {
-      if (validPattern(patternFor["phone"], signUpData[name])()) {
+      if (validPattern(patternFor["phone"], signUpData.altPhone)()) {
         return createResult();
       } else {
         return createResult(ERROR.INVALID);
@@ -157,14 +174,9 @@ const Validation = {
 
   default: function (name) {
     if (NOT_NULLS.includes(name)) {
-      const tests = [[notNull(signUpData[name]), ERROR.EMPTY]];
-
-      if (patternFor[name])
-        tests.push([
-          validPattern(patternFor[name], signUpData[name]),
-          ERROR.INVALID,
-        ]);
-      return validTests(tests);
+      return validTextInput(name);
+    } else if (CUSTOM_SELECTS.includes(name)) {
+      return validCustomSelect(name);
     }
 
     return createResult();
@@ -174,7 +186,7 @@ const Validation = {
 const getStepInputs = (step) => {
   const inputFor = {
     first: ["zip-code"],
-    second: ["email", "policy"],
+    second: ["email", "password", "confirm", "policy"],
     third: ["first-name", "last-name", "phone", "alt-phone", "cpf"],
     fourth: ["pet-type"],
     fifth: ["pet-name", "pet-gender", "pet-spayed-or-neutered", "pet-weight"],
@@ -183,32 +195,23 @@ const getStepInputs = (step) => {
 };
 
 const validInputs = (inputs) => {
-  let ok = [];
-  
+  let oks = [];
+
   for (let inputName of inputs) {
     const name = getVarName(inputName);
-    let result;  
+    const result = Validation[name]
+      ? Validation[name]()
+      : Validation.default(name);
 
-    if (Validation[name]) {
-      result = Validation[name](name);
-    } else {
-      result = Validation.default(name);
-    }
-    
-    if (result.ok) {
-      unsetInputError(inputName);
-    } else {
-      result.field = inputName;
-      setInputError(result);
-    }
+    result.field = inputName;
+    result.action(result);
 
-    ok.push(result.ok);
+    oks.push(result.ok);
   }
-  
-  return ok.every(valid => valid);
+
+  return oks.every((ok) => ok);
 };
 
 export const checkFormStep = (step) => validInputs(getStepInputs(step));
-
 
 export default signUpData;

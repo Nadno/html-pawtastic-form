@@ -1,6 +1,6 @@
 .input__error {
   font-size: 1.6rem;
-  margin-left: 0.5rem;
+  margin-top: 0.5rem;
   color: var(--color-tertiary);
 
   display: flex;
@@ -9,7 +9,8 @@
 .input__field.error {
   .label__field {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+
   }
 
   input {
