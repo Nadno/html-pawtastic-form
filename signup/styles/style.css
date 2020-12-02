@@ -91,20 +91,30 @@ label {
 }
 
 .side .side__content {
+  position: relative;
   width: 60%;
+  height: 50%;
+}
+
+.side .side__content .why__us {
+  position: absolute;
+  -webkit-transition: opacity linear 0.4s;
+  transition: opacity linear 0.4s;
 }
 
 .side .side__content .show__steps {
+  position: absolute;
   opacity: 0;
-  display: none;
+  -webkit-transition: opacity linear 0.4s;
+  transition: opacity linear 0.4s;
 }
 
 .side .side__content.change__point .why__us {
-  display: none;
+  opacity: 0;
 }
 
 .side .side__content.change__point .show__steps {
-  display: block;
+  opacity: 1;
 }
 
 @media (min-width: 750px) {
@@ -115,7 +125,6 @@ label {
 }
 
 .steps {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,7 +175,7 @@ label {
 .steps .sign-up fieldset {
   border: none;
   margin: auto 0;
-  padding: 4rem 6rem;
+  padding: 4rem;
 }
 
 .steps .sign-up #first {
@@ -595,8 +604,8 @@ label {
   background-color: var(--color-light-secondary);
   top: -0.8rem;
   left: -1.2rem;
-  -webkit-transition: background-color, border-color 0.4s linear;
-  transition: background-color, border-color 0.4s linear;
+  -webkit-transition: background-color, border-color 0.6s linear;
+  transition: background-color, border-color 0.6s linear;
 }
 
 .show__steps input:checked ~ label .check {

@@ -1,5 +1,4 @@
 .steps {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,13 +31,12 @@
     fieldset {
       border: none;
       margin: auto 0;
-      padding: 4rem 6rem;
+      padding: 4rem;
     }
 
     #first {
       height: initial;
       overflow-y: hidden;
-      
 
       .step__tittle {
         margin: 0;

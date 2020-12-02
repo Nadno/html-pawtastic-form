@@ -8,7 +8,6 @@
   background-position: right bottom;
   background-size: cover;
 
-  // padding: 8rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,20 +54,29 @@
   }
 
   .side__content {
+    position: relative;
     width: 60%;
+    height: 50%;
+
+    .why__us {
+      position: absolute;
+      transition: opacity linear 0.4s;
+    }
+
     .show__steps {
+      position: absolute;
       opacity: 0;
-      display: none;
+      transition: opacity linear 0.4s;
     }
   }
 
   .side__content.change__point {
     .why__us {
-      display: none;
+      opacity: 0;
     }
 
     .show__steps {
-      display: block;
+      opacity: 1;
     }
   }
 }
