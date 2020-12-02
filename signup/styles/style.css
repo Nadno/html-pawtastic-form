@@ -4,7 +4,7 @@ label {
   display: block;
 }
 
-.button {
+.button, .steps .sign-up button[type="submit"] {
   height: 4rem;
   width: 12rem;
   font-size: 2.4rem;
@@ -14,8 +14,8 @@ label {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
+.button:hover, .steps .sign-up button:hover[type="submit"] {
+  background-color: var(--color-blue);
 }
 
 @media (min-width: 750px) {
@@ -29,26 +29,57 @@ label {
 .side {
   position: relative;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   color: var(--color-white);
-  margin-bottom: 4rem;
+  background-image: url("../../../images/sign-up__0.jpg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: background-image linear 0.6s;
+  transition: background-image linear 0.6s;
+}
+
+.side .logo {
+  width: 60%;
+  margin-bottom: 6rem;
+}
+
+.side .logo img {
+  width: 100%;
+  max-width: 22rem;
+  min-width: 20rem;
 }
 
 .side .why__tittle {
+  width: 100%;
   font-size: 3.6rem;
   margin-bottom: 2rem;
 }
 
 .side .why__answer {
+  width: 100%;
   font-size: 2.4rem;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .side .why__answer li {
   position: relative;
   display: block;
   height: 8rem;
-  padding-top: 1rem;
+  padding: 1.4rem 0;
 }
 
 .side .why__answer li:before {
@@ -59,33 +90,20 @@ label {
   content: "•";
 }
 
-.side .logo {
-  margin-bottom: 6rem;
-}
-
-.side .side__image {
-  width: 100%;
-  height: 100%;
-}
-
 .side .side__content {
-  position: absolute;
-  width: 80%;
-  top: 10%;
-  left: 55%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  width: 60%;
 }
 
-.side .side__content .select__step {
+.side .side__content .show__steps {
+  opacity: 0;
   display: none;
 }
 
-.side .change__point .why__us {
+.side .side__content.change__point .why__us {
   display: none;
 }
 
-.side .change__point .show__steps {
+.side .side__content.change__point .show__steps {
   display: block;
 }
 
@@ -93,8 +111,6 @@ label {
   .side {
     width: 40vw;
     min-width: 350px;
-    height: 100vh;
-    margin: 0;
   }
 }
 
@@ -116,39 +132,10 @@ label {
   color: var(--color-secondary);
 }
 
-.steps .confirm__zip-code {
-  width: 100%;
-  height: 100%;
-  max-width: 480px;
-  padding: 10% 6rem;
-}
-
-.steps .confirm__zip-code .zip-code {
-  height: 100%;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.steps .confirm__zip-code .input__field input {
-  width: 60%;
-}
-
 .steps .step__tittle {
   font-size: 2.4rem;
   font-weight: bold;
-  margin-bottom: 2rem;
-}
-
-.steps .label__field {
-  margin-bottom: 1rem;
+  margin: 5rem 0;
 }
 
 .steps .input__tittle {
@@ -163,68 +150,87 @@ label {
 
 .steps .sign-up {
   width: 100%;
-  padding: 10% 6rem;
-}
-
-.steps .sign-up fieldset > :nth-child(1n):not(.step__tittle) {
-  margin-bottom: 2rem;
-}
-
-.steps .sign-up .step__tittle {
-  margin-bottom: 6rem;
-}
-
-.steps .sign-up .hidden {
-  display: none;
-}
-
-.steps fieldset {
-  border: none;
-}
-
-.steps footer {
-  height: 10rem;
-  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.steps .sign-up fieldset {
+  border: none;
+  margin: auto 0;
+  padding: 4rem 6rem;
+}
+
+.steps .sign-up #first {
+  height: initial;
+  overflow-y: hidden;
+}
+
+.steps .sign-up #first .step__tittle {
+  margin: 0;
+}
+
+.steps .sign-up #first input {
+  width: 20rem;
+}
+
+.steps .sign-up fieldset > :nth-child(1n):not(legend) {
+  margin-bottom: 2rem;
+}
+
+.steps .form__footer {
+  height: 12rem;
+  width: 100%;
+  padding: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: var(--color-white);
   border-top-color: var(--color-dark-primary);
 }
 
-.steps footer .button {
+.steps .form__footer .step__buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.steps .form__footer #back-btn {
   display: none;
 }
 
-.steps footer .member {
+.steps .form__footer .member {
   font-size: 1.6rem;
+  text-align: center;
   color: var(--color-light-secondary);
 }
 
-.steps footer a {
+.steps .form__footer a {
   margin-left: 1rem;
   text-decoration: none;
   color: var(--color-secondary);
 }
 
-.steps footer.change__point {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  padding: 0 4rem;
-}
-
-.steps footer.change__point .member {
-  display: none;
-}
-
-.steps footer.change__point .button {
+.steps .form__footer.change__point #back-btn {
   display: initial;
 }
 
@@ -234,7 +240,7 @@ label {
     height: 100vh;
     overflow-y: hidden;
   }
-  .steps .sign-up {
+  .steps .sign-up fieldset {
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -368,6 +374,8 @@ label {
   border: 1px solid var(--color-dark-primary);
   background-color: var(--color-white);
   cursor: pointer;
+  -webkit-transition: background-color linear 0.4s;
+  transition: background-color linear 0.4s;
 }
 
 .check__field input {
@@ -444,6 +452,7 @@ label {
   border-radius: 0.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-dark-primary);
+  margin-top: 0.6rem;
 }
 
 .select label {
@@ -453,26 +462,8 @@ label {
   text-align: center;
   font-size: 1.6rem;
   cursor: pointer;
-  -webkit-transition: background-color 0.4s linear;
-  transition: background-color 0.4s linear;
-}
-
-.select label .pet__option {
-  height: 100%;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-transition: background-color linear 0.4s;
+  transition: background-color linear 0.4s;
 }
 
 .select label .option__image {
@@ -488,7 +479,7 @@ label {
 }
 
 .select label:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-blue);
 }
 
 .select:focus-within {

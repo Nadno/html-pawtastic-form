@@ -101,6 +101,8 @@
     background-color: var(--color-white);
 
     cursor: pointer;
+
+    transition: background-color linear 0.4s;
   }
 
   input {

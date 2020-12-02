@@ -90,10 +90,8 @@ const createResult = (error) =>
 
 function validTests(tests) {
   for (let [valid, error] of tests) {
-    if (!valid()) {
-      return createResult(error);
-    }
-  }
+    if (!valid()) return createResult(error);
+  };
   return createResult();
 }
 
@@ -209,9 +207,9 @@ const validInputs = (inputs) => {
     oks.push(result.ok);
   }
 
-  return oks.every((ok) => ok);
+  return oks.every(ok => ok);
 };
 
-export const checkFormStep = (step) => validInputs(getStepInputs(step));
+export const ValidFormStep = (step) => validInputs(getStepInputs(step));
 
 export default signUpData;

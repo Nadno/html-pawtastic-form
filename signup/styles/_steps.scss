@@ -6,34 +6,10 @@
   align-items: center;
   color: var(--color-secondary);
 
-  .confirm__zip-code {
-    width: 100%;
-    height: 100%;
-    max-width: 480px;
-    padding: 10% 6rem;
-
-    .zip-code {
-      height: 100%;
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .input__field input {
-      width: 60%;
-    }
-  }
-
   .step__tittle {
     font-size: 2.4rem;
     font-weight: bold;
-    margin-bottom: 2rem;
-  }
-
-  .label__field {
-    margin-bottom: 1rem;
+    margin: 5rem 0;
   }
 
   .input__tittle {
@@ -48,43 +24,66 @@
 
   .sign-up {
     width: 100%;
-    padding: 10% 6rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    fieldset > :nth-child(1n):not(.step__tittle) {
+    fieldset {
+      border: none;
+      margin: auto 0;
+      padding: 4rem 6rem;
+    }
+
+    #first {
+      height: initial;
+      overflow-y: hidden;
+      
+
+      .step__tittle {
+        margin: 0;
+      }
+
+      input {
+        width: 20rem;
+      }
+    }
+
+    fieldset > :nth-child(1n):not(legend) {
       margin-bottom: 2rem;
     }
 
-    .step__tittle {
-      margin-bottom: 6rem;
-    }
-    
-    .hidden {
-      display: none;
+    button[type="submit"] {
+      @extend .button;
     }
   }
 
-  fieldset {
-    border: none;
-  }
-
-  footer {
-    height: 10rem; 
+  .form__footer {
+    height: 12rem;
     width: 100%;
 
+    padding: 2rem 0;
+
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    flex-direction: column;
+    justify-content: space-between;
 
     background-color: var(--color-white);
     border-top-color: var(--color-dark-primary);
 
-    .button {
+    .step__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    #back-btn {
       display: none;
     }
 
     .member {
       font-size: 1.6rem;
+      text-align: center;
       color: var(--color-light-secondary);
     }
 
@@ -95,16 +94,8 @@
     }
   }
 
-  footer.change__point {
-    justify-content: start;
-    padding: 0 4rem;
-    .member {
-      display: none;
-    }
-
-    .button {
-      display: initial;
-    }
+  .form__footer.change__point #back-btn {
+    display: initial;
   }
 }
 
@@ -113,8 +104,8 @@
     width: 60vw;
     height: 100vh;
     overflow-y: hidden;
-    
-    .sign-up {
+
+    .sign-up fieldset {
       position: relative;
       overflow-y: scroll;
       overflow-x: hidden;

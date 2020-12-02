@@ -1,6 +1,6 @@
 "use strict";
 import element from "./getElements.js";
-import { checkFormStep } from "./form.js";
+import { ValidFormStep } from "./form.js";
 import "./setForm.js";
 
 const STEPS = [
@@ -13,18 +13,17 @@ const STEPS = [
   "seventh",
 ];
 const MAX_STEPS = 7;
-let step = 3;
+let step = 0;
 
 const radiosTo = document.querySelectorAll(".radio__to");
 
 const getIdForStep = (step) => `#${STEPS[step]}`;
 export const getStepName = () => STEPS[step];
 
-
 const addAndRemoveHidden = (lastStep, nextStep) => {
   element(lastStep).setAttribute("hidden", "");
   element(nextStep).removeAttribute("hidden");
-  element("#pet-slide").src = `../images/sign-up__${step}.jpg`;
+  element(".side").style.backgroundImage = `url(../images/sign-up__${step}.jpg)`;
 };
 
 const setRadioStep = () => {
@@ -41,17 +40,14 @@ const setRadioStep = () => {
   if (LAST_RADIO) return (radiosTo[3].checked = true);
 };
 
-const change = {
-  1: () => element(getIdForStep(step)).parentNode.removeAttribute("hidden"),
-  2: (toggle = "add") => {
-    element("footer").classList[toggle]("change__point");
-    element(".side__content").classList[toggle]("change__point");
-  },
+const changeToSecond = (toggle = "add") => {
+  element("footer").classList[toggle]("change__point");
+  element(".side__content").classList[toggle]("change__point");
 };
 
 function nextStep(e) {
   e.preventDefault();
-  if (checkFormStep(STEPS[step])) {
+  if (ValidFormStep(STEPS[step])) {
     if (step === MAX_STEPS) {
       return;
     }
@@ -61,7 +57,7 @@ function nextStep(e) {
     const nextStep = getIdForStep(step);
     addAndRemoveHidden(lastStep, nextStep);
 
-    if (change[step]) change[step]();
+    if (step === 2) changeToSecond();
     setRadioStep();
   }
 }
@@ -74,16 +70,13 @@ function backStep(e) {
   const nextStep = getIdForStep(step);
   addAndRemoveHidden(lastStep, nextStep);
 
-  if (step === 1) change["2"]("remove");
+  if (step === 1) changeToSecond("remove");
   setRadioStep();
 }
 
-element(".zip-code").addEventListener("submit", nextStep);
 element(".sign-up").addEventListener("submit", (e) => {
   if (step !== MAX_STEPS) return nextStep(e);
 });
 element("#back-btn").addEventListener("click", backStep);
 
 const isString = (value) => () => typeof value === "string";
-
-

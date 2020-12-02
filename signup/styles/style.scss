@@ -11,10 +11,10 @@ label {
   border: 0.1rem solid var(--color-secondary);
   border-radius: 3rem;
   cursor: pointer;
-}
 
-.hidden {
-  display: none;
+  &:hover {
+    background-color: var(--color-blue);
+  }
 }
 
 @media (min-width: 750px) {

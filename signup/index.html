@@ -12,31 +12,22 @@
   </head>
   <body>
     <section class="side">
-      <img
-        class="side__image"
-        id="pet-slide"
-        src="../images/sign-up__0.jpg"
-        alt="Pet image"
-      />
-
+      <article class="logo">
+        <a href="#">
+          <img src="../images/Logo.png" alt="Logo image" />
+        </a>
+      </article>
       <div class="side__content">
-        <h1 hidden>Sign-up</h1>
-        <article class="logo">
-          <a href="#">
-            <img src="../images/Logo.png" alt="Logo image" />
-          </a>
-        </article>
-
         <div class="why__us">
           <h2 class="why__tittle">Why our service?</h2>
           <ol class="why__answer">
-            <li>We're animal lovers backed by</li>
-            <li>Powered by tech, so you can</li>
-            <li>Updates and pics for every</li>
+            <li><p>We're animal lovers backed by</p></li>
+            <li><p>Powered by tech, so you can</p></li>
+            <li><p>Updates and pics for every</p></li>
           </ol>
         </div>
 
-        <section class="show__steps hidden">
+        <section class="show__steps">
           <div class="radio__field">
             <input
               type="radio"
@@ -97,33 +88,29 @@
     </section>
 
     <main class="steps">
-      <section class="confirm__zip-code" id="first" hidden>
-        <form class="zip-code">
-          <fieldset>
-            <legend class="step__tittle">
-              First, let's make sure we serve your area.
-            </legend>
-
-            <div class="input__field">
-              <label for="zip-code" class="input__tittle">Zip code</label>
-              <input
-                type="text"
-                id="zip-code"
-                name="zip-code"
-                placeholder="Enter your answer"
-              />
-              <span class="input__error"></span>
-            </div>
-          </fieldset>
-
-          <button type="submit" hidden>Submit</button>
-        </form>
-      </section>
-
       <form class="sign-up">
+        <fieldset id="first">
+          <h2 class="step__tittle">
+            First, let's make sure we serve your area.
+          </h2>
+
+          <div class="input__field">
+            <label for="zip-code" class="input__tittle">Zip code</label>
+            <input
+              type="text"
+              id="zip-code"
+              name="zip-code"
+              placeholder="Enter your answer"
+            />
+            <span class="input__error"></span>
+          </div>
+        </fieldset>
+
         <fieldset id="second" hidden>
-          <legend class="step__tittle">
-            Good news! We care for pets in your area. Let's
+          <legend>
+            <h2 class="step__tittle">
+              Good news! We care for pets in your area. Let's
+            </h2>
           </legend>
 
           <div class="input__field">
@@ -180,8 +167,10 @@
         </fieldset>
 
         <fieldset id="third" hidden>
-          <legend class="step__tittle">
-            Hello! Please tell us a little bit about yourself.
+          <legend>
+            <h2 class="step__tittle">
+              Hello! Please tell us a little bit about yourself.
+            </h2>
           </legend>
 
           <div class="field__block">
@@ -247,10 +236,12 @@
           </div>
         </fieldset>
 
-        <fieldset id="fourth">
-          <legend class="step__tittle">
-            Nice to meet you, Name. <br />
-            Tell us all about your furry, feathery, or scaley friend.
+        <fieldset id="fourth" hidden>
+          <legend>
+            <h2 class="step__tittle">
+              Nice to meet you, Name. <br />
+              Tell us all about your furry, feathery, or scaley friend.
+            </h2>
           </legend>
 
           <div class="select__field">
@@ -348,8 +339,10 @@
         </fieldset>
 
         <fieldset id="fifth" hidden>
-          <legend class="step__tittle">
-            Yay, we love dogs! Give us the basics about your pup.
+          <legend>
+            <h2 class="step__tittle">
+              Yay, we love dogs! Give us the basics about your pup.
+            </h2>
           </legend>
 
           <div class="field__block">
@@ -509,8 +502,10 @@
         </fieldset>
 
         <fieldset id="sixth" hidden>
-          <legend class="step__tittle">
-            Thanks! Now give us all the details about Ginger.
+          <legend>
+            <h2 class="step__tittle">
+              Thanks! Now give us all the details about Ginger.
+            </h2>
           </legend>
 
           <div>
@@ -616,13 +611,14 @@
           <input type="text" />
         </fieldset>
 
-        <button type="submit" hidden>Submit</button>
+        <footer class="form__footer">
+          <div class="step__buttons">
+            <button class="button" id="back-btn">Back</button>
+            <button type="submit">Next</button>
+          </div>
+          <p class="member">Already a member? <a href="#">Log in</a></p>
+        </footer>
       </form>
-
-      <footer>
-        <button class="button" id="back-btn">Back</button>
-        <p class="member">Already a member? <a href="#">Log in</a></p>
-      </footer>
     </main>
 
     <script src="./src/script.js" type="module"></script>
