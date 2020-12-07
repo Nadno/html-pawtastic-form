@@ -12,8 +12,10 @@ const STEPS = [
   "sixth",
   "seventh",
 ];
-const MAX_STEPS = 7;
-let step = 0;
+const SIGNUP_FORM = ".sign-up";
+
+const MAX_STEPS = 6;
+let step = 4;
 
 const radiosTo = document.querySelectorAll(".radio__to");
 
@@ -45,13 +47,20 @@ const changeToSecond = (toggle = "add") => {
   element(".side__content").classList[toggle]("change__point");
 };
 
+const nextButton = () => {
+  const button = element("button[type=\"submit\"]").disabled;
+  if (step === (MAX_STEPS - 1)) {
+    return button.disabled = true;
+  } else if (button.disabled) {
+    return button.disabled = false;
+  }
+};
+
 function nextStep(e) {
   e.preventDefault();
-  if (ValidFormStep(STEPS[step])) {
-    if (step === MAX_STEPS) {
-      return;
-    }
+  nextButton();
 
+  if (ValidFormStep(STEPS[step])) {
     step++;
     const lastStep = getIdForStep(step - 1);
     const nextStep = getIdForStep(step);
@@ -59,11 +68,12 @@ function nextStep(e) {
 
     if (step === 2) changeToSecond();
     setRadioStep();
-  }
+  };
 }
 
 function backStep(e) {
   e.preventDefault();
+  nextButton();
 
   step--;
   const lastStep = getIdForStep(step + 1);
@@ -74,9 +84,7 @@ function backStep(e) {
   setRadioStep();
 }
 
-element(".sign-up").addEventListener("submit", (e) => {
+element(SIGNUP_FORM).addEventListener("submit", (e) => {
   if (step !== MAX_STEPS) return nextStep(e);
 });
 element("#back-btn").addEventListener("click", backStep);
-
-const isString = (value) => () => typeof value === "string";

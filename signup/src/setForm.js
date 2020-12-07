@@ -10,9 +10,14 @@ export const setForm = ({ target }) => {
 
   if (target.type === "checkbox") {
     signUpData[name] = target.checked;
+  } else if (target.type === "file") {
+    signUpData[name] = target.files[0];
+
+    element(".upload__button").style.backgroundImage =
+      `url(${window.URL.createObjectURL(target.files[0])})`;
   } else {
     signUpData[name] = target.value;
-  }
+  };
 };
 
 const inputs = element(".sign-up").querySelectorAll("input");

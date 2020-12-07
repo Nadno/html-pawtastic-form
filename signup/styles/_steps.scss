@@ -1,4 +1,5 @@
 .steps {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,6 +30,7 @@
     justify-content: space-between;
 
     fieldset {
+      height: 100%;
       border: none;
       margin: auto 0;
       padding: 4rem;
@@ -36,8 +38,11 @@
 
     #first {
       height: initial;
+      width: 100%;
+      max-width: 40rem;
       overflow-y: hidden;
-
+      margin: auto;
+      
       .step__tittle {
         margin: 0;
       }
@@ -53,7 +58,12 @@
 
     button[type="submit"] {
       @extend .button;
+      &:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
     }
+    
   }
 
   .form__footer {

@@ -89,7 +89,7 @@
 
     <main class="steps">
       <form class="sign-up">
-        <fieldset id="first">
+        <fieldset id="first" hidden>
           <h2 class="step__tittle">
             First, let's make sure we serve your area.
           </h2>
@@ -145,7 +145,6 @@
                 type="password"
                 id="confirm"
                 name="confirm"
-                placeholder="Min eight figures"
               />
               <span class="input__error"></span>
             </div>
@@ -206,7 +205,7 @@
                 type="text"
                 id="phone"
                 name="phone"
-                placeholder="000-000-000"
+                placeholder="01 90000-0000"
               />
               <span class="input__error"></span>
             </div>
@@ -217,7 +216,7 @@
                 type="text"
                 id="alt-phone"
                 name="alt-phone"
-                placeholder="000-000-000"
+                placeholder="01 90000-0000"
               />
               <span class="input__error"></span>
             </div>
@@ -338,7 +337,7 @@
           </span>
         </fieldset>
 
-        <fieldset id="fifth" hidden>
+        <fieldset id="fifth" >
           <legend>
             <h2 class="step__tittle">
               Yay, we love dogs! Give us the basics about your pup.
@@ -363,7 +362,8 @@
                 type="file"
                 name="pet-photo"
                 id="pet-photo"
-                accept="image/png, image/jpeg"
+                accept="image/png, image/jpeg, image/jpg"
+
               />
 
               <label for="pet-photo">
@@ -374,7 +374,7 @@
                         srcset="../images/path@2x.png"
                         media="(min-width: 750px)"
                       />
-                      <img src="../images/path.png" alt="Select a image" />
+                      <img id="select-image" src="../images/path.png" alt="Select a image" />
                     </picture>
                   </div>
 
@@ -603,12 +603,10 @@
         </fieldset>
 
         <fieldset id="seventh" hidden>
-          <legend class="step__tittle">
+          <h1 class="step__tittle" style="margin: auto 0;">
             Okay, Ginger's all set! <br />
             We can't wait to meet het.
-          </legend>
-
-          <input type="text" />
+          </h1>
         </fieldset>
 
         <footer class="form__footer">

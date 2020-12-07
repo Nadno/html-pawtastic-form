@@ -125,6 +125,7 @@ label {
 }
 
 .steps {
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,6 +174,7 @@ label {
 }
 
 .steps .sign-up fieldset {
+  height: 100%;
   border: none;
   margin: auto 0;
   padding: 4rem;
@@ -180,7 +182,10 @@ label {
 
 .steps .sign-up #first {
   height: initial;
+  width: 100%;
+  max-width: 40rem;
   overflow-y: hidden;
+  margin: auto;
 }
 
 .steps .sign-up #first .step__tittle {
@@ -193,6 +198,11 @@ label {
 
 .steps .sign-up fieldset > :nth-child(1n):not(legend) {
   margin-bottom: 2rem;
+}
+
+.steps .sign-up button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .steps .form__footer {
@@ -343,6 +353,7 @@ label {
           justify-content: center;
   border-radius: 50%;
   background-color: var(--color-white);
+  background-size: cover;
   border: 1px solid var(--color-dark-primary);
 }
 

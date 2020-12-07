@@ -1,4 +1,3 @@
-import { getStepName } from "./script.js";
 import { setInputError, unsetInputError } from "./setError.js";
 import {
   biggerOrEqualThan,
@@ -25,6 +24,7 @@ const signUpData = {
   petBirthDay: "",
   petSpayedOrNeutered: "",
   petWeight: "",
+  petPhoto: "",
   favoriteThings: {
     kisses: false,
     walk: false,
@@ -107,6 +107,7 @@ function validTextInput(name) {
 }
 
 function validCustomSelect(name) {
+  if (!signUpData[name]) return createResult(ERROR.EMPTY);
   const TYPES = {
     petType: ["dog", "cat", "birdy", "hamster"],
     petGender: ["male", "female"],
@@ -155,7 +156,15 @@ const Validation = {
     return createResult();
   },
 
-  petPhoto: function () {},
+  petPhoto: function () {
+    if (!signUpData.petPhoto) return createResult();
+    const [file, type] = signUpData.petPhoto.type.split("/");
+    const IS_IMAGE = file === "image";
+    const IS_ACCEPTABLE = ["jpg", "png", "jpeg"].includes(type);
+
+    if (IS_IMAGE && IS_ACCEPTABLE) return createResult();
+    return createResult(ERROR.INVALID);
+  },
 
   altPhone: function () {
     const HAS_VALUE = signUpData.altPhone.length > 0;
@@ -187,11 +196,12 @@ const getStepInputs = (step) => {
     second: ["email", "password", "confirm", "policy"],
     third: ["first-name", "last-name", "phone", "alt-phone", "cpf"],
     fourth: ["pet-type"],
-    fifth: ["pet-name", "pet-gender", "pet-spayed-or-neutered", "pet-weight"],
+    fifth: ["pet-name", "pet-photo", "pet-gender", "pet-spayed-or-neutered", "pet-weight"],
   };
   return inputFor[step];
 };
 
+const isValid = (ok) => ok;
 const validInputs = (inputs) => {
   let oks = [];
 
@@ -207,7 +217,7 @@ const validInputs = (inputs) => {
     oks.push(result.ok);
   }
 
-  return oks.every(ok => ok);
+  return oks.every(isValid);
 };
 
 export const ValidFormStep = (step) => validInputs(getStepInputs(step));
