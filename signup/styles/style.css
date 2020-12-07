@@ -4,7 +4,7 @@ label {
   display: block;
 }
 
-.button, .steps .sign-up button[type="submit"] {
+.button, .steps .form__footer .step__buttons button {
   height: 4rem;
   width: 12rem;
   font-size: 2.4rem;
@@ -14,7 +14,7 @@ label {
   cursor: pointer;
 }
 
-.button:hover, .steps .sign-up button:hover[type="submit"] {
+.button:hover, .steps .form__footer .step__buttons button:hover {
   background-color: var(--color-blue);
 }
 
@@ -200,11 +200,6 @@ label {
   margin-bottom: 2rem;
 }
 
-.steps .sign-up button[type="submit"]:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
 .steps .form__footer {
   height: 12rem;
   width: 100%;
@@ -233,8 +228,14 @@ label {
           justify-content: space-evenly;
 }
 
-.steps .form__footer #back-btn {
-  display: none;
+.steps .form__footer .step__buttons button {
+  -webkit-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
+}
+
+.steps .form__footer .step__buttons button:disabled {
+  opacity: 0;
+  cursor: default;
 }
 
 .steps .form__footer .member {
@@ -247,10 +248,6 @@ label {
   margin-left: 1rem;
   text-decoration: none;
   color: var(--color-secondary);
-}
-
-.steps .form__footer.change__point #back-btn {
-  display: initial;
 }
 
 @media (min-width: 750px) {

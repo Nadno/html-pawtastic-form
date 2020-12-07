@@ -89,7 +89,7 @@
 
     <main class="steps">
       <form class="sign-up">
-        <fieldset id="first" hidden>
+        <fieldset id="first">
           <h2 class="step__tittle">
             First, let's make sure we serve your area.
           </h2>
@@ -337,7 +337,7 @@
           </span>
         </fieldset>
 
-        <fieldset id="fifth" >
+        <fieldset id="fifth" hidden>
           <legend>
             <h2 class="step__tittle">
               Yay, we love dogs! Give us the basics about your pup.
@@ -377,7 +377,7 @@
                       <img id="select-image" src="../images/path.png" alt="Select a image" />
                     </picture>
                   </div>
-
+                 
                   <figcaption>
                     <div class="label__field">
                       <span class="input__error"></span>
@@ -611,8 +611,8 @@
 
         <footer class="form__footer">
           <div class="step__buttons">
-            <button class="button" id="back-btn">Back</button>
-            <button type="submit">Next</button>
+            <button id="back-btn" disabled>Back</button>
+            <button id="next-btn" type="submit">Next</button>
           </div>
           <p class="member">Already a member? <a href="#">Log in</a></p>
         </footer>

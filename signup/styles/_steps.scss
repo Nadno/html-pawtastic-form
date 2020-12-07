@@ -55,14 +55,6 @@
     fieldset > :nth-child(1n):not(legend) {
       margin-bottom: 2rem;
     }
-
-    button[type="submit"] {
-      @extend .button;
-      &:disabled {
-        opacity: 0.5;
-        cursor: default;
-      }
-    }
     
   }
 
@@ -83,10 +75,16 @@
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-    }
 
-    #back-btn {
-      display: none;
+      button {
+        @extend .button;
+        transition: opacity 0.4s linear;
+        
+        &:disabled {
+          opacity: 0;
+          cursor: default;
+        }
+      }
     }
 
     .member {
@@ -100,10 +98,6 @@
       text-decoration: none;
       color: var(--color-secondary);
     }
-  }
-
-  .form__footer.change__point #back-btn {
-    display: initial;
   }
 }
 

@@ -13,9 +13,9 @@ const STEPS = [
   "seventh",
 ];
 const SIGNUP_FORM = ".sign-up";
+const BACK_STEP_BUTTON = "#back-btn";
 
-const MAX_STEPS = 6;
-let step = 4;
+let step = 0;
 
 const radiosTo = document.querySelectorAll(".radio__to");
 
@@ -25,7 +25,9 @@ export const getStepName = () => STEPS[step];
 const addAndRemoveHidden = (lastStep, nextStep) => {
   element(lastStep).setAttribute("hidden", "");
   element(nextStep).removeAttribute("hidden");
-  element(".side").style.backgroundImage = `url(../images/sign-up__${step}.jpg)`;
+  element(
+    ".side"
+  ).style.backgroundImage = `url(../images/sign-up__${step}.jpg)`;
 };
 
 const setRadioStep = () => {
@@ -42,49 +44,57 @@ const setRadioStep = () => {
   if (LAST_RADIO) return (radiosTo[3].checked = true);
 };
 
-const changeToSecond = (toggle = "add") => {
-  element("footer").classList[toggle]("change__point");
-  element(".side__content").classList[toggle]("change__point");
-};
-
-const nextButton = () => {
-  const button = element("button[type=\"submit\"]").disabled;
-  if (step === (MAX_STEPS - 1)) {
-    return button.disabled = true;
-  } else if (button.disabled) {
-    return button.disabled = false;
-  }
+const toggleButton = (action) => {
+  const NEXT_STEP_BUTTON = "#next-btn";
+  const button = {
+    next: {
+      third: function enableBackButton() {
+        element(BACK_STEP_BUTTON).disabled = false;
+      },
+      seventh: function disableNextButton() {
+        element(NEXT_STEP_BUTTON).disabled = true;
+      },
+    },
+    back: {
+      second: function disableBackButton() {
+        element(BACK_STEP_BUTTON).disabled = true;
+      },
+      sixth: function enableNextButton() {
+        element(NEXT_STEP_BUTTON).disabled = false;
+      },
+    },
+  };
+  const buttonActionForStep = button?.[action]?.[STEPS[step]];
+  if (buttonActionForStep) buttonActionForStep();
 };
 
 function nextStep(e) {
   e.preventDefault();
-  nextButton();
+
+  const LAST_STEP = step === 6;
+  if (LAST_STEP) return;
 
   if (ValidFormStep(STEPS[step])) {
     step++;
     const lastStep = getIdForStep(step - 1);
     const nextStep = getIdForStep(step);
+    toggleButton("next");
     addAndRemoveHidden(lastStep, nextStep);
 
-    if (step === 2) changeToSecond();
     setRadioStep();
-  };
+  }
 }
+element(SIGNUP_FORM).addEventListener("submit", nextStep);
 
 function backStep(e) {
   e.preventDefault();
-  nextButton();
 
   step--;
   const lastStep = getIdForStep(step + 1);
   const nextStep = getIdForStep(step);
+  toggleButton("back");
   addAndRemoveHidden(lastStep, nextStep);
 
-  if (step === 1) changeToSecond("remove");
   setRadioStep();
 }
-
-element(SIGNUP_FORM).addEventListener("submit", (e) => {
-  if (step !== MAX_STEPS) return nextStep(e);
-});
-element("#back-btn").addEventListener("click", backStep);
+element(BACK_STEP_BUTTON).addEventListener("click", backStep);
