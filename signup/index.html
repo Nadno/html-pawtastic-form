@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="shortcut icon" href="../images/Symbol.png" type="image/x-icon" />
 
-    <title>Pawtastic | Sign-up</title>
+    <title>Pawtastic | Sign up</title>
   </head>
   <body>
-    <section class="side">
+    <header class="side">
       <article class="logo">
-        <a href="#">
+        <a href="#" title="Pawtastic Home">
           <img src="../images/Logo.png" alt="Logo image" />
+          <h2>PAWTASTIC</h2>
         </a>
       </article>
       <div class="side__content">
@@ -27,7 +28,7 @@
           </ol>
         </div>
 
-        <section class="show__steps">
+        <div class="show__steps">
           <div class="radio__field">
             <input
               type="radio"
@@ -37,10 +38,7 @@
               value="2"
               checked
             />
-            <label>
-              <span class="check"></span>
-              <p>Human profile</p>
-            </label>
+            <label> Human profile </label>
           </div>
 
           <div class="radio__field">
@@ -51,10 +49,7 @@
               name="step"
               value="3"
             />
-            <label>
-              <span class="check"></span>
-              <p>Pet basics</p>
-            </label>
+            <label> Pet basics </label>
           </div>
 
           <div class="radio__field">
@@ -65,10 +60,7 @@
               name="step"
               value="4"
             />
-            <label>
-              <span class="check"></span>
-              <p>Pet details</p>
-            </label>
+            <label> Pet details </label>
           </div>
           <div class="radio__field">
             <input
@@ -78,14 +70,11 @@
               name="step"
               value="5"
             />
-            <label>
-              <span class="check"></span>
-              <p>Confirm</p>
-            </label>
+            <label> Confirm </label>
           </div>
-        </section>
+        </div>
       </div>
-    </section>
+    </header>
 
     <main class="steps">
       <form class="sign-up">
@@ -141,11 +130,7 @@
               <label for="confirm" class="input__tittle"
                 >Confirm password</label
               >
-              <input
-                type="password"
-                id="confirm"
-                name="confirm"
-              />
+              <input type="password" id="confirm" name="confirm" />
               <span class="input__error"></span>
             </div>
           </div>
@@ -244,64 +229,55 @@
           </legend>
 
           <div class="select__field">
-            <span class="input__tittle">Kind of your pet</span>
+            <h2 class="input__tittle">Kind of your pet</h2>
 
             <div class="select four-columns" id="pet-type">
               <input type="radio" name="pet-type" id="dog" value="dog" />
-              <label for="dog">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/dog-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/dog-option.png"
-                      alt="Dog"
-                    />
-                  </picture>
-
-                  <figcaption class="option__legend">Dog</figcaption>
-                </figure>
+              <label for="dog" class="option__legend">
+                <picture class="option__image">
+                  <source
+                    srcset="../images/dog-option@2x.png"
+                    media="(min-width: 750px)"
+                  />
+                  <img
+                    class="option__image"
+                    src="../images/dog-option.png"
+                    alt="Dog"
+                  />
+                </picture>
+                <span>Dog</span>
               </label>
 
               <input type="radio" name="pet-type" id="cat" value="cat" />
-              <label for="cat">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/cat-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/cat-option.png"
-                      alt="Cat"
-                    />
-                  </picture>
-
-                  <figcaption class="option__legend">Cat</figcaption>
-                </figure>
+              <label for="cat" class="option__legend">
+                <picture class="option__image">
+                  <source
+                    srcset="../images/cat-option@2x.png"
+                    media="(min-width: 750px)"
+                  />
+                  <img
+                    class="option__image"
+                    src="../images/cat-option.png"
+                    alt="Cat"
+                  />
+                </picture>
+                <span>Cat</span> 
               </label>
 
               <input type="radio" name="pet-type" id="birdy" value="birdy" />
-              <label for="birdy">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/birdy-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/birdy-option.png"
-                      alt="Birdy"
-                    />
-                  </picture>
-
-                  <figcaption class="option__legend">Birdy</figcaption>
-                </figure>
+              <label for="birdy" class="option__legend">
+                <picture class="option__image">
+                  <source
+                    srcset="../images/birdy-option@2x.png"
+                    media="(min-width: 750px)"
+                  />
+                  <img
+                    class="option__image"
+                    src="../images/birdy-option.png"
+                    alt="Birdy"
+                  />
+                </picture>
+                <span > Birdy </span>
               </label>
 
               <input
@@ -310,22 +286,19 @@
                 id="hamster"
                 value="hamster"
               />
-              <label for="hamster">
-                <figure class="pet__option">
-                  <picture>
-                    <source
-                      srcset="../images/hamster-option@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      class="option__image"
-                      src="../images/hamster-option.png"
-                      alt="Hamster"
-                    />
-                  </picture>
-
-                  <figcaption class="option__legend">Hamster</figcaption>
-                </figure>
+              <label for="hamster" class="option__legend">
+                <picture class="option__image">
+                  <source
+                    srcset="../images/hamster-option@2x.png"
+                    media="(min-width: 750px)"
+                  />
+                  <img
+                    class="option__image"
+                    src="../images/hamster-option.png"
+                    alt="Hamster"
+                  />
+                </picture>
+                <span> Hamster </span>
               </label>
             </div>
             <span class="input__error"></span>
@@ -363,29 +336,25 @@
                 name="pet-photo"
                 id="pet-photo"
                 accept="image/png, image/jpeg, image/jpg"
-
               />
 
               <label for="pet-photo">
-                <figure>
-                  <div class="upload__button">
-                    <picture>
-                      <source
-                        srcset="../images/path@2x.png"
-                        media="(min-width: 750px)"
-                      />
-                      <img id="select-image" src="../images/path.png" alt="Select a image" />
-                    </picture>
-                  </div>
-                 
-                  <figcaption>
-                    <div class="label__field">
-                      <span class="input__error"></span>
-                      <span class="input__tittle"> Upload a photo </span>
-                    </div>
-                  </figcaption>
-                </figure>
-              </label>
+
+                  <picture class="upload__button">
+                    <source
+                      srcset="../images/path@2x.png"
+                      media="(min-width: 750px)"
+                    />
+                    <img
+                      id="select-image"
+                      src="../images/path.png"
+                      alt="Select a image"
+                    />
+                  </picture>
+
+                  <span class="input__tittle"> Upload a photo </span>
+                </label>
+                <span class="input__error"></span>
             </div>
           </div>
 
@@ -409,7 +378,7 @@
             </div>
           </div>
 
-          <section class="select__container">
+          <div class="select__container">
             <div class="select__field">
               <span class="input__tittle">Gender</span>
 
@@ -459,7 +428,7 @@
               </div>
               <span class="input__error"></span>
             </div>
-          </section>
+          </div>
 
           <div class="select__field">
             <span class="input__tittle">Weight</span>
@@ -603,7 +572,7 @@
         </fieldset>
 
         <fieldset id="seventh" hidden>
-          <h1 class="step__tittle" style="margin: auto 0;">
+          <h1 class="step__tittle" style="margin: auto 0">
             Okay, Ginger's all set! <br />
             We can't wait to meet het.
           </h1>
