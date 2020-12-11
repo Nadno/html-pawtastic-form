@@ -627,7 +627,7 @@ label {
   transition: background-color, border-color 0.6s linear;
 }
 
-.show__steps input:checked ~ label .check {
+.show__steps input:checked ~ .check {
   border-color: var(--color-white);
   background: var(--color-secondary);
 }

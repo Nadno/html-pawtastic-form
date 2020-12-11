@@ -82,6 +82,14 @@ function nextStep(e) {
     addAndRemoveHidden(lastStep, nextStep);
 
     setRadioStep();
+
+
+    if (step >= 2) {
+      element(".side__content").classList.add("change__point");
+      element(`#to-${step}`).checked = true;
+    } else {
+      element(".side__content").classList.remove("change__point");
+    }
   }
 }
 element(SIGNUP_FORM).addEventListener("submit", nextStep);
