@@ -33,7 +33,11 @@
       height: 100%;
       border: none;
       margin: auto 0;
-      padding: 4rem;
+      padding: 2.44rem;
+
+      legend {
+        border-bottom: 1px var(--color-dark-primary) solid;
+      }
     }
 
     #first {
@@ -107,7 +111,7 @@
     height: 100vh;
     overflow-y: hidden;
 
-    .sign-up fieldset {
+    fieldset {
       position: relative;
       overflow-y: scroll;
       overflow-x: hidden;

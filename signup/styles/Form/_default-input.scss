@@ -36,16 +36,9 @@
   margin-top: 1rem;
 
   label {
-    cursor: pointer;
-  }
-
-  figure {
     display: flex;
     align-items: center;
-  }
-
-  figcaption {
-    font-size: 1.4rem;
+    cursor: pointer;
   }
 
   .upload__button {
@@ -68,6 +61,10 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  &.error .upload__button {
+    border-color: var(--color-tertiary);
   }
 
   input:focus ~ label .upload__button  {
