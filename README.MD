@@ -7,7 +7,7 @@
 
 <p>Toda vez, antes de seguir para o próximo passo do formulário, é validados seus inputs, e caso algum deles possua algum erro, é dado um aviso em mensagens abaixo do input. No geral há mensagens para valores requeridos e inválidos, mas também é possível personalizar mensagens diferentes para cada input, caso necessário.</p>
 <hr/>
-<img src="/readme/sign-desktop.jpg" />
+<img src="/readme/sign-desktop.png" />
 
 <hr/>
 
