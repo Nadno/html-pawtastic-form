@@ -1,7 +1,7 @@
 <h1>Pawtastic</h1>
 <p>Utilizando um UI kit da <em>Adobe XD</em>, foi criado um formulário dividido em passos. Completamente responsivo, e com validação de valores, como CPF, telefone celular, datas e tipo de imagem.</p>
 <hr/>
-<img src="/readme/sign-mobile.jpg" align="center" />
+<h1 align="center"><img src="/readme/sign-mobile.jpg" /></h3>
 
 <hr/>
 
