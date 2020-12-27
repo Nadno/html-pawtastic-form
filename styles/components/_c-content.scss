@@ -1,0 +1,19 @@
+%content {
+  padding: 0 3rem;
+  font-size: 2rem;
+
+  h2, p {
+    margin-bottom: 2rem;
+  }
+}
+
+.c-content {
+  @extend %content;
+
+  color: var(--color-white);
+
+  &--dark {
+    @extend %content;
+    color: var(--color-secondary);
+  }
+}

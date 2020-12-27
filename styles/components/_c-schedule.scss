@@ -1,0 +1,26 @@
+%schedule-button {
+  display: block;
+  height: 3.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 2rem;
+  padding: 0.5rem;
+  
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.c-schedule {
+  @extend %schedule-button;
+  color: var(--color-secondary);
+  background-color: var(--color-white);
+  
+  &--dark {
+    @extend %schedule-button;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+  }
+}
