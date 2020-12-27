@@ -1,0 +1,9 @@
+.l-message {
+  background-color: var(--color-white);
+
+  &__pets {
+    width: 100%;
+    padding: 0 3rem;
+    margin-top: 4rem;
+  }
+}
