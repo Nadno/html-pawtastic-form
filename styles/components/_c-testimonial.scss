@@ -1,0 +1,32 @@
+.c-testimonial {
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+
+  img {
+    height: 10rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__commentary {
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-left: 2rem;
+  }
+
+  &__commentary p::before {
+    content: '\201C';
+  }
+
+  &__commentary p::after {
+    content: '\201D';
+  }
+}
