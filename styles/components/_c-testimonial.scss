@@ -2,10 +2,11 @@
   height: 14rem;
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
 
   border-radius: 0.5rem;
   background-color: var(--color-white);
+  margin-bottom: 2rem;
 
   img {
     height: 10rem;
@@ -19,7 +20,7 @@
   &__commentary {
     font-size: 1.4rem;
     color: var(--color-secondary);
-    margin-left: 2rem;
+    margin-left: 1.4rem;
   }
 
   &__commentary p::before {
