@@ -1,0 +1,86 @@
+.l-intro {
+  width: 100vw;
+  height: 50vh;
+  background-image: url(/images/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 10rem 1fr;
+
+  &__logo {
+    height: 8rem;
+    padding: 2rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-white);
+    }
+
+    .logo__img {
+      height: 4rem;
+      margin-right: 0.5rem;
+    }
+
+    .logo__title {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__header {
+    height: 8rem;
+    position: relative;
+
+    .toggle-menu {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+
+    .toggle-menu div {
+      width: 3rem;
+      height: 0.4rem;
+      background-color: #fff;
+
+      margin: 0.4rem;
+    }
+  }
+
+  &__location {
+    height: 4rem;
+    align-self: end;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  &__message {
+    padding: 0 3rem;
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--color-white);
+    }
+
+    .schedule__button {
+      display: block;
+      height: 3.4rem;
+      color: var(--color-secondary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--color-white);
+      border-radius: 2rem;
+      padding: 0.5rem;
+      margin-top: 2.4rem;
+
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+  }
+}
