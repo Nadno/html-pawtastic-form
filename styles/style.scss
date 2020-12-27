@@ -1,9 +1,7 @@
 @import "./layouts/l-intro";
 @import "./layouts/l-message";
+@import "./layouts/l-services";
+
 @import "./components/c-logo";
 @import "./components/c-schedule";
 @import "./components/c-content";
-
-section:not(.l-intro) {
-  padding: 4rem 0;
-}
