@@ -1,3 +1,16 @@
 .l-options {
-  padding: calc(var(--spacing-tertiary) * 2) var(--spacing-primary);
+  padding: calc(var(--spacing-tertiary) * 2) 1rem;
+  background-color: var(--color-white);
+
+  .c-content--options {
+    margin-bottom: 8rem;
+  }
+
+  .options {
+    padding: 0 2rem;
+  }
+
+  .options > .c-option {
+    margin-bottom: 8rem;
+  }
 }
