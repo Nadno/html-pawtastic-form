@@ -3,17 +3,24 @@
   font-size: 2rem;
 
   h1, h2, p {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-primary);
   }
 }
 
 .c-content {
   @extend %content;
-
   color: var(--color-white);
 
+  &--options {
+    text-align: center;
+    color: var(--color-secondary);
+
+    h1, h2, p {
+      margin-bottom: var(--spacing-tertiary);
+    }
+  }
+
   &--dark {
-    @extend %content;
     color: var(--color-secondary);
   }
 }

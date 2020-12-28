@@ -6,21 +6,25 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 2rem;
+  border-radius: var(--spacing-primary);
   padding: 0.5rem;
   
   font-size: 1.4rem;
+  font-weight: 500;
   text-decoration: none;
+  color: var(--color-secondary);
 }
 
 .c-schedule {
   @extend %schedule-button;
-  color: var(--color-secondary);
   background-color: var(--color-white);
   
   &--dark {
-    @extend %schedule-button;
     background-color: var(--color-secondary);
     color: var(--color-white);
+  }
+
+  &--pink {
+    background-color: var(--color-primary);
   }
 }

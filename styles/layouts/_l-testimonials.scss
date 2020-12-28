@@ -1,12 +1,20 @@
 .l-testimonials {
   color: var(--color-white);
-  padding: 8rem 2rem;
+  padding: 8rem var(--spacing-primary);
   background-color: var(--color-secondary);
 
   h2 {
     font-size: 2.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-primary);
     text-align: center;
+  }
+
+  &__content {
+    margin-bottom: var(--spacing-tertiary);
+
+    & > :not(:last-child) {
+      margin-bottom: var(--spacing-primary);
+    }
   }
   
 }

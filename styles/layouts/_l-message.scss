@@ -4,7 +4,7 @@
 
   &__pets {
     width: 100%;
-    padding: 0 3rem;
-    margin-top: 4rem;
+    padding: 0 var(--spacing-secondary);
+    margin-top: var(--spacing-tertiary);
   }
 }
