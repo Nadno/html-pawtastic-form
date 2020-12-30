@@ -2,8 +2,14 @@
   padding: 0 3rem;
   font-size: 2rem;
 
-  h1, h2, p {
+  h1, h2, p, strong {
     margin-bottom: var(--spacing-primary);
+  }
+
+  .email  {
+    color: inherit;
+    font-style: normal;
+    font-size: inherit;
   }
 }
 
@@ -22,5 +28,9 @@
 
   &--dark {
     color: var(--color-secondary);
+  }
+
+  &.-align-center {
+    text-align: center;
   }
 }

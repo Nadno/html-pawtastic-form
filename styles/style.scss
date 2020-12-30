@@ -1,11 +1,17 @@
+@import "./components/c-logo";
+@import "./components/c-schedule";
+@import "./components/c-content";
+@import "./components/c-testimonial";
+@import "./components/c-option";
+
 @import "./layouts/l-intro";
 @import "./layouts/l-message";
 @import "./layouts/l-options";
 @import "./layouts/l-services";
 @import "./layouts/l-testimonials";
 
-@import "./components/c-logo";
-@import "./components/c-schedule";
-@import "./components/c-content";
-@import "./components/c-testimonial";
-@import "./components/c-option";
+
+
+.l-footer {
+  padding: 8rem 0;
+}
