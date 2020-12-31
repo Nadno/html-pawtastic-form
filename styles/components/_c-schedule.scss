@@ -13,18 +13,37 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--color-secondary);
+
+  transform: translateY(-30px);
+  opacity: 0;
 }
 
 .c-schedule {
   @extend %schedule-button;
   background-color: var(--color-white);
+
+  &:active {
+    transform: scale(0.95) !important;
+  }
+
+  &:hover {
+    background-color: var(--color-blue);
+  }
   
   &--dark {
     background-color: var(--color-secondary);
     color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-light-secondary);
+    }
   }
 
   &--pink {
     background-color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-light-primary);
+    }
   }
 }

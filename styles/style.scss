@@ -10,7 +10,11 @@
 @import "./layouts/l-services";
 @import "./layouts/l-testimonials";
 
-
+body,
+main,
+section {
+  width: 100vw;
+}
 
 .l-footer {
   padding: 8rem 0;
