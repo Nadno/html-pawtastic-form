@@ -3,6 +3,7 @@
 @import "./components/c-content";
 @import "./components/c-testimonial";
 @import "./components/c-option";
+@import "./components/c-image";
 
 @import "./layouts/l-intro";
 @import "./layouts/l-message";
@@ -14,6 +15,7 @@ body,
 main,
 section {
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .l-footer {

@@ -8,52 +8,63 @@ const isVisibleOnVertical = (element) => {
 };
 
 const SCHEDULE_COMPONENT = "c-schedule";
-const TESTIMONIAL_COMPONENT = "c-testimonial"
+const TESTIMONIAL_COMPONENT = "c-testimonial";
+const IMAGE_COMPONENT = "c-image";
 
 const scheduleComponents = document.querySelectorAll(`.${SCHEDULE_COMPONENT}`);
-const testimonialComponents = document.querySelectorAll(`.${TESTIMONIAL_COMPONENT}`);
-const animations = {
-  [SCHEDULE_COMPONENT]: {
-    animation: [
-      {},
-      {
-        transform: "initial",
-        opacity: 1,
-      },
-    ],
-    options: {
-      id: "show-schedule-button",
-      delay: 200,
-      duration: 600,
-      fill: "forwards",
-    },
+const testimonialComponents = document.querySelectorAll(
+  `.${TESTIMONIAL_COMPONENT}`
+);
+const imageComponents = document.querySelectorAll(`.${IMAGE_COMPONENT}`);
+
+const animation = [
+  {},
+  {
+    transform: "initial",
+    opacity: 1,
   },
+];
+
+const animationOptions = {
+  [SCHEDULE_COMPONENT]:  {
+    id: "show-schedule-button",
+    delay: 200,
+    duration: 600,
+    fill: "forwards",
+  },
+
   [TESTIMONIAL_COMPONENT]: {
-    animation: [
-      {},
-      {
-        transform: "initial",
-        opacity: 1,
-      },
-    ],
-    options: {
-      id: "show-comment",
-      delay: 200,
-      duration: 600,
-      fill: "forwards",
-    },
+    id: "show-comment",
+    delay: 300,
+    duration: 600,
+    fill: "forwards",
+  },
+
+  [IMAGE_COMPONENT]: {
+    id: "show-image",
+    delay: 500,
+    duration: 800,
+    fill: "forwards",
   },
 };
 
-const components = [...scheduleComponents, ...testimonialComponents];
+const components = [
+  ...imageComponents,
+  ...scheduleComponents,
+  ...testimonialComponents,
+];
 const setComponentsAnimate = () => {
-  components.forEach((component) => {
-    if (isVisibleOnVertical(component)) {
-      const [componentName] = component.className.split(" ")
-      const { animation, options } = animations[componentName];
-      component.animate(animation, options);
-    }
-  });
+  if (components.length) {
+    components.forEach((component, index) => {
+      if (isVisibleOnVertical(component)) {
+        const [componentName] = component.className.split(" ");
+        const options = animationOptions[componentName];
+        component.animate(animation, options);
+
+        components.splice(index, 1);
+      }
+    });
+  }
 };
 
 window.addEventListener("scroll", setComponentsAnimate);

@@ -15,6 +15,16 @@
     & > :not(:last-child) {
       margin-bottom: var(--spacing-primary);
     }
+
+    & > :nth-child(1n) {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    & > :nth-child(2n) {
+      transform: translateX(+100%);
+      opacity: 0;
+    }
   }
   
 }

@@ -225,6 +225,12 @@
   color: var(--color-light-secondary);
 }
 
+.c-image {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+}
+
 .l-intro {
   width: 100vw;
   height: 55vh;
@@ -355,10 +361,23 @@
   margin-bottom: var(--spacing-primary);
 }
 
+.l-testimonials__content > :nth-child(1n) {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+}
+
+.l-testimonials__content > :nth-child(2n) {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+}
+
 body,
 main,
 section {
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .l-footer {
