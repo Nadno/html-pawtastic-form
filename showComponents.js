@@ -53,17 +53,20 @@ const components = [
   ...scheduleComponents,
   ...testimonialComponents,
 ];
+
 const setComponentsAnimate = () => {
   if (components.length) {
-    components.forEach((component, index) => {
+    const showComponents = (component, index) => {
       if (isVisibleOnVertical(component)) {
         const [componentName] = component.className.split(" ");
         const options = animationOptions[componentName];
         component.animate(animation, options);
-
+  
         components.splice(index, 1);
       }
-    });
+    };
+    
+    components.forEach(showComponents);
   }
 };
 
