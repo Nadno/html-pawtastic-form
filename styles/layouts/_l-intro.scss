@@ -108,6 +108,18 @@
       justify-content: center;
      
       color: var(--color-white);
+
+      &:focus {
+        background-color: var(--color-light-secondary);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &:visited {
+        text-decoration: underline;
+      }
     }
   }
   

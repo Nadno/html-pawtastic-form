@@ -368,6 +368,19 @@
   color: var(--color-white);
 }
 
+.l-intro__links a:focus {
+  background-color: var(--color-light-secondary);
+}
+
+.l-intro__links a:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.l-intro__links a:visited {
+  text-decoration: underline;
+}
+
 .l-intro .c-content {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
