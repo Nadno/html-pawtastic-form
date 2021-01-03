@@ -1,7 +1,11 @@
 .l-testimonials {
   color: var(--color-white);
-  padding: 8rem var(--spacing-primary);
+  padding: 8rem var(--spacing-secondary);
   background-color: var(--color-secondary);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__title {
     font-size: 3rem;
@@ -30,9 +34,6 @@
 
 @media (min-width: 700px) {
   .l-testimonials {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     &__content {
       max-width: 90rem;
       display: grid;

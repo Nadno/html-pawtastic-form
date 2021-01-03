@@ -2,7 +2,7 @@
   height: 14rem;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
 
   border-radius: 0.5rem;
   background-color: var(--color-white);
@@ -15,14 +15,16 @@
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
   }
 
   &__commentary {
-    font-size: 1.4rem;
-    color: var(--color-secondary);
+    font-size: 1.2rem;
     margin-left: 1.4rem;
+    color: var(--color-secondary);
+
+    align-self: start;
   }
 
   &__commentary p::before {
@@ -31,5 +33,17 @@
 
   &__commentary p::after {
     content: '\201D';
+  }
+}
+
+@media (min-width: 750px) {
+  .c-testimonial {
+    h2 {
+      font-size: 1.6rem;
+    }
+  
+    &__commentary {
+      font-size: 1.4rem;
+    }
   }
 }
