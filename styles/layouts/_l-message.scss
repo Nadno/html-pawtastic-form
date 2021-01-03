@@ -19,8 +19,13 @@
     grid-template-columns: minmax(25rem, 48rem) 40rem;
 
     &__pets {
-      height: 100%;
       margin-top: 0;
+    }
+
+    .c-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }

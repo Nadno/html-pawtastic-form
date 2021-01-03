@@ -6,3 +6,21 @@
     margin-bottom: 8rem;
   }
 }
+
+@media (min-width: 700px) {
+  .l-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    place-items: center;
+
+    padding-bottom: 0;
+
+    &__bg {
+      margin-bottom: 0;
+    }
+    .c-content {
+      max-width: 40rem;
+    }
+  }
+}

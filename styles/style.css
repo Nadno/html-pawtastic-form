@@ -50,6 +50,7 @@
 @media (min-width: 500px) {
   .c-schedule {
     width: 70%;
+    margin: 0 auto;
   }
 }
 
@@ -234,8 +235,8 @@
 }
 
 .c-image {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
   opacity: 0;
 }
 
@@ -424,6 +425,10 @@
           animation: show-schedule-button 0.6s 0.2s forwards;
 }
 
+.l-intro .c-schedule {
+  margin: 0;
+}
+
 @media (min-width: 600px) {
   .l-intro {
     -ms-grid-columns: 100px 1fr minmax(300px, 400px) 100px;
@@ -519,8 +524,19 @@
         grid-template-columns: minmax(25rem, 48rem) 40rem;
   }
   .l-message__pets {
-    height: 100%;
     margin-top: 0;
+  }
+  .l-message .c-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -544,6 +560,24 @@
 .l-services__bg {
   width: 100%;
   margin-bottom: 8rem;
+}
+
+@media (min-width: 700px) {
+  .l-services {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    place-content: center;
+    place-items: center;
+    padding-bottom: 0;
+  }
+  .l-services__bg {
+    margin-bottom: 0;
+  }
+  .l-services .c-content {
+    max-width: 40rem;
+  }
 }
 
 .l-testimonials {
