@@ -10,7 +10,7 @@
 @media (min-width: 700px) {
   .l-services {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr repeat(2, minmax(300px, 700px)) 1fr;
     place-content: center;
     place-items: center;
 
@@ -18,9 +18,11 @@
 
     &__bg {
       margin-bottom: 0;
+      grid-column: 2/3;
     }
     .c-content {
       max-width: 40rem;
+      grid-column: 3/4;
     }
   }
 }

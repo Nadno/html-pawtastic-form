@@ -62,25 +62,28 @@ const components = [
   ...getComponents(TESTIMONIAL_COMPONENT),
 ];
 
-const setComponentAnimation = () => {
-  if (components.length) {
+const showComponents = (component, index) => {
+  if (isVisibleOnVertical(component)) {
     const from = {};
     const animation = [from];
-    const showComponents = (component, index) => {
-      if (isVisibleOnVertical(component)) {
-        const [componentName] = component.className.split(" ");
-        const options = animationOptions[componentName];
 
-        animation.push(
-          toAnimation[componentName]
-            ? toAnimation[componentName]
-            : toAnimation.default
-        );
-        component.animate(animation, options);
-        components.splice(index, 1);
-      }
-    };
+    const [componentName] = component.className.split(" ");
+    const options = animationOptions[componentName];
 
+    animation.push(
+      toAnimation[componentName]
+        ? toAnimation[componentName]
+        : toAnimation.default
+    );
+    component.animate(animation, options);
+    components.splice(index, 1);
+  }
+};
+
+components.forEach(showComponents);
+
+const setComponentAnimation = () => {
+  if (components.length) {
     components.forEach(showComponents);
   }
 };

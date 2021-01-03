@@ -1,12 +1,24 @@
 .l-options {
   padding: 8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background-color: var(--color-white);
 
   .c-content--options {
     margin-bottom: 8rem;
   }
 
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .options > .c-option {
     margin-bottom: 8rem;
+    margin-right: 2rem;
   }
 }
