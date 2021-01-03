@@ -19,6 +19,11 @@
 
   .options > .c-option {
     margin-bottom: 8rem;
-    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .l-options .options {
+    gap: 2rem;
   }
 }
