@@ -19,10 +19,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
 
     left: 50%;
     top: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scaleY(0);
   }
 
   .c-content {

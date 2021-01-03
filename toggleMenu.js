@@ -8,10 +8,10 @@ document.querySelector(".toggle-menu")
     active = !active;
 
     if (active) {
-      menu.classList.add("on");
       document.body.style.overflowY = "hidden";
+      menu.classList.add("on");
     } else {
-      menu.classList.remove("on")
       document.body.style.overflowY = "initial";
+      menu.classList.remove("on")
     }
   });
