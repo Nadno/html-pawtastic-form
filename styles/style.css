@@ -624,7 +624,7 @@
 
 .l-testimonials {
   color: var(--color-white);
-  padding: 8rem var(--spacing-secondary);
+  padding: 8rem 1rem;
   background-color: var(--color-secondary);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -685,17 +685,18 @@ main {
   padding: 8rem 0;
 }
 
-@media (min-width: 600px) and (max-width: 700px) {
+@media (max-width: 700px) {
   section:not(.l-intro) .c-schedule {
     margin: 0 auto;
   }
 }
 
-@media (min-width: 600px) and (min-width: 900px) {
+@media (min-width: 900px) {
   :root {
     font-size: 65%;
   }
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 3.4rem;
   }
 }
