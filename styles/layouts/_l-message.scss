@@ -1,10 +1,26 @@
 .l-message {
   padding: 8rem 0;
   background-color: var(--color-white);
+  
+  display: grid;
 
   &__pets {
     width: 100%;
+    max-width: 500px;
     padding: 0 var(--spacing-secondary);
     margin-top: var(--spacing-tertiary);
+    justify-self: center;
+  }
+}
+
+@media (min-width: 700px) {
+  .l-message {
+    place-content: center;
+    grid-template-columns: minmax(25rem, 48rem) 40rem;
+
+    &__pets {
+      height: 100%;
+      margin-top: 0;
+    }
   }
 }

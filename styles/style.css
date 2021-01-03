@@ -47,6 +47,12 @@
   opacity: 0;
 }
 
+@media (min-width: 500px) {
+  .c-schedule {
+    width: 70%;
+  }
+}
+
 .c-schedule {
   background-color: var(--color-white);
 }
@@ -493,12 +499,29 @@
 .l-message {
   padding: 8rem 0;
   background-color: var(--color-white);
+  display: -ms-grid;
+  display: grid;
 }
 
 .l-message__pets {
   width: 100%;
+  max-width: 500px;
   padding: 0 var(--spacing-secondary);
   margin-top: var(--spacing-tertiary);
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+@media (min-width: 700px) {
+  .l-message {
+    place-content: center;
+    -ms-grid-columns: minmax(25rem, 48rem) 40rem;
+        grid-template-columns: minmax(25rem, 48rem) 40rem;
+  }
+  .l-message__pets {
+    height: 100%;
+    margin-top: 0;
+  }
 }
 
 .l-options {

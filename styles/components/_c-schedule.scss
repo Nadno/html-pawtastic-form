@@ -16,6 +16,10 @@
 
   transform: translateY(-30px);
   opacity: 0;
+
+  @media (min-width: 500px) {
+    width: 70%;
+  }
 }
 
 .c-schedule {
