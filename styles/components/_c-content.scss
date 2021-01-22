@@ -1,10 +1,9 @@
 %content {
   padding: 0 3rem;
   font-size: 2rem;
-
-  h1, h2, p, strong {
-    margin-bottom: var(--spacing-primary);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-tertiary);
 
   .email  {
     color: inherit;
@@ -16,14 +15,11 @@
 .c-content {
   @extend %content;
   color: var(--color-white);
+  
 
   &--options {
     text-align: center;
     color: var(--color-secondary);
-
-    h1, h2, p {
-      margin-bottom: var(--spacing-tertiary);
-    }
   }
 
   &--dark {

@@ -11,19 +11,30 @@
   }
 
   .options {
+    width: 100%;
+    max-width: 1400px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 2rem;
   }
 
   .options > .c-option {
+    flex: 1 1 300px;
     margin-bottom: 8rem;
   }
 }
 
 @media (min-width: 700px) {
-  .l-options .options {
-    gap: 2rem;
+  .l-options {
+    padding: 8rem;
+  }
+
+  @media (min-width: 1400px) {
+    .l-options .options {
+      justify-content: space-evenly;
+      gap: initial;
+    }
   }
 }

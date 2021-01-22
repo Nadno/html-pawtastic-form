@@ -25,5 +25,7 @@
 
 body {
   background-color: var(--color-light-primary);
+  width: 100vw;
+  min-height: 100vh;
 }
 /*# sourceMappingURL=global.css.map */

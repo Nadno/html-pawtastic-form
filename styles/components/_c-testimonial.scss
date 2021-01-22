@@ -1,14 +1,12 @@
 .c-testimonial {
   height: 14rem;
+  max-width: 60rem;
   display: flex;
   align-items: center;
   padding: 2rem;
 
   border-radius: 0.5rem;
   background-color: var(--color-white);
-
-  transform: translateX(-100%);
-  opacity: 0;
 
   img {
     height: 10rem;
@@ -20,30 +18,47 @@
   }
 
   &__commentary {
-    font-size: 1.2rem;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 500;
     margin-left: 1.4rem;
     color: var(--color-secondary);
 
     align-self: start;
-  }
 
-  &__commentary p::before {
-    content: '\201C';
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-  &__commentary p::after {
-    content: '\201D';
-  }
-}
-
-@media (min-width: 750px) {
-  .c-testimonial {
-    h2 {
-      font-size: 1.6rem;
+    & p::before {
+      content: '\201C';
     }
   
+    & p::after {
+      content: '\201D';
+    }
+  }
+
+}
+
+
+
+@media (min-width: 360px) {
+  .c-testimonial {
     &__commentary {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .c-testimonial {
+      h2 {
+        font-size: 1.6rem;
+      }
+    
+      &__commentary {
+        font-size: 1.4rem;
+      }
     }
   }
 }

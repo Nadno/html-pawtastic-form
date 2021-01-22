@@ -11,10 +11,10 @@
 @import "./layouts/l-services";
 @import "./layouts/l-testimonials";
 
-body,
-main {
-  width: 100vw;
-  overflow-x: hidden;
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .l-footer {
@@ -34,8 +34,12 @@ main {
     font-size: 65%;
   }
 
-  h1,
-  h2 {
-    font-size: 3.4rem;
+
+  @media (min-width: 1400px) {
+    :root {
+      font-size: 80%;
+    }
   }
 }
+
+

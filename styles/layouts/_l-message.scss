@@ -16,7 +16,7 @@
 @media (min-width: 700px) {
   .l-message {
     place-content: center;
-    grid-template-columns: 1fr minmax(24rem, 38rem) minmax(300px, 600px) 1fr;
+    grid-template-columns: 1fr repeat(2, minmax(300px, 700px)) 1fr;
 
     &__pets {
       margin-top: 0;
@@ -26,7 +26,7 @@
     .c-content {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 2rem;
       grid-column: 2/3;
     }
   }
