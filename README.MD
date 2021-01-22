@@ -30,5 +30,5 @@ Toda vez, antes de seguir para o próximo passo do formulário, é validados seu
 
 ### Ipad
 
-Também, foi feito inputs personalizados, para seleção de imagem e outras opções.
-<img src="/readme/sign-ipad.jpg" />
+Também, foram feitos inputs personalizados, para seleção de imagem e outras opções.
+<h6 align="center"><img src="/readme/sign-ipad.jpg" /></h6>
