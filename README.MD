@@ -16,7 +16,7 @@ A landing page foi criada utilizando uma organização por separação de compon
 
 ## Formulário
 
-O formulário possui validação de valores, como CPF, telefone celular, datas e tipo de imagens.
+O formulário possui validação de valores, como CPF, telefone celular, datas e tipo de imagens. Veja a versão em react deste formulário [aqui](https://github.com/Nadno/pawtastic-form)
 
 ### Mobile
 
