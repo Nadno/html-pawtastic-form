@@ -10,12 +10,12 @@
     color: var(--color-white);
   }
 
-  .logo__img {
+  &__img {
     height: 4rem;
     margin-right: 0.5rem;
   }
 
-  .logo__title {
+  &__title {
     font-size: 1.4rem;
   }
 }

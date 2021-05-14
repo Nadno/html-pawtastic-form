@@ -17,12 +17,15 @@
     padding-bottom: 0;
 
     &__bg {
+      object-fit: cover;
+      height: 100%;
       margin-bottom: 0;
       grid-column: 2/3;
     }
     .c-content {
-      max-width: 40rem;
+      max-width: 500px;
       grid-column: 3/4;
+      margin-bottom: 3.2rem;
     }
   }
 }

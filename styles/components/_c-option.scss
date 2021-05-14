@@ -30,9 +30,8 @@
   }
 
   .c-content {
-    height: calc(100% - (var(--footer-height) - 2px));
-    padding: 4rem 3rem;
-    padding-top: 8rem;
+    height: 32rem;
+    padding-top: 3.2rem;
 
     border-radius: 0.8rem 0.8rem 0 0;
     border: 1px solid var(--color-blue);

@@ -1,14 +1,14 @@
 .l-message {
-  padding: 8rem 0;
+  padding: 6.4rem 0;
   background-color: var(--color-white);
-  
+
   display: grid;
 
   &__pets {
     width: 100%;
     max-width: 500px;
-    padding: 0 var(--spacing-secondary);
-    margin-top: var(--spacing-tertiary);
+    padding: 0 2.4rem;
+    margin-top: 6.4rem;
     justify-self: center;
   }
 }
@@ -24,10 +24,14 @@
     }
 
     .c-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      max-width: 500px;
+      height: 100%;
+      place-self: center;
       grid-column: 2/3;
+
+      h2 {
+        margin-top: 0;
+      }
     }
   }
 }

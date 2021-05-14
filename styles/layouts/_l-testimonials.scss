@@ -32,15 +32,13 @@
       opacity: 0;
     }
   }
-}
-
-@media (min-width: 700px) {
-  .l-testimonials {
+  @media screen and (min-width: 700px) {
     &__content {
       width: 100%;
       max-width: 1400px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
       gap: 1.5rem;
     }
   }

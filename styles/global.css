@@ -18,14 +18,15 @@
 * {
   margin: 0;
   padding: 0;
-  outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
+html,
 body {
-  background-color: var(--color-light-primary);
-  width: 100vw;
+  width: 100%;
+  height: auto;
   min-height: 100vh;
+  background-color: var(--color-light-primary);
 }
 /*# sourceMappingURL=global.css.map */

@@ -1,9 +1,8 @@
 .l-intro {
-  width: 100vw;
+  width: 100%;
   height: 400px;
-  background-image: url("/images/bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
+
+  background: center no-repeat url('/images/bg.jpg');
   background-size: cover;
 
   display: grid;
@@ -13,7 +12,6 @@
   &__header {
     height: 8rem;
     position: relative;
-    
 
     .toggle-menu {
       position: absolute;
@@ -28,7 +26,7 @@
       height: 0.4rem;
       background-color: var(--color-white);
       margin: 0.4rem;
-      transition: transform 0.6s, background-color 0.8s, opacity 1s  linear;
+      transition: transform 0.6s, background-color 0.8s, opacity 1s linear;
     }
 
     &.on {
@@ -39,7 +37,7 @@
           opacity: 0;
           transition: opacity 0s linear;
         }
-  
+
         .one {
           transform: rotate(45deg) translateY(11px);
         }
@@ -47,8 +45,8 @@
         .three {
           transform: rotate(-45deg) translateY(-11px);
         }
-      }  
-      
+      }
+
       .l-intro__links {
         width: 60vw;
         opacity: 1;
@@ -59,14 +57,14 @@
   &__location {
     height: 4rem;
     width: 12rem;
-    
+
     align-self: end;
     justify-self: center;
     text-align: center;
     color: var(--color-white);
     grid-column: 1/2;
     grid-row: 3/3;
-    
+
     font-style: normal;
     font-weight: bold;
     font-size: 1.2rem;
@@ -86,7 +84,7 @@
     overflow: hidden;
     background-color: var(--color-secondary);
     border-left: 1px solid var(--color-light-secondary);
-    
+
     right: 0;
     top: 50%;
     z-index: 5;
@@ -114,7 +112,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-     
+
       color: var(--color-white);
 
       &:focus {
@@ -130,10 +128,10 @@
       }
     }
   }
-  
+
   .c-content {
     grid-column: 1/3;
-    
+
     a {
       width: 60%;
     }
@@ -153,7 +151,10 @@
 
 @media (min-width: 600px) {
   .l-intro {
-    grid-template-columns: minmax(50px, 1fr) repeat(2, minmax(270px, 700px)) minmax(50px, 1fr);
+    grid-template-columns: minmax(50px, 1fr) repeat(2, minmax(270px, 700px)) minmax(
+        50px,
+        1fr
+      );
     grid-template-rows: 10rem 1fr;
 
     &__header {
@@ -171,7 +172,7 @@
     &__links {
       position: initial;
       height: 100%;
-      width: 100%;  
+      width: 100%;
 
       opacity: 1;
       border: none;
@@ -179,7 +180,7 @@
       background-color: initial;
 
       transform: initial;
-     
+
       ul {
         display: flex;
         border: none;
@@ -196,7 +197,7 @@
         }
       }
     }
-    
+
     &__location {
       grid-column: 2/3;
       grid-row: initial;
@@ -207,16 +208,15 @@
       padding: 0;
       align-self: center;
     }
-  
+
     .c-content {
       grid-column: 3/4;
       justify-self: end;
       padding: 4rem 2rem;
-      
+
       a {
         width: 70%;
       }
     }
   }
-
 }

@@ -1,11 +1,22 @@
 %content {
   padding: 0 3rem;
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-tertiary);
 
-  .email  {
+  & > p {
+    font-size: 2.4rem;
+    line-height: calc(2rem * 1.5);
+    margin: 4rem 0;
+  }
+
+  & > h1,
+  h2,
+  h3 {
+    font-size: 3.2rem;
+    line-height: calc(3.2rem * 1.2);
+
+    margin: 2.4rem 0;
+  }
+
+  .email {
     color: inherit;
     font-style: normal;
     font-size: inherit;
@@ -15,7 +26,6 @@
 .c-content {
   @extend %content;
   color: var(--color-white);
-  
 
   &--options {
     text-align: center;
