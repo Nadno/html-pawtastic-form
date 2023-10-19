@@ -31,4 +31,9 @@ Toda vez, antes de seguir para o próximo passo do formulário, é validados seu
 ### Ipad
 
 Também, foram feitos inputs personalizados, para seleção de imagem e outras opções.
+
 <h6 align="center"><img src="/readme/sign-ipad.jpg" /></h6>
+
+### Atualização 10/2023
+
+Agora as páginas constam com modos de alto contraste nos temas claro e escuro, habilitado de acordo com as preferências do usuário, ou via interface. Sendo armazenado a informação do alto contraste e tema, prevenindo habilitações constantes por parte do usuário.
