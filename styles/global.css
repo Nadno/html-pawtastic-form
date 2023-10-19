@@ -29,4 +29,34 @@ body {
   min-height: 100vh;
   background-color: var(--color-light-primary);
 }
-/*# sourceMappingURL=global.css.map */
+
+.a11y-block {
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  padding: 8px 16px;
+  z-index: 10;
+  bottom: 16px;
+  right: 16px;
+}
+.a11y-block__hc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+.a11y-block__hc-btn {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid black;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.a11y-block__hc-btn[data-theme=light] {
+  background-color: white;
+}
+.a11y-block__hc-btn[data-theme=dark] {
+  background-color: black;
+}

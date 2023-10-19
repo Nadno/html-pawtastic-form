@@ -1,16 +1,15 @@
-@import "./components/c-logo";
-@import "./components/c-schedule";
-@import "./components/c-content";
-@import "./components/c-testimonial";
-@import "./components/c-option";
-@import "./components/c-image";
+@import './components/c-logo';
+@import './components/c-schedule';
+@import './components/c-content';
+@import './components/c-testimonial';
+@import './components/c-option';
+@import './components/c-image';
 
-@import "./layouts/l-intro";
-@import "./layouts/l-message";
-@import "./layouts/l-options";
-@import "./layouts/l-services";
-@import "./layouts/l-testimonials";
-
+@import './layouts/l-intro';
+@import './layouts/l-message';
+@import './layouts/l-options';
+@import './layouts/l-services';
+@import './layouts/l-testimonials';
 
 .l-footer {
   padding: 8rem 0;
@@ -29,12 +28,9 @@
     font-size: 65%;
   }
 
-
   @media (min-width: 1400px) {
     :root {
       font-size: 80%;
     }
   }
 }
-
-

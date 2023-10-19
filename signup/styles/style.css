@@ -1,4 +1,8 @@
 @charset "UTF-8";
+:root {
+  --danger-clr: var(--color-tertiary);
+}
+
 span,
 label {
   display: block;
@@ -9,7 +13,6 @@ label {
   height: 6.4rem;
   margin-bottom: 6rem;
 }
-
 .logo a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,12 +23,10 @@ label {
   text-decoration: none;
   color: var(--color-white);
 }
-
 .logo h2 {
   font-size: 2.4rem;
   font-weight: 200;
 }
-
 .logo img {
   height: 6.4rem;
   width: 6.4rem;
@@ -41,7 +42,6 @@ label {
   border-radius: 3rem;
   cursor: pointer;
 }
-
 .button:hover, .steps .form__footer .step__buttons button:hover {
   background-color: var(--color-blue);
 }
@@ -53,7 +53,6 @@ label {
     display: flex;
   }
 }
-
 .side {
   position: relative;
   width: 100vw;
@@ -79,26 +78,22 @@ label {
   -webkit-transition: background-image linear 0.6s;
   transition: background-image linear 0.6s;
 }
-
 .side .why__tittle {
   width: 100%;
   font-size: 3.6rem;
   margin-bottom: 2rem;
 }
-
 .side .why__answer {
   width: 100%;
   font-size: 2.4rem;
   padding: 0 1rem;
 }
-
 .side .why__answer li {
   position: relative;
   display: block;
   height: 8rem;
   padding: 1.4rem 0;
 }
-
 .side .why__answer li:before {
   position: absolute;
   font-size: 2.8rem;
@@ -106,30 +101,25 @@ label {
   left: -2rem;
   content: "•";
 }
-
 .side .side__content {
   position: relative;
   width: 60%;
   height: 50%;
 }
-
 .side .side__content .why__us {
   position: absolute;
   -webkit-transition: opacity linear 0.4s;
   transition: opacity linear 0.4s;
 }
-
 .side .side__content .show__steps {
   position: absolute;
   opacity: 0;
   -webkit-transition: opacity linear 0.4s;
   transition: opacity linear 0.4s;
 }
-
 .side .side__content.change__point .why__us {
   opacity: 0;
 }
-
 .side .side__content.change__point .show__steps {
   opacity: 1;
 }
@@ -140,7 +130,6 @@ label {
     min-width: 350px;
   }
 }
-
 .steps {
   width: 100vw;
   display: -webkit-box;
@@ -158,23 +147,19 @@ label {
           align-items: center;
   color: var(--color-secondary);
 }
-
 .steps .step__tittle {
   font-size: 2.4rem;
   font-weight: bold;
   margin: 5rem 0;
 }
-
 .steps .input__tittle {
   font-size: 1.6rem;
   color: var(--color-light-secondary);
 }
-
 .steps .step__info {
   font-size: 1.6rem;
   line-height: 2rem;
 }
-
 .steps .sign-up {
   width: 100%;
   height: 100%;
@@ -189,18 +174,15 @@ label {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-
 .steps .sign-up fieldset {
   height: 100%;
   border: none;
   margin: auto 0;
   padding: 2.44rem;
 }
-
 .steps .sign-up fieldset legend {
   border-bottom: 1px var(--color-dark-primary) solid;
 }
-
 .steps .sign-up #first {
   height: initial;
   width: 100%;
@@ -208,19 +190,15 @@ label {
   overflow-y: hidden;
   margin: auto;
 }
-
 .steps .sign-up #first .step__tittle {
   margin: 0;
 }
-
 .steps .sign-up #first input {
   width: 20rem;
 }
-
 .steps .sign-up fieldset > :nth-child(1n):not(legend) {
   margin-bottom: 2rem;
 }
-
 .steps .form__footer {
   height: 12rem;
   width: 100%;
@@ -238,7 +216,6 @@ label {
   background-color: var(--color-white);
   border-top-color: var(--color-dark-primary);
 }
-
 .steps .form__footer .step__buttons {
   width: 100%;
   display: -webkit-box;
@@ -248,23 +225,19 @@ label {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
-
 .steps .form__footer .step__buttons button {
   -webkit-transition: opacity 0.4s linear;
   transition: opacity 0.4s linear;
 }
-
 .steps .form__footer .step__buttons button:disabled {
   opacity: 0;
   cursor: default;
 }
-
 .steps .form__footer .member {
   font-size: 1.6rem;
   text-align: center;
   color: var(--color-light-secondary);
 }
-
 .steps .form__footer a {
   margin-left: 1rem;
   text-decoration: none;
@@ -286,13 +259,11 @@ label {
     font-size: 3.4rem;
   }
 }
-
 .input__field {
   width: 100%;
   margin-top: 1rem;
 }
-
-.input__field input:not([type="checkbox"]) {
+.input__field input:not([type=checkbox]) {
   width: inherit;
   height: 5.4rem;
   font-size: 2rem;
@@ -301,31 +272,29 @@ label {
   border: 1px solid var(--color-dark-primary);
   margin-top: 0.6rem;
 }
-
-.input__field input:not([type="checkbox"]):focus {
+.input__field input:not([type=checkbox]):focus {
   border-color: var(--color-secondary);
 }
-
-.input__field input:not([type="checkbox"])::-webkit-input-placeholder {
+.input__field input:not([type=checkbox])::-webkit-input-placeholder {
   opacity: 0.5;
   color: var(--color-tertiary);
 }
-
-.input__field input:not([type="checkbox"]):-ms-input-placeholder {
+.input__field input:not([type=checkbox])::-moz-placeholder {
   opacity: 0.5;
   color: var(--color-tertiary);
 }
-
-.input__field input:not([type="checkbox"])::-ms-input-placeholder {
+.input__field input:not([type=checkbox]):-ms-input-placeholder {
   opacity: 0.5;
   color: var(--color-tertiary);
 }
-
-.input__field input:not([type="checkbox"])::placeholder {
+.input__field input:not([type=checkbox])::-ms-input-placeholder {
   opacity: 0.5;
   color: var(--color-tertiary);
 }
-
+.input__field input:not([type=checkbox])::placeholder {
+  opacity: 0.5;
+  color: var(--color-tertiary);
+}
 .input__field input::-webkit-datetime-edit-text,
 .input__field input::-webkit-datetime-edit-month-field,
 .input__field input::-webkit-datetime-edit-day-field,
@@ -337,7 +306,6 @@ label {
   width: 100%;
   margin-top: 1rem;
 }
-
 .photo__field label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -347,7 +315,6 @@ label {
           align-items: center;
   cursor: pointer;
 }
-
 .photo__field .upload__button {
   height: 5.4rem;
   width: 5.4rem;
@@ -367,20 +334,16 @@ label {
   background-size: cover;
   border: 1px solid var(--color-dark-primary);
 }
-
 .photo__field .upload__button img {
   width: 100%;
   height: 100%;
 }
-
 .photo__field.error .upload__button {
   border-color: var(--color-tertiary);
 }
-
 .photo__field input:focus ~ label .upload__button {
   border-color: var(--color-secondary);
 }
-
 .photo__field input {
   position: absolute;
   opacity: 0;
@@ -394,12 +357,10 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-
 .check__field .check__content {
   width: 90%;
   font-size: 1.4rem;
 }
-
 .check__field .check {
   position: relative;
   width: 2rem;
@@ -412,19 +373,14 @@ label {
   -webkit-transition: background-color linear 0.4s;
   transition: background-color linear 0.4s;
 }
-
 .check__field input {
   position: absolute;
   opacity: 0;
 }
-
-.check__field input:checked ~ .label__field .check,
-.check__field input:checked ~ label .check {
+.check__field input:checked ~ .label__field .check, .check__field input:checked ~ label .check {
   background-color: var(--color-secondary);
 }
-
-.check__field input:checked ~ .label__field .check:before,
-.check__field input:checked ~ label .check:before {
+.check__field input:checked ~ .label__field .check:before, .check__field input:checked ~ label .check:before {
   position: absolute;
   font-size: 1.2rem;
   font-weight: bold;
@@ -434,7 +390,6 @@ label {
   right: 50%;
   content: "✓";
 }
-
 .check__field input:focus ~ .label__field .check {
   border-color: var(--color-secondary);
 }
@@ -442,7 +397,6 @@ label {
 .text__field {
   width: 100%;
 }
-
 .text__field textarea {
   width: 100%;
   height: 8rem;
@@ -451,17 +405,14 @@ label {
   border-radius: 0.5rem;
   border: 1px solid var(--color-dark-primary);
 }
-
 .text__field textarea:focus {
   border-color: var(--color-secondary);
 }
 
 @media (min-width: 800px) {
   .field__block {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1.4rem;
   }
   .photo__field {
@@ -470,13 +421,10 @@ label {
     margin-top: 0;
   }
   .sixth .check__block {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
 .select__container .select {
   margin-bottom: 1rem;
 }
@@ -489,7 +437,6 @@ label {
   border: 1px solid var(--color-dark-primary);
   margin-top: 0.6rem;
 }
-
 .select .option__legend {
   width: 100%;
   padding: 1rem;
@@ -500,25 +447,20 @@ label {
   -webkit-transition: background-color linear 0.4s;
   transition: background-color linear 0.4s;
 }
-
 .select .option__legend:hover {
   background-color: var(--color-blue);
 }
-
 .select .option__image {
   min-width: 4rem;
   max-width: 8rem;
 }
-
 .select:focus-within {
   border-color: var(--color-secondary);
 }
-
 .select input:checked + label,
 .select input:focus + label {
   background-color: var(--color-primary);
 }
-
 .select input {
   position: absolute;
   width: 0;
@@ -529,30 +471,23 @@ label {
 
 @media (min-width: 800px) {
   .select__container {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1.4rem;
   }
   .select.two-columns {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .select.four-columns {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-
 .input__error {
   font-size: 1.6rem;
   margin-top: 0.5rem;
-  color: var(--color-tertiary);
+  color: var(--danger-clr);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -567,9 +502,8 @@ label {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
 .input__field.error input {
-  border-color: var(--color-tertiary);
+  border-color: var(--danger-clr);
 }
 
 .check__field .input__error {
@@ -585,9 +519,8 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-
 .select__field.error .select {
-  border: 1px solid var(--color-tertiary);
+  border: 1px solid var(--danger-clr);
 }
 
 .show__steps {
@@ -598,22 +531,18 @@ label {
   padding-left: 2.6rem;
   color: var(--color-light-secondary);
 }
-
 .show__steps .radio__field {
   position: relative;
   height: 6rem;
   font-size: 2rem;
   border-left: 1px solid white;
 }
-
 .show__steps .radio__field:last-child {
   border: none;
 }
-
 .show__steps label {
   margin-left: 3rem;
 }
-
 .show__steps .check {
   position: absolute;
   width: 2.4rem;
@@ -626,19 +555,15 @@ label {
   -webkit-transition: background-color, border-color 0.6s linear;
   transition: background-color, border-color 0.6s linear;
 }
-
 .show__steps input:checked ~ .check {
   border-color: var(--color-white);
   background: var(--color-secondary);
 }
-
 .show__steps input:checked ~ label {
   color: var(--color-white);
 }
-
 .show__steps input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-/*# sourceMappingURL=style.css.map */

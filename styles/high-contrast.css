@@ -1,0 +1,136 @@
+.high-contrast {
+  --white-clr: white;
+  --black-clr: black;
+  color: var(--fg-clr-100);
+  background-color: var(--bg-clr-100);
+}
+.high-contrast--dark {
+  --bg-clr-100: var(--black-clr);
+  --bg-clr-200: #1a1a1a;
+  --bg-clr-300: #202020;
+  --bg-clr-400: #303030;
+  --fg-clr-100: var(--white-clr);
+  --fg-clr-200: #f4f4f4;
+  --fg-clr-300: #dbdbdb;
+  --fg-clr-400: #c4c4c4;
+  --btn-bg-clr: var(--fg-clr-100);
+  --btn-bg-text-clr: var(--bg-clr-100);
+  --btn-hover-bg-clr: var(--fg-clr-400);
+  --btn-hover-bg-text-clr: var(--bg-clr-100);
+}
+.high-contrast--light {
+  --bg-clr-100: var(--white-clr);
+  --bg-clr-200: #f4f4f4;
+  --bg-clr-300: #dbdbdb;
+  --bg-clr-400: #c4c4c4;
+  --fg-clr-100: var(--black-clr);
+  --fg-clr-200: #1a1a1a;
+  --fg-clr-300: #202020;
+  --fg-clr-400: #303030;
+  --btn-bg-clr: var(--fg-clr-100);
+  --btn-bg-text-clr: var(--bg-clr-100);
+  --btn-hover-bg-clr: var(--fg-clr-400);
+  --btn-hover-bg-text-clr: var(--bg-clr-100);
+}
+.high-contrast *:focus {
+  outline: 2px solid var(--fg-clr-100);
+  outline-offset: 4px;
+}
+.high-contrast a:not(.btn, [data-no-hc]),
+.high-contrast h1:not(.btn, [data-no-hc]),
+.high-contrast h2:not(.btn, [data-no-hc]),
+.high-contrast h3:not(.btn, [data-no-hc]),
+.high-contrast h4:not(.btn, [data-no-hc]),
+.high-contrast h5:not(.btn, [data-no-hc]),
+.high-contrast h6:not(.btn, [data-no-hc]),
+.high-contrast p:not(.btn, [data-no-hc]),
+.high-contrast small:not(.btn, [data-no-hc]),
+.high-contrast strong:not(.btn, [data-no-hc]),
+.high-contrast label:not(.btn, [data-no-hc]) {
+  color: var(--fg-clr-100) !important;
+}
+.high-contrast a:not(.btn, [data-no-hc]) {
+  text-decoration: underline !important;
+}
+.high-contrast input {
+  color: var(--bg-clr-100) !important;
+  background-color: var(--fg-clr-100) !important;
+}
+.high-contrast input::-webkit-input-placeholder {
+  opacity: 0.7 !important;
+  color: inherit !important;
+}
+.high-contrast input::-moz-placeholder {
+  opacity: 0.7 !important;
+  color: inherit !important;
+}
+.high-contrast input:-ms-input-placeholder {
+  opacity: 0.7 !important;
+  color: inherit !important;
+}
+.high-contrast input::-ms-input-placeholder {
+  opacity: 0.7 !important;
+  color: inherit !important;
+}
+.high-contrast input::placeholder {
+  opacity: 0.7 !important;
+  color: inherit !important;
+}
+.high-contrast .input__field,
+.high-contrast .select__field {
+  --danger-clr: white;
+}
+.high-contrast .bg-text {
+  color: var(--fg-clr-100) !important;
+}
+.high-contrast .fg-text {
+  color: var(--bg-clr-100) !important;
+}
+.high-contrast .btn {
+  color: var(--btn-bg-text-clr) !important;
+  border-color: var(--btn-bg-text-clr) !important;
+  background-color: var(--btn-bg-clr) !important;
+}
+.high-contrast .btn:hover, .high-contrast .btn:focus {
+  color: var(--btn-hover-bg-text-clr) !important;
+  border-color: var(--btn-hover-bg-text-clr) !important;
+  background-color: var(--btn-hover-bg-clr) !important;
+}
+.high-contrast .paper {
+  --text-clr: var(--fg-clr-100);
+}
+.high-contrast .paper:not(.paper--active), .high-contrast .paper[data-active=true] {
+  color: var(--text-clr) !important;
+  background-color: var(--bg-clr) !important;
+}
+.high-contrast .paper--100 {
+  --bg-clr: var(--bg-clr-100);
+  --bg-hover-clr: var(--fg-clr-100);
+  --bg-hover-text-clr: var(--bg-clr-100);
+}
+.high-contrast .paper--200 {
+  --bg-clr: var(--bg-clr-200);
+  --bg-hover-clr: var(--fg-clr-200);
+  --bg-hover-text-clr: var(--bg-clr-100);
+}
+.high-contrast .paper--300 {
+  --bg-clr: var(--bg-clr-300);
+  --bg-hover-clr: var(--fg-clr-300);
+  --bg-hover-text-clr: var(--bg-clr-100);
+}
+.high-contrast .paper--400 {
+  --bg-clr: var(--bg-clr-400);
+  --bg-hover-clr: var(--fg-clr-400);
+  --bg-hover-text-clr: var(--bg-clr-100);
+}
+.high-contrast .with--hover:hover {
+  color: var(--bg-hover-text-clr, var(--fg-clr-100)) !important;
+  background-color: var(--bg-hover-clr, var(--bg-clr-100)) !important;
+}
+.high-contrast .with--border {
+  border-color: var(--fg-clr-100);
+}
+.high-contrast .with--next-paper-checkable:checked + .paper--100 {
+  --bg-clr: var(--fg-clr-300);
+  --text-clr: var(--bg-clr-100);
+}

@@ -4,16 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="../styles/high-contrast.css" />
     <link rel="shortcut icon" href="../images/Symbol.png" type="image/x-icon" />
 
     <title>Pawtastic | Sign up</title>
   </head>
   <body>
+    <div id="a11y-container" role="group" class="a11y-block">
+      <div class="a11y-block__hc">
+        <button
+          class="a11y-block__hc-btn"
+          aria-label="Ativar alto contraste claro"
+          data-theme="light"
+          data-trigger="high-contrast"
+        ></button>
+
+        <button
+          class="a11y-block__hc-btn"
+          aria-label="Ativar alto contraste escuro"
+          data-theme="dark"
+          data-trigger="high-contrast"
+        ></button>
+      </div>
+    </div>
+
+    <script src="../a11y.js"></script>
+
     <header class="side">
       <article class="logo">
-        <a href="#" title="Pawtastic Home">
+        <a href="#" title="Pawtastic Home" data-no-hc>
           <img src="../images/Logo.png" alt="Logo image" />
           <h2>PAWTASTIC</h2>
         </a>
@@ -37,39 +58,24 @@
               name="step"
               checked
             />
-            <label> Human profile </label>
+            <label>Human profile</label>
             <span class="check"></span>
           </div>
 
           <div class="radio__field">
-            <input
-              type="radio"
-              class="radio__to"
-              id="to-3"
-              name="step"
-            />
-            <label> Pet basics </label>
+            <input type="radio" class="radio__to" id="to-3" name="step" />
+            <label>Pet basics</label>
             <span class="check"></span>
           </div>
 
           <div class="radio__field">
-            <input
-              type="radio"
-              class="radio__to"
-              id="to-4"
-              name="step"
-            />
-            <label> Pet details </label>
+            <input type="radio" class="radio__to" id="to-4" name="step" />
+            <label>Pet details</label>
             <span class="check"></span>
           </div>
           <div class="radio__field">
-            <input
-              type="radio"
-              class="radio__to"
-              id="to-5"
-              name="step"
-            />
-            <label> Confirm </label>
+            <input type="radio" class="radio__to" id="to-5" name="step" />
+            <label>Confirm</label>
             <span class="check"></span>
           </div>
         </div>
@@ -127,9 +133,9 @@
             </div>
 
             <div class="input__field">
-              <label for="confirm" class="input__tittle"
-                >Confirm password</label
-              >
+              <label for="confirm" class="input__tittle">
+                Confirm password
+              </label>
               <input type="password" id="confirm" name="confirm" />
               <span class="input__error"></span>
             </div>
@@ -140,10 +146,9 @@
             <div class="label__field">
               <label for="policy" class="input__tittle">
                 <span class="check"></span>
-                <span class="check__content"
-                  >I have read the Privacy and agree to the Terms of
-                  Service.</span
-                >
+                <span class="check__content">
+                  I have read the Privacy and agree to the Terms of Service.
+                </span>
               </label>
               <span class="input__error"></span>
             </div>
@@ -223,7 +228,8 @@
         <fieldset id="fourth" hidden>
           <legend>
             <h2 class="step__tittle">
-              Nice to meet you, Name. <br />
+              Nice to meet you, Name.
+              <br />
               Tell us all about your furry, feathery, or scaley friend.
             </h2>
           </legend>
@@ -231,9 +237,21 @@
           <div class="select__field">
             <h2 class="input__tittle">Kind of your pet</h2>
 
-            <div class="select four-columns" id="pet-type">
-              <input type="radio" name="pet-type" id="dog" value="dog" />
-              <label for="dog" class="option__legend">
+            <div
+              class="select four-columns paper paper--100 with--border"
+              id="pet-type"
+            >
+              <input
+                class="with--next-paper-checkable"
+                type="radio"
+                name="pet-type"
+                id="dog"
+                value="dog"
+              />
+              <label
+                for="dog"
+                class="option__legend paper paper--100 with--hover"
+              >
                 <picture class="option__image">
                   <source
                     srcset="../images/dog-option@2x.png"
@@ -248,8 +266,17 @@
                 <span>Dog</span>
               </label>
 
-              <input type="radio" name="pet-type" id="cat" value="cat" />
-              <label for="cat" class="option__legend">
+              <input
+                class="with--next-paper-checkable"
+                type="radio"
+                name="pet-type"
+                id="cat"
+                value="cat"
+              />
+              <label
+                for="cat"
+                class="option__legend paper paper--100 with--hover"
+              >
                 <picture class="option__image">
                   <source
                     srcset="../images/cat-option@2x.png"
@@ -261,11 +288,20 @@
                     alt="Cat"
                   />
                 </picture>
-                <span>Cat</span> 
+                <span>Cat</span>
               </label>
 
-              <input type="radio" name="pet-type" id="birdy" value="birdy" />
-              <label for="birdy" class="option__legend">
+              <input
+                class="with--next-paper-checkable"
+                type="radio"
+                name="pet-type"
+                id="birdy"
+                value="birdy"
+              />
+              <label
+                for="birdy"
+                class="option__legend paper paper--100 with--hover"
+              >
                 <picture class="option__image">
                   <source
                     srcset="../images/birdy-option@2x.png"
@@ -277,16 +313,20 @@
                     alt="Birdy"
                   />
                 </picture>
-                <span > Birdy </span>
+                <span>Birdy</span>
               </label>
 
               <input
+                class="with--next-paper-checkable"
                 type="radio"
                 name="pet-type"
                 id="hamster"
                 value="hamster"
               />
-              <label for="hamster" class="option__legend">
+              <label
+                for="hamster"
+                class="option__legend paper paper--100 with--hover"
+              >
                 <picture class="option__image">
                   <source
                     srcset="../images/hamster-option@2x.png"
@@ -298,16 +338,17 @@
                     alt="Hamster"
                   />
                 </picture>
-                <span> Hamster </span>
+                <span>Hamster</span>
               </label>
             </div>
             <span class="input__error"></span>
           </div>
 
-          <span class="step__info">
-            Have multiple pets? That’s awesome. You can create<br />
+          <small class="step__info">
+            Have multiple pets? That’s awesome. You can create
+            <br />
             additional pet profiles for the whole family later.
-          </span>
+          </small>
         </fieldset>
 
         <fieldset id="fifth" hidden>
@@ -339,22 +380,21 @@
               />
 
               <label for="pet-photo">
+                <picture class="upload__button">
+                  <source
+                    srcset="../images/path@2x.png"
+                    media="(min-width: 750px)"
+                  />
+                  <img
+                    id="select-image"
+                    src="../images/path.png"
+                    alt="Select a image"
+                  />
+                </picture>
 
-                  <picture class="upload__button">
-                    <source
-                      srcset="../images/path@2x.png"
-                      media="(min-width: 750px)"
-                    />
-                    <img
-                      id="select-image"
-                      src="../images/path.png"
-                      alt="Select a image"
-                    />
-                  </picture>
-
-                  <span class="input__tittle"> Upload a photo </span>
-                </label>
-                <span class="input__error"></span>
+                <span class="input__tittle bg-text">Upload a photo</span>
+              </label>
+              <span class="input__error"></span>
             </div>
           </div>
 
@@ -382,22 +422,37 @@
             <div class="select__field">
               <span class="input__tittle">Gender</span>
 
-              <div class="select two-columns" id="pet-gender">
+              <div
+                class="select two-columns paper with--border"
+                id="pet-gender"
+              >
                 <input
+                  class="with--next-paper-checkable"
                   type="radio"
                   name="pet-gender"
                   id="pet-male"
                   value="male"
                 />
-                <label for="pet-male" class="option__legend"> Male </label>
+                <label
+                  for="pet-male"
+                  class="option__legend paper paper--100 with--hover"
+                >
+                  Male
+                </label>
 
                 <input
+                  class="with--next-paper-checkable"
                   type="radio"
                   name="pet-gender"
                   id="pet-female"
                   value="female"
                 />
-                <label for="pet-female" class="option__legend"> Female </label>
+                <label
+                  for="pet-female"
+                  class="option__legend paper paper--100 with--hover"
+                >
+                  Female
+                </label>
               </div>
               <span class="input__error"></span>
             </div>
@@ -405,24 +460,35 @@
             <div class="select__field">
               <span class="input__tittle">Spayed or Neutered</span>
 
-              <div class="select two-columns" id="pet-spayed-or-neutered">
+              <div
+                class="select two-columns paper with--border"
+                id="pet-spayed-or-neutered"
+              >
                 <input
+                  class="with--next-paper-checkable"
                   type="radio"
                   name="pet-spayed-or-neutered"
                   id="spayed-or-neutered-yes"
                   value="true"
                 />
-                <label for="spayed-or-neutered-yes" class="option__legend">
+                <label
+                  for="spayed-or-neutered-yes"
+                  class="option__legend paper paper--100 with--hover"
+                >
                   Yes
                 </label>
 
                 <input
+                  class="with--next-paper-checkable"
                   type="radio"
                   name="pet-spayed-or-neutered"
                   id="spayed-or-neutered-no"
                   value="false"
                 />
-                <label for="spayed-or-neutered-no" class="option__legend">
+                <label
+                  for="spayed-or-neutered-no"
+                  class="option__legend paper paper--100 with--hover"
+                >
                   No
                 </label>
               </div>
@@ -433,38 +499,62 @@
           <div class="select__field">
             <span class="input__tittle">Weight</span>
 
-            <div class="select four-columns" id="pet-weight">
+            <div class="select four-columns paper with--border" id="pet-weight">
               <input
+                class="with--next-paper-checkable"
                 type="radio"
                 name="pet-weight"
                 id="first-weight"
                 value="5/10"
               />
-              <label for="first-weight" class="option__legend">5/10 Kg</label>
+              <label
+                for="first-weight"
+                class="option__legend paper paper--100 with--hover"
+              >
+                5/10 Kg
+              </label>
 
               <input
+                class="with--next-paper-checkable"
                 type="radio"
                 name="pet-weight"
                 id="second-weight"
                 value="10/15"
               />
-              <label for="second-weight" class="option__legend">10/15 Kg</label>
+              <label
+                for="second-weight"
+                class="option__legend paper paper--100 with--hover"
+              >
+                10/15 Kg
+              </label>
 
               <input
+                class="with--next-paper-checkable"
                 type="radio"
                 name="pet-weight"
                 id="third-weight"
                 value="15/20"
               />
-              <label for="third-weight" class="option__legend">15/20 Kg</label>
+              <label
+                for="third-weight"
+                class="option__legend paper paper--100 with--hover"
+              >
+                15/20 Kg
+              </label>
 
               <input
+                class="with--next-paper-checkable"
                 type="radio"
                 name="pet-weight"
                 id="fourth-weight"
                 value="20/25"
               />
-              <label for="fourth-weight" class="option__legend">20/25 Kg</label>
+              <label
+                for="fourth-weight"
+                class="option__legend paper paper--100 with--hover"
+              >
+                20/25 Kg
+              </label>
             </div>
             <span class="input__error"></span>
           </div>
@@ -559,9 +649,9 @@
           </div>
 
           <div class="text__field">
-            <label for="pet-detail" class="input__tittle"
-              >Something that we must know?</label
-            >
+            <label for="pet-detail" class="input__tittle">
+              Something that we must know?
+            </label>
             <textarea
               name="pet-detail"
               id="pet-detail"
@@ -573,17 +663,21 @@
 
         <fieldset id="seventh" hidden>
           <h1 class="step__tittle" style="margin: auto 0">
-            Okay, Ginger's all set! <br />
+            Okay, Ginger's all set!
+            <br />
             We can't wait to meet het.
           </h1>
         </fieldset>
 
-        <footer class="form__footer">
+        <footer class="form__footer paper paper--200">
           <div class="step__buttons">
-            <button id="back-btn" disabled>Back</button>
-            <button id="next-btn" type="submit">Next</button>
+            <button id="back-btn" class="btn" disabled>Back</button>
+            <button id="next-btn" class="btn" type="submit">Next</button>
           </div>
-          <p class="member">Already a member? <a href="#">Log in</a></p>
+          <p class="member">
+            Already a member?
+            <a href="#">Log in</a>
+          </p>
         </footer>
       </form>
     </main>
